@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603191518) do
+ActiveRecord::Schema.define(:version => 20110603192810) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(:version => 20110603191518) do
     t.datetime "updated_at"
   end
 
+  create_table "post_categories", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "post_tags", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "abstract"
@@ -39,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20110603191518) do
     t.string   "meta_description"
     t.boolean  "block_comments"
     t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_tags", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
