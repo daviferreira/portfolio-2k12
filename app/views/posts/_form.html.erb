@@ -27,7 +27,11 @@
     <%= f.label :published_date %><br />
     <%= f.date_select :published_date %>
   </div>
-  <div class="field">
+	<div class="field">
+		<%= f.label :tags %><br />
+		<%= f.text_field :tags %>
+	</div>
+	<div class="field">
     <%= f.label :meta_title %><br />
     <%= f.text_field :meta_title %>
   </div>
