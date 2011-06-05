@@ -60,3 +60,57 @@ body{
   background: url(/images/bg-cover.png) repeat 0 0;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+section#main{
+  width:940px;
+  margin:0 auto;
+  padding:0 20px 0 20px;
+}
+
+.round-small{
+  border-radius:2px;
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+}
+
+ul#projects-main li{
+  width:218px;
+  background-color:#f5f5f5;
+  border:1px solid #fff;
+  float:left;
+  margin:0 20px 20px 0;
+  -webkit-box-shadow: 0px 0px 6px #ccc;
+  -moz-box-shadow: 0px 0px 6px #ccc;
+  box-shadow: 0px 0px 6px #ccc
+}
+
+ul#projects-main li.first, ul#projects-main li.last{
+  margin:0 0 20px 0;
+}
+
+div.project-container{
+  margin:6px;
+  background-color:#fff;
+  min-height:300px;
+  padding:6px;
+}
+
+ul#projects-main li div.screenshot{
+  padding:3px;
+  background-color:#fff;
+  border:1px solid #f5f5f5;
+}
+
+ul#projects-main li div.screenshot img{
+  border:1px solid #f5f5f5;
+}
+
+ul#projects-main li h3{
+  color:#b2b2a4;
+  margin:3px 0 3px 0;
+  letter-spacing:-1.2px;
+  font-size:22px;
+  text-align:center;
+  text-shadow: 0 0 2px #ccc;
+  filter: dropshadow(color=#ccc, offx=0, offy=0);
+}

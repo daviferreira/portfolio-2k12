@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110604004256) do
+ActiveRecord::Schema.define(:version => 20110605145943) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -63,6 +63,11 @@ ActiveRecord::Schema.define(:version => 20110604004256) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "tags"
+    t.string   "screenshot_file_name"
+    t.string   "screenshot_content_type"
+    t.integer  "screenshot_file_size"
+    t.datetime "screenshot_updated_at"
+    t.string   "short_description"
   end
 
   create_table "tags", :force => true do |t|

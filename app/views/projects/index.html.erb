@@ -1,35 +1,13 @@
-<h1>Listing projects</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Url</th>
-    <th>Start date</th>
-    <th>Due date</th>
-    <th>Category</th>
-    <th>Published</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= project.description %></td>
-    <td><%= project.url %></td>
-    <td><%= project.start_date %></td>
-    <td><%= project.due_date %></td>
-    <td><%= project.category_id %></td>
-    <td><%= project.published %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% unless @projects.empty? %>
+  <ul id="projects-main" class="clearfix">
+  <% @projects.each do |project| %>
+    <li class="round-small <% if ((@projects.index(project)+1) % 4) == 0 %>last<% end %>">
+      <div class="project-container round-small">
+        <div class="screenshot round-small"><%= image_tag project.screenshot.url(:thumb) %></div>
+        <h3><%= project.name %></h3>
+        <%= project.id %>
+      </div>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Project', new_project_path %>

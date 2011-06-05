@@ -4,6 +4,7 @@ gem 'rails', '3.0.6'
 gem 'sqlite3'
 gem 'nifty-generators'
 gem 'mongrel'
+gem 'paperclip'
 
 group :development do
   gem 'rspec-rails', '2.5.0'
