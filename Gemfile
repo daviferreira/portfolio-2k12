@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'nifty-generators'
 gem 'mongrel'
 gem 'paperclip'
+gem 'will_paginate'
 
 group :development do
   gem 'rspec-rails', '2.5.0'

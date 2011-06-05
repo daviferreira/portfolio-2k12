@@ -61,10 +61,35 @@ body{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-section#main{
+header, section#main{
   width:940px;
   margin:0 auto;
-  padding:0 20px 0 20px;
+  padding:10px;
+}
+
+header h1{
+  color:#e64f00;
+  font-size:56px;
+  letter-spacing:-1.2px;
+  text-shadow: #f5f5f5 -1px -1px 0;
+}
+
+header h2{
+  font-size:20px;
+  text-shadow: #f5f5f5 -1px -1px 0;
+}
+
+header h2 small{
+  color:#b2b2a3;
+}
+
+h2.section{
+  margin:0 0 10px 0;
+  background-color:#f5f5f5;
+  border:1px solid #fff;
+  padding:6px;
+  color:#000;
+  text-shadow: #fff 1px 1px 0;
 }
 
 .round-small{
@@ -73,15 +98,18 @@ section#main{
   -webkit-border-radius:2px;
 }
 
+.shadow{
+  -webkit-box-shadow: 0px 0px 6px #ccc;
+  -moz-box-shadow: 0px 0px 6px #ccc;
+  box-shadow: 0px 0px 6px #ccc;
+}
+
 ul#projects-main li{
   width:218px;
   background-color:#f5f5f5;
   border:1px solid #fff;
   float:left;
   margin:0 20px 20px 0;
-  -webkit-box-shadow: 0px 0px 6px #ccc;
-  -moz-box-shadow: 0px 0px 6px #ccc;
-  box-shadow: 0px 0px 6px #ccc
 }
 
 ul#projects-main li.first, ul#projects-main li.last{
@@ -111,6 +139,5 @@ ul#projects-main li h3{
   letter-spacing:-1.2px;
   font-size:22px;
   text-align:center;
-  text-shadow: 0 0 2px #ccc;
-  filter: dropshadow(color=#ccc, offx=0, offy=0);
+  text-shadow: #f5f5f5 -1px -1px 0;
 }
