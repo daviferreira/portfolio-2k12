@@ -155,4 +155,21 @@
 	$('form').live('ajax:complete.rails', function(event) {
 		if (this == event.target) enableFormElements($(this));
 	});
+	
+	$('.pagination a').live('click',function(e){  
+    $.getScript(this.href);  
+    e.preventDefault();
+  });
+
+  $(function(){	
+    var height = 0;
+  	$('#projects-main > li > div').each(function(){
+  	  if($(this).height() > height) height = $(this).height();
+  	});
+  	$('#projects-main > li > div').each(function(){
+  	  $(this).height(height);
+    });
+    $("a[rel*=external]").attr( "target", "_blank" );
+  });
+  
 })( jQuery );

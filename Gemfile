@@ -6,6 +6,7 @@ gem 'nifty-generators'
 gem 'mongrel'
 gem 'paperclip'
 gem 'will_paginate'
+gem 'slugged'
 
 group :development do
   gem 'rspec-rails', '2.5.0'

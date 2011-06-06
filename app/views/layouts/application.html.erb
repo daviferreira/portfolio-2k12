@@ -9,13 +9,40 @@
 <body>
 
 <header>
+  <div id="search">
+    <form action="/search" method="GET">
+      <input type="text" name="search" id="fld-search" placeholder="Pesquisar..." /><input type="submit" value="OK" id="btn-search" />
+    </form>
+  </div>
   <h1>Davi Ferreira</h1>
   <h2><small>Nem ninja, nem rockstar.</small> Programador.</h2>
 </header>
 
+<nav id="menu">
+  <div class="section-title round-small shadow">
+    <span class="clearfix">
+      <ul class="clearfix">
+        <li><a href="#blog">Blog</a></li>
+        <li class="lest"><a href="#contato">Contato</a></li>
+      </ul>
+      <form method="POST" action="" data-remote="true">
+        <h2>Trabalhos</h2>
+        <select name="" id="">
+          <option value="">Todas as categorias</option>
+        </select>
+        <select name="" id="">
+          <option value="">Organizar por mais recentes</option>
+        </select>
+      </form>
+    </span>
+  </div>
+</nav>
+
 <section id="main">
   <%= yield %>
 </section>
+
+<%= render "posts/posts_portfolio" %>
 
 </body>
 </html>

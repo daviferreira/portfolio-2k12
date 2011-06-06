@@ -1,0 +1,9 @@
+$("#projects").html("<%= escape_javascript(render('projects')) %>");
+var height = 0;
+$('#projects-main > li > div').each(function(){
+  if($(this).height() > height) height = $(this).height();
+});
+$('#projects-main > li > div').each(function(){
+  $(this).height(height);
+});
+$("a[rel*=external]").attr( "target", "_blank" );

@@ -1,0 +1,23 @@
+<ul id="projects-main" class="clearfix">
+<% @projects.each do |project| %>
+  <li class="project round-small shadow <% if ((@projects.index(project)+1) % 4) == 0 %>last<% end %>">
+    <div class="project-container round-small">
+      <div class="screenshot round-small"><%= image_tag project.screenshot.url(:thumb), :width => 184, :height => 150, :alt => project.name %></div>
+      <h3><%= project.name %></h3>
+      <p><%= project.description %></p>
+      <p class="tags clearfix"><%= link_to project.category.name, category_path(project.category), :class => "category" %> <%= tags_as_links(project.tags) %></p>
+      <p class="time-ago round-small">Finalizado há <%= time_ago_in_words(project.due_date) %> atrás.</p>
+      <% unless project.url.nil? %>
+      <div class="actions clearfix">
+        <ul>
+          <li><%= link_to image_tag('/images/link_to.gif', :width => 12, :height => 6)+" "+project.url.sub('www.', '').slice(7..35), project.url, :rel => "external" %></li>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+  </li>
+<% end %>
+</ul>
+<div class="pagination">
+  <%= will_paginate @projects %>
+</div>

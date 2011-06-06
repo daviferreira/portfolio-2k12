@@ -1,0 +1,14 @@
+<section id="blog">
+  <div id="blog-container">
+    <h2>Blog</h2>
+    <ul id="blog-posts" class="clearfix">
+    <% @posts.each do |post| %>
+      <li<% if @posts.last == post %> class="last"<% elsif @posts.first == post %> class="first"<% end %>>
+        <h3><%= post.title %></h3>
+        <p class="time-ago">Publicado há <%= time_ago_in_words(post.published_date) %> atrás.</p>
+        <p class="abstract"><%= post.abstract %></p>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</section>

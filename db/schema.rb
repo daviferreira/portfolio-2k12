@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605145943) do
+ActiveRecord::Schema.define(:version => 20110606134044) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -67,8 +67,22 @@ ActiveRecord::Schema.define(:version => 20110605145943) do
     t.string   "screenshot_content_type"
     t.integer  "screenshot_file_size"
     t.datetime "screenshot_updated_at"
-    t.string   "short_description"
+    t.string   "cached_slug"
   end
+
+  add_index "projects", ["cached_slug"], :name => "index_projects_on_cached_slug"
+
+  create_table "slugs", :force => true do |t|
+    t.string   "scope"
+    t.string   "slug"
+    t.integer  "record_id"
+    t.datetime "created_at"
+  end
+
+  add_index "slugs", ["scope", "record_id", "created_at"], :name => "index_slugs_on_scope_and_record_id_and_created_at"
+  add_index "slugs", ["scope", "record_id"], :name => "index_slugs_on_scope_and_record_id"
+  add_index "slugs", ["scope", "slug", "created_at"], :name => "index_slugs_on_scope_and_slug_and_created_at"
+  add_index "slugs", ["scope", "slug"], :name => "index_slugs_on_scope_and_slug"
 
   create_table "tags", :force => true do |t|
     t.string   "name"

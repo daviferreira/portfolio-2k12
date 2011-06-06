@@ -2,10 +2,12 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.published.paginate(:page => params[:page], :per_page => 12)
+    @projects = Project.published.paginate(:page => params[:page], :per_page => 8)
+    @posts = Post.published.limit(3)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @projects }
+      format.js
     end
   end
 

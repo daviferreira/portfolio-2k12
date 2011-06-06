@@ -1,4 +1,7 @@
 Portfolio::Application.routes.draw do
+
+  root :to => "projects#index"
+
   resources :comments
 
   resources :posts

@@ -1,17 +1,5 @@
-<h2 class="section round-small shadow">Meus trabalhos</h2>
-<% unless @projects.empty? %>
-  <ul id="projects-main" class="clearfix">
-  <% @projects.each do |project| %>
-    <li class="round-small shadow <% if ((@projects.index(project)+1) % 4) == 0 %>last<% end %>">
-      <div class="project-container round-small">
-        <div class="screenshot round-small"><%= image_tag project.screenshot.url(:thumb) %></div>
-        <h3><%= project.name %></h3>
-        <%= project.id %>
-      </div>
-    </li>
+<div id="projects">
+  <% unless @projects.empty? %>
+    <%= render 'projects' %>
   <% end %>
-  </ul>
-  <div class="pagination">
-    <%= will_paginate @projects, :next_label => "próximo &raquo;", :previous_label => "&laquo; anterior" %>
-  </div>
-<% end %>
+</div>
