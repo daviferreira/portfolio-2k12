@@ -170,6 +170,21 @@
   	  $(this).height(height);
     });
     $("a[rel*=external]").attr( "target", "_blank" );
+    
+    $('#frm-search').submit(function(e){
+      var q = $('#fld-search').val();
+      if(!q){
+        $('#fld-search').css('border-color', 'red').focus();
+        e.preventDefault();
+      }
+    });
+    $('a[href^=#]').live('click', function(e){
+      var href = $(this).attr('href');
+      $('html').animate({
+          scrollTop: $(href).offset().top
+      }, 600);
+      e.preventDefault();
+    });
   });
   
 })( jQuery );

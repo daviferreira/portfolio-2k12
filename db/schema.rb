@@ -10,14 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110606134044) do
+ActiveRecord::Schema.define(:version => 20110606150546) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "area"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cached_slug"
   end
+
+  add_index "categories", ["cached_slug"], :name => "index_categories_on_cached_slug"
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -50,7 +53,10 @@ ActiveRecord::Schema.define(:version => 20110606134044) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "tags"
+    t.string   "cached_slug"
   end
+
+  add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug"
 
   create_table "projects", :force => true do |t|
     t.string   "name"
