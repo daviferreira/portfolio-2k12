@@ -2,8 +2,21 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.published.paginate(:page => params[:page], :per_page => 8)
+    
+    # temp slug
+		Project.all.each do |o|
+			o.generate_slug!
+		end
+		Category.all.each do |o|
+			o.generate_slug!
+		end
+		Post.all.each do |o|
+			o.generate_slug!
+		end
+
+		@projects = Project.published.paginate(:page => params[:page], :per_page => 9)
     @posts = Post.published.limit(3)
+    @categories = Category.where("area = 1")
 
     respond_to do |format|
       format.html # index.html.erb

@@ -160,6 +160,13 @@
     $.getScript(this.href);  
     e.preventDefault();
   });
+  
+  $('div.select a').live('click', function(e){
+    $(this).parent().toggleClass('active');
+    var div = $(this).attr('href').replace(/#/, '');
+    $('#options-'+div).fadeToggle('fast');
+    e.preventDefault();
+  });
 
   $(function(){	
     var height = 0;
@@ -180,10 +187,12 @@
     });
     $('a[href^=#]').live('click', function(e){
       var href = $(this).attr('href');
-      $('html').animate({
-          scrollTop: $(href).offset().top
-      }, 600);
-      e.preventDefault();
+      if($(href).length > 0){
+        $('html, body').animate({
+            scrollTop: $(href).offset().top
+        }, 600);
+        e.preventDefault();
+      }
     });
   });
   

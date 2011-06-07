@@ -21,14 +21,30 @@
   <nav id="menu">
     <div class="section-title round-small shadow">
       <span class="clearfix">
-        <ul class="clearfix">
+        <ul class="clearfix sections">
           <li><a href="#blog">Blog</a></li>
           <li class="last"><a href="#contact">Contato</a></li>
         </ul>
         <h2>Trabalhos</h2>
         <div id="filters" class="clearfix">
-          <div class="select round-small shadow"><a class="title" href="#all-categories"><span>&darr;</span>Todas as categorias</a></div>
-          <div class="select round-small shadow"><a class="title" href="#recent"><span>&darr;</span>Organizar por mais recentes</a></div>
+          <div class="select round-small shadow"><a class="title" href="#categories"><span>&darr;</span>Categorias</a></div>
+          <div class="filter-options round-small shadow-dark" id="options-categories">
+            <ul>
+              <li><%= link_to "todas as categorias", root_path %></li>
+            <% @categories.each do |category| %>
+              <li<% if @categories.last == category %> class="last"<% end %>><%= link_to category.name, "projects/category/#{category.cached_slug}" %></li>
+            <% end %>
+            </ul>
+          </div>
+          <div class="select round-small shadow"><a class="title" href="#sort"><span>&darr;</span>Organizar por</a></div>
+          <div class="filter-options round-small shadow-dark" id="options-sort">
+            <ul>
+              <li><a href="#">Mais recentes</a></li>
+              <li><a href="#">Mais antigos</a></li>
+              <li><a href="#">A-Z</a></li>
+              <li class="last"><a href="#">Z-A</a></li>
+            </ul>
+          </div>
         </div>
       </span>
     </div>
