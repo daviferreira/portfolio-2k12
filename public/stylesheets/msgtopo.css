@@ -1,0 +1,39 @@
+@charset "utf-8";
+div#msg-topo {
+position:absolute;
+top:0;
+display:none;
+width:100%;
+font-weight:700;
+z-index:100000!important;
+padding:12px;
+text-align:center;
+cursor:pointer;
+-webkit-box-shadow: 0px 0px 12px #000000;
+-moz-box-shadow: 0px 0px 12px #000000;
+box-shadow: 0px 0px 12px #000000; 
+}
+
+div#msg-topo span{display:block;text-align:center;}
+
+div#msg-topo.erro {
+border-bottom:1px solid red;
+background-color:#FCC;
+color:red;
+}
+
+div > div#msg-topo {
+position:fixed;
+}
+
+div#msg-topo.msg {
+color:#40C840;
+background-color:#E6FFE6;
+border-bottom:1px solid #40C840;
+}
+
+div#msg-topo.plain{
+	color:#333;
+	background-color:#ffffcc;
+	border-bottom:1px solid #333;
+}

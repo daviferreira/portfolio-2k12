@@ -340,7 +340,7 @@ div.pagination a{
   background:url(/images/pagination.png) 0 0 no-repeat;
 }
 
-header div#search input#fld-search {
+header div#search input#fld-search, #new_contact input[type="text"], #new_contact textarea {
   border:1px solid #B2B2A3;
   width:270px;
   -webkit-border-top-left-radius:3px;
@@ -361,6 +361,10 @@ header div#search input#fld-search {
   box-shadow: inset 0px 0px 4px #B2B2A3;
 }
 
+#new_contact input[type="text"], #new_contact textarea {
+  width:400px;
+}
+
 header div#search input#fld-search:focus{
   border-color:#98CB66;
   color:#98CB66;
@@ -369,7 +373,7 @@ header div#search input#fld-search:focus{
   -webkit-box-shadow:none;
 }
 
-header div#search input#btn-search {
+header div#search input#btn-search, #new_contact input[type="submit"] {
   color:#fff;
   font-weight:900;
   background:#98CB66;
@@ -395,7 +399,15 @@ header div#search input#btn-search {
   box-shadow: inset 0px 0px 4px #666;
 }
 
-header div#search input#btn-search:hover {
+#new_contact input[type="submit"]{
+  width:auto;
+  border-radius:3px;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  font-size:14px;
+}
+
+header div#search input#btn-search:hover, #new_contact input[type="submit"]:hover {
   background:#E64F00;
 }
 
@@ -650,6 +662,30 @@ div#live-search ul li div.screenshot{
   margin:0 12px 0 0;
 }
 
+form#new_contact{
+  margin:12px;
+}
+
+form#new_contact div.field{
+  margin:0 0 12px 0;
+}
+
+form#new_contact label{
+  display:block;
+  color:#B2B2A3;
+  font-weight:300;
+  letter-spacing:-0.2px;
+  margin:0 0 3px 0;
+}
+
+form#new_contact div.actions{
+  text-align:right;
+}
+
+form#new_contact textarea{
+  height:100px;
+}
+
 /* Misc/Util
 -------------------------------------------------------------- */
 
@@ -658,12 +694,13 @@ div#live-search ul li div.screenshot{
 *:first-child+html .clearfix    { zoom: 1; } /* IE7 */
 
 .field_with_errors{
-  display:inline;
+  /*display:inline;*/
 }
 
 .field_with_errors label {
+  display:inline-block!important;
   background-color:red;
-  color: #fff;
+  color: #fff!important;
 }
 
 span.prev_page, a.prev_page, span.next_page, a.next_page {
