@@ -1,0 +1,10 @@
+$('#live-search').hide();
+<% unless @projects.empty? %>
+$('#live-search ul').html('');
+var html = "";
+<% @projects.each do |project| %>
+html += '<%= escape_javascript(render('projects/project_live_search', {:project => project})) %>';
+<% end %>
+$('#live-search ul').html(html);
+$('#live-search').show();
+<% end %>

@@ -11,6 +11,8 @@ Portfolio::Application.routes.draw do
   resources :tags
 
   resources :categories
+  
+  match 'live_search' => 'projects#live_search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

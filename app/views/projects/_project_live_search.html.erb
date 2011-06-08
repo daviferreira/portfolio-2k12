@@ -1,0 +1,6 @@
+<li class="clearfix alt round-small<% if @projects.first == project %> first<% elsif @projects.last == project %> last<% end %>">
+  <div class="screenshot round-small"><%= image_tag project.screenshot.url(:small), :width => 80, :height => 80, :alt => project.name %></div>
+  <div class="info">
+    <p><%= link_to raw("<strong>"+project.name+"</strong><br />"+project.tags.gsub(/,/, ', ')), project_path(project) %></p>
+  </div>
+</li>

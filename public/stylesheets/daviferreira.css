@@ -124,6 +124,18 @@ div.section-title h2{
   box-shadow: 0px 0px 3px #000;
 }
 
+div#projects-container{
+  overflow:hidden;
+}
+
+div#projects{
+  width:2000px;
+}
+
+div#projects div.projects-container{
+  float:left;
+  width:960px;
+}
 
 ul#projects-main li.project{
   width:298px;
@@ -250,6 +262,7 @@ ul#projects-main li h3{
 div.pagination{
   clear:both;
   text-align:center;
+  width:960px;
 }
 
 section#blog{
@@ -362,6 +375,7 @@ header div#search input#btn-search {
   background:#98CB66;
   border:none;
   width:28px;
+  height:27px;
   -webkit-border-top-right-radius:3px;
   -webkit-border-bottom-right-radius:3px;
   -moz-border-radius-topright:3px;
@@ -584,6 +598,56 @@ section#social li{
   margin:12px;
   font-weight:300;
   letter-spacing:-0.2px;
+}
+
+div#live-search{
+  position:absolute;
+  background-color:#B2B2A3;
+  border-color:1px solid #333;
+  padding:6px;
+  width:300px;
+  font-size:12px;
+  display:none;
+}
+
+div#live-search ul li strong{
+  font-size:14px;
+  display:block;
+  margin:0 0 6px 0;
+}
+
+div#live-search ul li{
+  margin:6px 0 6px 0;
+  line-height:12px;
+  padding:6px;
+}
+
+div#live-search ul li.first{
+  margin:0 0 6px 0;
+}
+
+div#live-search ul li.last{
+  margin:6px 0 0 0;
+}
+
+div#live-search ul li.alt{
+  background-color:#d1cebd;
+}
+
+div#live-search ul li a{
+  color:#666;
+  text-decoration:none;
+  font-weight:300;
+  display:block;
+}
+
+div#live-search ul li a:hover{
+  color:#000;
+}
+
+div#live-search ul li div.screenshot{
+  float:left;
+  margin:0 12px 0 0;
 }
 
 /* Misc/Util

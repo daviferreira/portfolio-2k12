@@ -1,4 +1,23 @@
-$("#projects").html("<%= escape_javascript(render('projects')) %>");
+var pg_atual = <%=@pg_atual%>;
+var pg_click = <%=@pg_click%>;
+
+if(pg_click > pg_atual){
+  $("<%= escape_javascript(render('projects')) %>").insertAfter('.projects-container');
+
+  $('.projects-container:first').animate({
+    marginLeft: "-960px"
+  }, 600, function(){
+    $(this).remove();
+  });  
+}else{
+  $("<%= escape_javascript(render('projects')) %>").css('margin-left', "-960px").insertBefore('.projects-container');
+  $('.projects-container:first').animate({
+    marginLeft: 0
+  }, 600, function(){
+    $('.projects-container:last').remove();
+  });
+}
+
 var height = 0;
 $('#projects-main > li > div').each(function(){
   if($(this).height() > height) height = $(this).height();

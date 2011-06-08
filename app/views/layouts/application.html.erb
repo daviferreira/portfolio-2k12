@@ -11,7 +11,8 @@
   <header>
     <div id="search">
       <form action="<%= projects_path %>" method="GET" id="frm-search">
-        <input type="text" name="search" id="fld-search" placeholder="Pesquisar..." /><input type="submit" value="OK" id="btn-search" />
+        <input type="text" name="search" id="fld-search" placeholder="Pesquisar..." autocomplete="off" /><input type="submit" value="OK" id="btn-search" />
+        <div id="live-search" class="shadow round-small"><ul></ul></div>
       </form>
     </div>
     <h1>Davi Ferreira</h1>
@@ -60,8 +61,9 @@
     <div id="footer-container" class="clearfix">
       <section id="contact">
         <h2>Contato</h2>
-        <form action="">
-        </form>
+
+
+
       </section>
     
       <section id="social" class="last">

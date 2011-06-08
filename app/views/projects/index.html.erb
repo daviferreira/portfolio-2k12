@@ -1,5 +1,10 @@
-<div id="projects">
-  <% unless @projects.empty? %>
-    <%= render 'projects' %>
-  <% end %>
+<div id="projects-container">
+  <div id="projects" class="clearfix">
+    <% unless @projects.empty? %>
+      <%= render 'projects' %>
+      <div class="pagination">
+        <%= will_paginate @projects %>
+      </div>
+    <% end %>
+  </div>
 </div>

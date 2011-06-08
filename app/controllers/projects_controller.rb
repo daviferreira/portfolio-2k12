@@ -13,8 +13,14 @@ class ProjectsController < ApplicationController
 		Post.all.each do |o|
 			o.generate_slug!
 		end
+		
+		# temp live search
+		@live = Project.published.limit(5)
+		
+		@pg_atual = params[:pg_atual]
+		@pg_click = params[:pg_click]
 
-		@projects = Project.published.paginate(:page => params[:page], :per_page => 9)
+		@projects = Project.published.limit(50).paginate(:page => params[:page], :per_page => 6)
     @posts = Post.published.limit(3)
     @categories = Category.where("area = 1")
 
@@ -24,10 +30,19 @@ class ProjectsController < ApplicationController
       format.js
     end
   end
+  
+  def live_search
+    q = (params[:q] + "%").downcase
+    @projects = Project.published.where("lower(name) LIKE ? OR lower(tags) LIKE ?", q, "%"+q).limit(5)
+    respond_to do |format|
+      format.js
+    end
+  end
 
   # GET /projects/1
   # GET /projects/1.xml
   def show
+    @categories = Category.where("area = 1")
     @project = Project.find_using_slug(params[:id])
 
     respond_to do |format|
