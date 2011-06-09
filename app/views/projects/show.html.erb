@@ -1,40 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div id="project-info" class="shadow round-small">
+  <div class="project round-small">
+    
+    <ul id="breadcrumb">
+      <li><%= link_to "projetos", root_path %></li>
+      <li class="separator">/</li>
+      <li><%= link_to @project.name.downcase, project_path(@project) %></li>
+    </ul>
+    
+    <h2><%= @project.name %></h2>
+    
+    <%= image_tag @project.screenshot.url(:medium), :alt => @project.name %>
+    
+    <p class="description">
+      <%= @project.description %>
+    </p>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @project.url %>
-</p>
-
-<p>
-  <b>Start date:</b>
-  <%= @project.start_date %>
-</p>
-
-<p>
-  <b>Due date:</b>
-  <%= @project.due_date %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @project.category_id %>
-</p>
-
-<p>
-  <b>Published:</b>
-  <%= @project.published %>
-</p>
+    <p>
+      <b>Url:</b>
+      <%= link_to @project.url, @project.url, :rel => "external" %>
+    </p>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+    <p>
+      Publicado há <%= time_ago_in_words(@project.due_date) %>
+    </p>
+
+    <p>
+      <b>Category:</b>
+      <%= @project.category.name %>
+    </p>
+    <p><strong>Tags: </strong><%= tags_as_links(@project.tags) %></p>
+
+
+    <%= link_to 'Edit', edit_project_path(@project) %> |
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>

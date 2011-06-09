@@ -16,47 +16,17 @@
         <div id="live-search" class="shadow round-small"><ul></ul></div>
       </form>
     </div>
-    <h1>Davi Ferreira</h1>
+    <h1 id="header"><%= link_to "Davi Ferreira", root_path %></h1>
     <h2><small>Nem ninja, nem rockstar.</small> Programador.</h2>
   </header>
 
-  <nav id="menu">
-    <div class="section-title round-small shadow">
-      <span class="clearfix">
-        <ul class="clearfix sections">
-          <li><a href="#blog">Blog</a></li>
-          <li class="last"><a href="#contact">Contato</a></li>
-        </ul>
-        <h2>Trabalhos</h2>
-        <div id="filters" class="clearfix">
-          <div class="select round-small shadow"><a class="title" href="#categories"><span>&darr;</span>Categorias</a></div>
-          <div class="filter-options round-small shadow-dark" id="options-categories">
-            <ul>
-              <li><%= link_to "todas as categorias", root_path %></li>
-            <% @categories.each do |category| %>
-              <li<% if @categories.last == category %> class="last"<% end %>><%= link_to category.name, "projects/category/#{category.cached_slug}" %></li>
-            <% end %>
-            </ul>
-          </div>
-          <div class="select round-small shadow"><a class="title" href="#sort"><span>&darr;</span>Organizar por</a></div>
-          <div class="filter-options round-small shadow-dark" id="options-sort">
-            <ul>
-              <li><a href="#">Mais recentes</a></li>
-              <li><a href="#">Mais antigos</a></li>
-              <li><a href="#">A-Z</a></li>
-              <li class="last"><a href="#">Z-A</a></li>
-            </ul>
-          </div>
-        </div>
-      </span>
-    </div>
-  </nav>
+  <%= render "layouts/menu" if home_page %>
 
   <section id="main">
     <%= yield %>
   </section>
 
-  <%= render "posts/posts_portfolio" %>
+  <%= render "posts/posts_portfolio" if home_page %>
   
   <footer>
     <div id="footer-container" class="clearfix">
@@ -68,7 +38,7 @@
       </section>
     
       <section id="social" class="last">
-        <h2><a href="#menu" class="lnk-top">&uarr; topo</a>Social</h2>
+        <h2><a href="#header" class="lnk-top">&uarr; topo</a>Social</h2>
         <ul>
           <li>
             <a href="http://twitter.com/davitferreira" class="twitter-follow-button" data-button="grey" data-text-color="#FFFFFF" data-link-color="#00AEFF">Follow @davitferreira</a>

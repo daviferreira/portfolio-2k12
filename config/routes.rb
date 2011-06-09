@@ -15,5 +15,8 @@ Portfolio::Application.routes.draw do
   root :to => "projects#index"
   
   match 'live_search' => 'projects#live_search'
+  match 'projects/category/:category' => 'projects#index'
+  match 'projects/tag/:tag' => 'projects#index'
+  #match '*path' => redirect('/')
 
 end
