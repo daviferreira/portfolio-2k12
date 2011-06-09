@@ -1,8 +1,8 @@
 <div id="projects-container">
-  <div id="projects" class="clearfix">
+  <div id="projects" class="clearfix" data-page="<%=(@projects.count/6)%>">
     <% unless @projects.empty? %>
       <%= render 'projects' %>
-      <div class="pagination">
+      <div class="pagination-container">
         <%= will_paginate @projects %>
       </div>
     <% end %>

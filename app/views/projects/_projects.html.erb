@@ -8,7 +8,7 @@
         <p><%= project.description %></p>
         <p class="category">Categoria: <%= link_to project.category.name, "/projects/category/" + project.category.cached_slug %></p>
         <p class="tags clearfix"><span class="label">Tags:</span> <%= tags_as_links(project.tags) %></p>
-        <p class="time-ago round-small">Finalizado há <%= time_ago_in_words(project.due_date) %> atrás.</p>
+        <p class="time-ago round-small">Finalizado há <%= time_ago_in_words(project.due_date) %>.</p>
         <% unless project.url.nil? or project.url.empty? %>
         <div class="actions clearfix">
           <ul>

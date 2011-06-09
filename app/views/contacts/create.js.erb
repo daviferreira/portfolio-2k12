@@ -1,0 +1,9 @@
+msgTopo("<%=@message%>", "<%=@class%>", 5000);
+<% if @class == "msg" %>
+$('#new_contact').find('input:text, textarea').val('');  
+<% else %>
+$('#new_contact').find('input:text, textarea').each(function(){
+  if(!$(this).val()) $(this).parent().addClass('field_with_errors');
+  else $(this).parent().removeClass('field_with_errors');
+});
+<% end %>

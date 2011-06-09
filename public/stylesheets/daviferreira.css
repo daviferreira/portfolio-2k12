@@ -153,7 +153,7 @@ ul#projects-main li.project div.actions{
 
 ul#projects-main li.project div.actions a{
   text-decoration:none;
-  font-size:10px;
+  font-size:12px;
   color:#666;
 }
 
@@ -206,7 +206,7 @@ ul#projects-main li.project div.actions ul li{
 }
 
 ul#projects-main li.project p.time-ago{
-  font-size:10px;
+  font-size:12px;
   text-transform:uppercase;
   background-color:#f5f5f5;
   padding:2px;
@@ -405,6 +405,11 @@ header div#search input#btn-search, #new_contact input[type="submit"] {
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
   font-size:14px;
+  color:#000;
+}
+
+div.loader{
+  width:960px;clear:both;text-align:center;
 }
 
 header div#search input#btn-search:hover, #new_contact input[type="submit"]:hover {
@@ -680,6 +685,12 @@ form#new_contact label{
 
 form#new_contact div.actions{
   text-align:right;
+}
+
+form#new_contact textarea, form#new_contact input[type="text"]{
+  border-radius:3px;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
 }
 
 form#new_contact textarea{

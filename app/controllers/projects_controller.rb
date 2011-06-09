@@ -14,6 +14,8 @@ class ProjectsController < ApplicationController
 			o.generate_slug!
 		end
 		
+	  @contact = Contact.new(:id => 1)
+		
 		# temp live search
 		@live = Project.published.limit(5)
 		
@@ -21,6 +23,7 @@ class ProjectsController < ApplicationController
 		@pg_click = params[:pg_click]
 
 		@projects = Project.published.limit(50).paginate(:page => params[:page], :per_page => 6)
+		
     @posts = Post.published.limit(3)
     @categories = Category.where("area = 1")
 
@@ -32,8 +35,8 @@ class ProjectsController < ApplicationController
   end
   
   def live_search
-    q = (params[:q] + "%").downcase
-    @projects = Project.published.where("lower(name) LIKE ? OR lower(tags) LIKE ?", q, "%"+q).limit(5)
+    q = params[:q].downcase
+    @projects = Project.published.where("lower(name) LIKE ? OR lower(tags) LIKE ? OR lower(tags) LIKE ? OR lower(tags) = ? OR lower(tags) = ?", q + "%", q+",%", "%,"+q+",%", "%,"+q, q).limit(5)
     respond_to do |format|
       format.js
     end

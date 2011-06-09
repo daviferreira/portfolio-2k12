@@ -7,6 +7,7 @@ gem 'mongrel'
 gem 'paperclip'
 gem 'will_paginate'
 gem 'slugged'
+gem 'mail'
 
 group :development do
   gem 'rspec-rails', '2.5.0'

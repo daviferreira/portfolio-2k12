@@ -191,10 +191,6 @@
   activerecord:
 
     attributes:
-      user:
-        name: "O campo nome"
-        email: "O campo e-mail"
-        password: "O campo senha"
 
       project:
         title: "O campo título"

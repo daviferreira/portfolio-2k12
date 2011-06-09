@@ -26,3 +26,7 @@ $('#projects-main > li > div').each(function(){
   $(this).height(height);
 });
 $("a[rel*=external]").attr( "target", "_blank" );
+
+$('html, body').animate({
+    scrollTop: $('#projects').offset().top
+}, 600);
