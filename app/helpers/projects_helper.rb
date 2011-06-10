@@ -11,8 +11,8 @@ module ProjectsHelper
   
   def strip_url(url)
     url = url.slice(7..-1).sub('www.', '')
-    if url.length > 33
-      url = url.slice(0..33) + "..."
+    if url.length > 28
+      url = url.slice(0..28) + "..."
     end
     url
   end

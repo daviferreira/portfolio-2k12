@@ -170,6 +170,7 @@ ul#projects-main li.project{
 
 ul#projects-main li.project div.actions{
   border-top:1px #B2B2A3 dotted;
+  padding:12px 0 6px 0;
 }
 
 ul#projects-main li.project div.actions a{
@@ -383,7 +384,7 @@ header div#search input#fld-search, #new_contact input[type="text"], #new_contac
 }
 
 #new_contact input[type="text"], #new_contact textarea {
-  width:400px;
+  width:430px;
 }
 
 header div#search input#fld-search:focus{
@@ -716,6 +717,29 @@ form#new_contact textarea, form#new_contact input[type="text"]{
 form#new_contact textarea{
   height:100px;
 }
+
+
+li.more-details{
+  margin:0 0 0 12px!important;
+}
+li.more-details a{
+  color:#fff!important;
+  font-weight:900;
+  background:#98CB66;
+  border:none;
+  width:28px;
+  height:27px;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  cursor:pointer;
+  padding:6px;
+  -webkit-box-shadow: inset 0px 0px 4px #666;
+  -moz-box-shadow: inset 0px 0px 4px #666;
+  box-shadow: inset 0px 0px 4px #666;
+}
+
+
 
 /* Misc/Util
 -------------------------------------------------------------- */

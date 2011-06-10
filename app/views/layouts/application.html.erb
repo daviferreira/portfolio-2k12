@@ -2,8 +2,15 @@
 <html>
 <head>
   <title>Portfolio</title>
-  <%= stylesheet_link_tag :all %>
+  
   <%= javascript_include_tag :all %>
+  <%= javascript_include_tag "fancybox/jquery.easing-1.3.pack" %>
+  <%= javascript_include_tag "fancybox/jquery.mousewheel-3.0.4.pack" %>
+  <%= javascript_include_tag "fancybox/jquery.fancybox-1.3.4" %>
+  
+  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "/javascripts/fancybox/jquery.fancybox-1.3.4.css" %>
+  
   <%= csrf_meta_tag %>
   <link rel="shortcut icon" href="/images/favicon.gif" />
 </head>

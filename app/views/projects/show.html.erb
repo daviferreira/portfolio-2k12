@@ -10,6 +10,13 @@
     <h2><%= @project.name %></h2>
     
     <%= image_tag @project.screenshot.url(:medium), :alt => @project.name %>
+    <% unless @project.photos.empty? %>
+    <div id="screenshots">
+      <% @project.photos.each do |photo| %>
+        <%= link_to image_tag(photo.photo.url(:thumb), :alt => photo.title),  photo.photo.url(:original), :rel => "screnshots", :title => photo.title %>
+      <% end %>
+    </div>
+    <% end %>
     
     <p class="description">
       <%= @project.description %>
@@ -27,10 +34,9 @@
 
     <p>
       <b>Category:</b>
-      <%= @project.category.name %>
+      <%= link_to @project.category.name, "/projects/category/" + @project.category.cached_slug %>
     </p>
     <p><strong>Tags: </strong><%= tags_as_links(@project.tags) %></p>
-
 
     <%= link_to 'Edit', edit_project_path(@project) %> |
     <%= link_to 'Back', projects_path %>
