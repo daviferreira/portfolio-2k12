@@ -1,11 +1,10 @@
 <header>
   <% if blog_home_page? %>
-  <div id="search">
-    <form action="" id="frm-search">
-      <input type="text" name="" id="" placeholder="Pesquisar..." />
-      <input type="submit" value="OK" />
+  <!-- div id="search">
+    <form action="<%=blog_path%>" id="frm-query" method="GET">
+      <input type="text" name="query" id="query" placeholder="Pesquisar..." />
     </form>
-  </div>
+  </div -->
   <h1>Davi Ferreira/blog/*</h1>
   <% else %>
   <h1><%= @post.title %></h1>

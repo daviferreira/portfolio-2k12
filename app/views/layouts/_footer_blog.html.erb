@@ -6,7 +6,7 @@
       <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.daviferreira.com/blog/post/<%=@post.id%>/<%=@post.cached_slug%>.html">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
       <%= link_to "Ir para a capa do blog", blog_path %>.
       Publicado há <%= time_ago_in_words(@post.published_date) %>. 
-      <%= link_to total_comments_in_words(@post.comments.published.length), "#comments" %>. 
+      <%= link_to total_comments_in_words(@post.comments.published.length), "#comments" %>
       <%= link_to image_tag("rss.png"), post_path(@post, :format => "atom") %>
   <% end %>
     </div>

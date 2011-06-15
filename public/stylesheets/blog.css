@@ -1,5 +1,5 @@
 html{ font-family: "Georgia", "Times New Roman", serif; }
-body { font-size:100%; line-height:1.25; padding-bottom:60px; background: #fff url(/images/bg-cover.png) repeat 0 0; }
+body { font-size:100%; line-height:1.25; padding-bottom:60px; background: #fff; }
 h1, h2, h3 { margin-top:0; margin-bottom:0; }
 h1 { font-size:4em; padding:20px 0 20px 7px; border-bottom:1px dotted #ccc;  letter-spacing:-2px; }
 h2 { font-size:1.75em; margin-bottom:10px; letter-spacing:-1px }
@@ -22,6 +22,25 @@ body.post p{ margin:0 0 1.725em 0; line-height:24px; }
 
 div#search{float:right;margin:52px 9px 0 0;}
 
+div#search input[type="text"]{
+  background:#f5f5f5 url(/images/magnifier.png) 6px 6px no-repeat;
+  padding:4px 4px 4px 20px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  -moz-border-radius:6px;
+  -moz-border-radius:6px;
+  width:200px;
+}
+
+div#search input[type="text"]:focus{
+  background:#fff url(/images/magnifier.png) 6px -13px no-repeat;
+  border-color:#308ed6;
+  -webkit-box-shadow: inset 0px 0px 4px #308ed6;
+  -moz-box-shadow: inset 0px 0px 4px #308ed6;
+  box-shadow: inset 0px 0px 4px #308ed6;
+  color:#308ed6;
+  
+}
 table.propriedades {
 width:90%;
 border:none;
