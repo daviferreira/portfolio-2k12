@@ -1,4 +1,4 @@
-<li class="clearfix <% if comment.author == "Davi Ferreira" %>owner<% end %>">
+<li id="comment-<%=comment.id%>" class="clearfix <% if comment.author == "Davi Ferreira" %>owner<% end %>">
 	<div class="author">
 		<p><%= gravatar_for comment %></p>
 		<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %l:%M").sub(' ', '<br />')) %></p>
