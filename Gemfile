@@ -8,6 +8,7 @@ gem 'paperclip'
 gem 'will_paginate'
 gem 'slugged'
 gem 'mail'
+gem 'gravatar_image_tag'
 
 group :development do
   gem 'rspec-rails', '2.5.0'
