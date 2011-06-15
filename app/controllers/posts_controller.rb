@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     end
     @meta_title = @post.title + categories
     @meta_description = categories + @post.title
-    @comment = Comment.new
     redirect_to blog_path if not @post or not @post.published?
   end
 

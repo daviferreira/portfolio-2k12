@@ -9,45 +9,33 @@
     <% unless @post.comments.published.empty? %>
       <ul id="list-comments">
         <% @post.comments.published.each do |comment| %>
-        <li class="clearfix <% if comment.author == "Davi Ferreira" %>owner<% end %>">
-					<div class="author">
-						<p><%= gravatar_for comment %></p>
-						<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %l:%M").sub(' ', '<br />')) %></p>
-					</div>
-					<div class="comment">
-						<p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> escreveu:</strong></p>
-						<p><%= sanitize comment.body, :tags => %w(strong em code a) %></p>
-						<% unless @post.block_comments %>
-				    <p class="reply"><a href="#" data-id="<%= comment.id %>" class="lnk-reply">Responder</a></p>
-				    <% end %>
-				  </div>
-				</li>
+          <%= render comment %>
         <% end %>
       </ul>
     <% end %>
     
     <% if not @post.block_comments %>
     <h3 id="tit-form-comment">Deixe seu comentário</h3>
-      <% form_for(@comment, :remote => true) do |f| %>
-  			<p id="info-comment">Todos os campos são obrigatórios.</p>
+      <% form_for(@post.comments.build, :remote => true) do |f| %>
+        <%= f.hidden_field :post_id, {:value => @post.id} %>
   			<p>
-  				<label for="name">Seu nome</label>
-  				<input type="text" name="name" id="name" />
+  				<%= f.label :author, "* Seu nome " %>
+  				<%= f.text_field :author %>
   			</p>
   			<p>
-  				<label for="email">Seu e-mail <small>(Seu e-mail não será divulgado - serve apenas para validação e gravatar.)</small></label>
-  				<input type="text" name="email" id="email" />
+  				<%= f.label :email, "* Seu e-mail" %><small>(Seu e-mail não será divulgado - serve apenas para validação e gravatar.)</small>
+  				<%= f.text_field :email %>
   			</p>
   			<p>
-  				<label for="site">Você tem site/blog?</label>
-  				<input type="text" name="site" id="site" />
+  				<%= f.label :url, "Você tem site/blog?" %>
+  				<%= f.text_field :url %>
   			</p>
   			<p>
-  				<label for="message">Digite sua mensagem <small>(<strong>Tags HTML permitidas:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</small></label>
-  				<textarea name="message" id="message" rows="4" cols="40"></textarea>
+  				<%= f.label :body, "* Digite sua mensagem" %><small>(<strong>Tags HTML permitidas:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</small>
+  				<%= f.text_area :body %>
   			</p>
   			<p class="action">
-  				<input type="submit" value="Enviar comentário" />
+  				<%= f.submit "Enviar comentário"%>
   			</p>
   		<% end %>
     <% end %>

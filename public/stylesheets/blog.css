@@ -231,3 +231,5 @@ div.post-abstract span a{
   font-size:16px!important;
   cursor:pointer;
 }
+
+#new_comment small{display:block;}

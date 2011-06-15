@@ -9,6 +9,7 @@ gem 'will_paginate'
 gem 'slugged'
 gem 'mail'
 gem 'gravatar_image_tag'
+gem 'rakismet'
 
 group :development do
   gem 'rspec-rails', '2.5.0'

@@ -1,0 +1,13 @@
+<li class="clearfix <% if comment.author == "Davi Ferreira" %>owner<% end %>">
+	<div class="author">
+		<p><%= gravatar_for comment %></p>
+		<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %l:%M").sub(' ', '<br />')) %></p>
+	</div>
+	<div class="comment">
+		<p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> escreveu:</strong></p>
+		<p><%= sanitize comment.body, :tags => %w(strong em code a br) %></p>
+		<% unless @post.block_comments %>
+    <p class="reply"><a href="#" data-id="<%= comment.id %>" class="lnk-reply">Responder</a></p>
+    <% end %>
+  </div>
+</li>
