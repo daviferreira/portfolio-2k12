@@ -21,13 +21,20 @@ class ProjectsController < ApplicationController
     if params[:category]
       @category = Category.find_using_slug(params[:category])
       @projects = Project.published.where("category_id = #{@category.id}").limit(30).paginate(:page => params[:page], :per_page => 6)
+      @meta_title = "#{@category.name} - Projetos na categoria #{@category.name} - DaviFerreira.com"
+      @meta_description = "Lista de trabalhos do programador PHP/Ruby Davi Ferreira na categoria #{@category.name} - DaviFerreira.com"
     elsif params[:tag]
       q = translate_tag(params[:tag]).downcase
 
 		  @projects = Project.published.where("lower(tags) LIKE ? OR lower(tags) LIKE ? OR lower(tags) LIKE ? OR lower(tags) = ?", q+",%", "%,"+q+",%", "%,"+q, q).limit(30).paginate(:page => params[:page], :per_page => 6)
+		  @meta_title = translate_tag(params[:tag]) + " - Projetos com a tag " + translate_tag(params[:tag]) + " - DaviFerreira.com"
+		  @meta_description = "Lista de trabalhos do programador PHP/Ruby Davi Ferreira com a tag " + translate_tag(params[:tag]) + " - DaviFerreira.com"
 		elsif params[:search]
 		  q = "%" + params[:search].downcase + "%"
       @projects = Project.published.where("name LIKE ? OR tags LIKE ? OR description LIKE ?", q, q, q).limit(30).paginate(:page => params[:page], :per_page => 6)
+      @meta_title = "#{params[:search]} - Resultado da busca - DaviFerreira.com"
+		  @meta_description = "Resultado da busca de trabalhos do programador PHP/Ruby Davi Ferreira para #{params[:search]}"
+		  @search = params[:search]
     else
 		  @projects = Project.published.limit(30).paginate(:page => params[:page], :per_page => 6)
 	  end
@@ -52,7 +59,10 @@ class ProjectsController < ApplicationController
 
   def show
     @categories = Category.where("area = 1")
-    @project = Project.find_using_slug(params[:id])
+    @project = Project.published.find_using_slug(params[:id])
+    @related = Project.published.where("category_id = ? AND id != ?", @project.category_id, @project.id).shuffle().slice(0..3)
+    @meta_title = "#{@project.name} - Detalhes do projeto - DaviFerreira.com"
+	  @meta_description = @project.description
   end
 
   def new
@@ -107,7 +117,8 @@ class ProjectsController < ApplicationController
         "apresentacao" => "apresentação",
         "forum" => "fórum",
         "volei" => "vôlei",
-        "clinica" => "clínica"
+        "clinica" => "clínica",
+        "musica" => "música"
       }
       tag = translations[tag] if translations[tag]
       tag

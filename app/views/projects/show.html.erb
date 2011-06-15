@@ -1,44 +1,76 @@
 <div id="project-info" class="shadow round-small">
-  <div class="project round-small">
+  <div class="project round-small clearfix">
     
-    <ul id="breadcrumb">
-      <li><%= link_to "projetos", root_path %></li>
-      <li class="separator">/</li>
-      <li><%= link_to @project.name.downcase, project_path(@project) %></li>
-    </ul>
-    
-    <h2><%= @project.name %></h2>
-    
-    <%= image_tag @project.screenshot.url(:medium), :alt => @project.name %>
-    <% unless @project.photos.empty? %>
-    <div id="screenshots">
-      <% @project.photos.each do |photo| %>
-        <%= link_to image_tag(photo.photo.url(:thumb), :alt => photo.title),  photo.photo.url(:original), :rel => "screnshots", :title => photo.title %>
+    <div class="breadcrumb clearfix">
+      <%if @project.url %>
+      <span>
+       <%= link_to @project.url, @project.url, :rel => "external" %>
+      </span>
       <% end %>
+      <ul>
+        <li><%= link_to "projetos", root_path %></li>
+        <li class="separator">/</li>
+        <li class="active"><%= link_to @project.name.downcase, project_path(@project) %></li>
+      </ul>
     </div>
-    <% end %>
     
-    <p class="description">
-      <%= @project.description %>
-    </p>
+    <div id="project-details" class="clearfix">
+      
+      
+    
+      <div class="gallery round-small">
+        <%= image_tag @project.screenshot.url(:medium), :alt => @project.name, :width => 296 %>
+        <% unless @project.photos.empty? %>
+        <div id="screenshots">
+          <ul class="clearfix">
+          <% @project.photos.each do |photo| %>
+            <li class="round-small<% if @project.photos.first == photo %> first<% elsif @project.photos.last == photo %> last<% end %>"><%= link_to image_tag(photo.photo.url(:thumb), :alt => photo.title),  photo.photo.url(:original), :rel => "screnshots", :title => photo.title %></li>
+          <% end %>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+    
+      <div class="meta-data">
+        <h2><%= @project.name %></h2>
+        
+        <p>
+        <%= @project.description %>
+        </p>
 
-    <p>
-      <b>Url:</b>
-      <%= link_to @project.url, @project.url, :rel => "external" %>
-    </p>
 
 
-    <p>
-      Publicado há <%= time_ago_in_words(@project.due_date) %>
-    </p>
+        <p>
+          <strong>Publicado há <%= time_ago_in_words(@project.due_date) %>.</strong>
+        </p>
+        
+        <%if @project.url %>
+        <p><strong>URL</strong><br />
+         <%= link_to @project.url, @project.url, :rel => "external" %>
+        </p>
+        <% end %>
 
-    <p>
-      <b>Category:</b>
-      <%= link_to @project.category.name, "/projects/category/" + @project.category.cached_slug %>
-    </p>
-    <p><strong>Tags: </strong><%= tags_as_links(@project.tags) %></p>
-
-    <%= link_to 'Edit', edit_project_path(@project) %> |
-    <%= link_to 'Back', projects_path %>
+        <p>
+          <strong>Categoria</strong><br />
+          <%= link_to @project.category.name, "/projects/category/" + @project.category.cached_slug %>
+        </p>
+        <p class="tags"><strong>Tags</strong><br /><%= tags_as_links(@project.tags) %></p>
+        
+        <% unless @related.empty? %>
+        <div class="related-projects">
+          <h3>Projetos relacionados</h3>
+          <ul>
+            <% @related.each do |project| %>
+              <li><%= link_to project.name, project_path(project) %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+        
+        <p class="more-details"><%= link_to "Voltar", root_path %></p>
+    
+      </div>
+      
+    </div>
   </div>
 </div>

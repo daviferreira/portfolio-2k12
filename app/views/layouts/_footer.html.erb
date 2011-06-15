@@ -1,0 +1,36 @@
+<footer>
+  <div id="footer-container" class="clearfix">
+    <section id="contact">
+      <h2>Contato</h2>
+
+      <%= render "contacts/form" %>
+
+    </section>
+  
+    <section id="social" class="last">
+      <h2><a href="#header" class="lnk-top">&uarr; topo</a>Social</h2>
+      <ul>
+        <li>
+          <a href="http://twitter.com/davitferreira" class="twitter-follow-button" data-button="grey" data-text-color="#FFFFFF" data-link-color="#00AEFF" data-lang="pt">Follow @davitferreira</a>
+          <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+        </li>
+        <li>Mais sobre minha vida profissional, visite meu perfil no <%=link_to "Linkedin", "http://br.linkedin.com/in/daviferreira", :rel => "external" %>.</li>
+        <li>Meus projetos open source estão hospedados no <%=link_to "GitHub", "http://www.github.com/daviferreira", :rel => "external" %>.</li>
+        <li>Meus links favoritos você encontra no <%= link_to "Delicious", "http://www.delicious.com/daviferreira", :rel => "external" %>.</li>
+        <li>Alguns trabalhos de criação estão disponíveis no <%= link_to "DeviantArt", "http://daviferreira.deviantart.com", :rel => "external" %>.</li>
+        <li>E pra conferir as músicas que gosto acesse o meu perfil no <%= link_to "Last.fm", "http://www.last.fm/user/davitf", :rel => "external" %>.</li>
+        
+      </ul>
+    </section>
+  </div>
+</footer>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1735379-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>

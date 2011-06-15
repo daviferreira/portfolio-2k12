@@ -1,0 +1,218 @@
+<p>Quando desenvolvemos um sistema com upload de fotos envolvendo miniaturas, é muito comum um cliente não gostar dos thumbnails gerados automaticamente pelo PHP, já que todos devem possuir o corte nas mesmas coordenadas X e Y. Existem duas maneiras de resolver o problema: uma é criar um novo campo de upload para que o cliente já mande a miniatura no tamanho certinho. A outra é desenvolver uma interface em javascript para o cliente selecionar, após o upload, a área da foto que ele deseja utilizar na miniatura.</p>
+
+<p>O plugin <a href="http://deepliquid.com/content/Jcrop.html" rel="external">jCrop</a> (baseado em jQuery, claro) que apresento neste artigo facilita a implementação da segunda solução. Além de desenvolver o frontend, vou também mostrar a parte em PHP que redimensiona e recorta a imagem - tudo isso utilizando nossa classe <a href="http://www.daviferreira.com/blog/post/8/manipulando-e-redimensionando-imagens-com-php.html" title="Leia o artigo Manipulando e redimensionando imagens com PHP">m2brimagem</a>.</p>
+
+<ul class="downloads clearfix">
+	<li><a href="http://www.daviferreira.com/blog/exemplos/jcrop/" rel="external">Demonstração</a></li>
+	<li><a href="http://www.daviferreira.com/blog/exemplos/jcrop/jcrop.zip" rel="external">Download do código-fonte</a></li>
+</ul>
+
+<!--more-->
+
+<h2>Configurações iniciais</h2>
+
+<p>Como se trata de um plugin jQuery precisamos, é claro, da chamada para a biblioteca em algum lugar de nosso HTML. Além disso, vamos precisar também incluir o arquivo fonte do jCrop com sua folha de estilo e imagens necessárias. <a href="http://deepliquid.com/content/Jcrop.html" rel="external">Clique aqui para fazer o download dos arquivos</a>.</p>
+
+<pre class="brush:xml">
+<link href="css/jquery.Jcrop.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.Jcrop.js"></script>
+</pre>
+
+<p>Desse jeito já dá pra utilizar o jCrop em sua forma mais básica:</p>
+
+<pre class="brush:xml">
+<img src="imagem.jpg" width="634" height="340" id="jcrop" />
+<script type="text/javascript">
+$(function(){ 
+	$('#jcrop').Jcrop(); 
+});
+</script>
+</pre>
+
+<p>No exemplo acima, 'imagem' é o atributo ID da imagem alvo do crop. É claro que você pode utilizar qualquer tipo de seletor do jQuery (classes, sub-elementos etc.), aplicando o frontend do crop em vários elementos <em>img</em>.</p>
+
+<p>Muito legal, mas e pra salvar a imagem? O plugin funciona apenas no cliente, na interface da aplicação. O crop mesmo tem que ser feito no servidor e nos exemplos abaixo você confere como implementar algumas soluções em PHP.</p>
+
+<h2>Processando o crop com PHP</h2>
+
+<p>Primeiramente vamos entender como funciona o jCrop. Seu método de marcação na imagem retorna um array com as dimensões e o posicionamento do crop. Ele possui alguns eventos, aqui vamos utilizar os dois principais: onChange e onSelect. O onChange executa uma função qualquer no momento que a marcação é alterada e o onSelect executa uma função qualquer no momento que a seleção está em andamento.</p>
+
+<p>Sendo assim, vamos utilizar, por enquanto, a função exibePreview em ambos os casos. O que ela faz é atualizar uma pré-visualização do resultado final do crop, além de armazenar as variáveis para envio e processamento no servidor.</p>
+
+<pre class="brush:javascript">
+function exibePreview( c )
+{
+	// c.x, c.y, c.x2, c.y2, c.w, c.h
+};
+</pre>
+
+<p>A função recebe o array c, aquele com as dimensões e coordenadas do crop. Os valores do array são:</p>
+
+<table class="propriedades">
+	<tr>
+    	<td class="opcao">w</td>
+      <td class="descricao">largura (width) do crop</td>
+    </tr>
+	<tr>
+    	<td class="opcao">h</td>
+      <td class="descricao">altura (height) do crop</td>
+    </tr>
+	<tr>
+	  <td class="opcao">x1 e x2</td>
+	  <td class="descricao">posições horizontais do crop na imagem</td>
+  </tr>
+	<tr>
+	  <td class="opcao">y1 e y2</td>
+	  <td class="descricao">posições verticais do crop na imagem</td>
+  </tr>
+</table>
+
+<p>Note que é aí que termina o trabalho do jCrop. Os valores devem ser processados no PHP. No nosso exemplo, conforme mencionei anteriormente, a função exibePreview vai registrar as posições em inputs do tipo hidden no formulário de envio.</p>
+
+<pre class="brush:javascript">
+function exibePreview( c )
+{
+	// campos hidden que armazenam os valores
+	$('#x').val(c.x);
+	$('#y').val(c.y);
+	$('#x2').val(c.x2);
+	$('#y2').val(c.y2);
+	$('#w').val(c.w);
+	$('#h').val(c.h);
+};
+</pre>
+
+<p>Além disso ela deve atualizar a pré-visualização da imagem recortada. Pra isso vamos precisar do tamanho original da imagem. Se você está usando sempre o mesmo formato de imagem, basta utilizar os mesmos valores sempre. No nosso caso, como a imagem é enviada via formulário, utilizamos a função getimagesize do php para retornar a largura (índice 0 do array) e a altura (índice 1). Elas são necessárias para calcular o posicionamento do crop. A idéia é criar um div com as dimensões do crop, mascarando a imagem original.</p>
+
+<pre class="brush:javascript">
+function exibePreview(c)
+{
+	var rx = 100 / c.w;
+	var ry = 100 / c.h;
+
+	// atualiza CSS do preview para refletir o tamanho da imagem enviada 
+	// e o posicionamento do crop
+	$('#preview').css({
+		width: Math.round(rx * <?php echo $imagesize[0]; ?>) + 'px',
+		height: Math.round(ry * <?php echo $imagesize[1]; ?>) + 'px',
+		marginLeft: '-' + Math.round(rx * c.x) + 'px',
+		marginTop: '-' + Math.round(ry * c.y) + 'px'
+	});
+	
+	// campos hidden que armazenam os valores
+	$('#x').val(c.x);
+	$('#y').val(c.y);
+	$('#x2').val(c.x2);
+	$('#y2').val(c.y2);
+	$('#w').val(c.w);
+	$('#h').val(c.h);
+};
+</pre>
+
+<p>Com a função exibePreview completa, podemos agora atualizar nossa chamada do jCrop:</p>
+
+<pre class="brush:javascript">
+$('#jcrop').Jcrop({
+	onChange: exibePreview,
+	onSelect: exibePreview,
+	aspectRatio: 1
+});
+</pre>
+
+<p>Note a propriedade aspectRatio, utilizada para amarrar largura e altura do crop, mantendo a proporção.</p>
+
+<p>PROCESSAMENTO ENVIO DA IMAGEM</p>
+
+<pre class="brush:xml">
+<form name="frm-jcrop" id="frm-jcrop" method="post" action="index.php" enctype="multipart/form-data">
+	<p>
+		<label>Envie uma imagem:</label>
+		<input type="file" name="imagem" id="imagem" />
+		<input type="submit" value="Enviar" />
+	</p>
+</form>
+</pre>
+
+<pre class="brush:php">
+// processa arquivo
+$imagem		= isset( $_FILES['imagem'] ) ? $_FILES['imagem'] : NULL;
+$tem_crop	= false;
+$img		= '';
+if( $imagem['tmp_name'] )
+{
+	$imagesize = getimagesize( $imagem['tmp_name'] );
+	if( $imagesize !== false )
+	{
+		if( move_uploaded_file( $imagem['tmp_name'], $imagem['name'] ) )
+		{
+			include( 'm2brimagem.class.php' );
+			$oImg = new m2brimagem( $imagem['name'] );
+			if( $oImg->valida() == 'OK' )
+			{
+				$oImg->redimensiona( '400', '', '' );
+				$oImg->grava( $imagem['name'] );
+				
+				$imagesize 	= getimagesize( $imagem['name'] );
+				$img		= '<img src="'.$imagem['name'].'" id="jcrop" '.$imagesize[3].' />';
+				$preview	= '<img src="'.$imagem['name'].'" id="preview" '.$imagesize[3].' />';
+				$tem_crop 	= true;	
+			}
+		}
+	}
+}
+</pre>
+
+<p>Está quase pronto. Temos um formulário para envio da imagem, e todo o javascript que vai processar o crop e atualizar o nosso preview. Falta o código PHP que vai de fato recortar a imagem enviada. Para isso utilizaremos a classe m2brimagem (leia mais sobre ela <a href="http://www.daviferreira.com/blog/post/8/manipulando-e-redimensionando-imagens-com-php.html" title="Leia o artigo Manipulando e redimensionando imagens com PHP">aqui</a>).</p>
+
+<p>O processamento será feito via AJAX, apenas para agilizar o retorno ao usuário, mas nada impede você de fazer o crop em um novo envio do formulário.</p>
+
+<pre class="brush: php">
+$('#btn-crop').click(function(){
+	$.post( 'crop.php', {
+		img:img, 
+		x: $('#x').val(), 
+		y: $('#y').val(), 
+		w: $('#w').val(), 
+		h: $('#h').val()
+	}, function(){
+		$('#div-jcrop').html( '<img src="' + img + '?' + Math.random() + '" width="'+$('#w').val()+'" height="'+$('#h').val()+'" />' );
+	});
+	return false;
+});
+</pre>
+
+<p>CODIGO ACIMA BOTAO AJAX</p>
+
+<p>ARQUIVO CROPAGEM</p>
+
+<pre class="brush:php">
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	include( 'm2brimagem.class.php' );
+	$oImg = new m2brimagem( $_POST['img'] );
+	if( $oImg->valida() == 'OK' )
+	{
+		$oImg->posicaoCrop( $_POST['x'], $_POST['y'] );
+		$oImg->redimensiona( $_POST['w'], $_POST['h'], 'crop' );
+		$oImg->grava( $_POST['img'] );
+	}
+}
+exit;
+</pre>
+
+
+<h2>Outras opções</h2>
+
+<P>CROP FIXO, CSS, CONCLUSÃO</p>
+
+<pre class="brush:javascript">
+$('#jcrop').Jcrop({
+	onChange: exibePreview,
+	onSelect: exibePreview,
+	minSize		: [ 200, 200 ], 
+	maxSize		: [ 200, 200 ],
+	allowResize	: false,
+	addClass	: 'custom'
+});
+</pre>

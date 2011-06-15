@@ -1,45 +1,61 @@
-<p id="notice"><%= notice %></p>
+<div class="post">
+  <article class="alpha">
+    <%= raw(@post.body) %>
+  </article>
+  
+  <div id="comments">
+    <h2><%= total_comments_in_words(@post.comments.length) %></h2>
+    <% if not @post.block_comments %>
+    
+    <h3 id="tit-form-comment">Deixe seu comentário</h3>
+    
+    <% unless @post.comments.empty? %>
+      <ul id="list-comments">
+        <% @post.comments.each do |comment| %>
+        <li class="clearfix <% if comment.author == "Davi Ferreira" %>owner<% end %>">
+					<div class="author">
+						<p></p>
+						<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %l:%M").sub(' ', '<br />')) %></p>
+					</div>
+					<div class="comment">
+						<p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> escreveu:</strong></p>
+						<p><%= sanitize comment.body, :tags => %w(strong em code a) %></p>
+						<% unless @post.block_comments %>
+				    <p class="reply"><a href="#" data-id="<%= comment.id %>" class="lnk-reply">Responder</a></p>
+				    <% end %>
+				  </div>
+				</li>
+        <% end %>
+      </ul>
+    <% end %>
+    
+    <% form_for(@comment, :remote => true) do |f| %>
+			<p id="info-comment">Todos os campos são obrigatórios.</p>
+			<p>
+				<label for="name">Seu nome</label>
+				<input type="text" name="name" id="name" />
+			</p>
+			<p>
+				<label for="email">Seu e-mail <small>(Seu e-mail não será divulgado - serve apenas para validação e gravatar.)</small></label>
+				<input type="text" name="email" id="email" />
+			</p>
+			<p>
+				<label for="site">Você tem site/blog?</label>
+				<input type="text" name="site" id="site" />
+			</p>
+			<p>
+				<label for="message">Digite sua mensagem <small>(<strong>Tags HTML permitidas:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</small></label>
+				<textarea name="message" id="message" rows="4" cols="40"></textarea>
+			</p>
+			<p class="action">
+				<input type="submit" value="Enviar comentário" />
+			</p>
+		<% end %>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Abstract:</b>
-  <%= @post.abstract %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
-
-<p>
-  <b>Published date:</b>
-  <%= @post.published_date %>
-</p>
-
-<p>
-  <b>Meta title:</b>
-  <%= @post.meta_title %>
-</p>
-
-<p>
-  <b>Meta description:</b>
-  <%= @post.meta_description %>
-</p>
-
-<p>
-  <b>Block comments:</b>
-  <%= @post.block_comments %>
-</p>
-
-<p>
-  <b>Published:</b>
-  <%= @post.published %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<script type="text/javascript">
+	SyntaxHighlighter.config.clipboardSwf = '/clipboard.swf';
+	SyntaxHighlighter.all();
+</script>

@@ -1,0 +1,22 @@
+<div id="bottom-toolbar">
+  <div class="container">
+    <% if blog_home_page? %>
+      <p>Meu nome é <%= link_to "Davi Ferreira", "http://www.twitter.com/davitferreira", :title => "Siga-me no twitter!" %> e sou um <%= link_to "desenvolvedor web", root_path, :title => "Visite meu portfólio!" %> com grande interesse em interfaces e usabilidade. Aqui você encontra artigos sobre programação e design.</p>
+    <% else %>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.daviferreira.com/blog/post/<%=@post.id%>/<%=@post.cached_slug%>.html">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <%= link_to "Ir para a capa do blog", blog_path %>.
+      Publicado há <%= time_ago_in_words(@post.published_date) %>. 
+      <%= link_to total_comments_in_words(@post.comments.length), "#comments" %>. 
+  <% end %>
+    </div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1735379-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>

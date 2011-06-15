@@ -1,6 +1,10 @@
 <div id="projects-container">
   <div id="projects" class="clearfix" data-page="<%=(@projects.count/6)%>">
-    <% unless @projects.empty? %>
+    <% if @projects.empty? %>
+      <div class="no-results">
+          <p>Nenhum projeto encontrado com o termo "<%= @search %>" :-(</p>
+      </div>
+    <% else %>
       <%= render 'projects' %>
       <div class="pagination-container">
         <%= will_paginate @projects %>

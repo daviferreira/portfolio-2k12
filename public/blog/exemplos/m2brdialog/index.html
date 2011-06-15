@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>M2BRDialog | jQuery plugin para substituir alertas do sistema</title>
+
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery-ui.js" type="text/javascript"></script>
+<script src="m2br.dialog.pack.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="m2br.dialog.css" />
+<link rel="stylesheet" type="text/css" href="exemplo.css" />
+
+</head>
+
+<body>
+	<div style="padding:30px">
+
+		<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined <a href="#" class="m2brdialog">chunks as necessary</a>, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+        <p><a href="#" class="m2brdialog">Alerta padrão</a></p>
+        
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        
+        <p style="font-size:14px;text-align:center;"><a href="#" class="m2brdialog-pergunta">Teste de pergunta</a></p>
+        
+        <form name="frm-newsletter" id="frm-newsletter" method="post" action="index.html">
+        	<p style="color:#666;text-align:center;border-bottom:1px dotted #333;margin-bottom:10px;">Informe seu e-mail e recebe nossas novidades.</p>
+        	<label for="email" style="font-size:10px;text-transform:uppercase;">Seu e-mail</label>
+            <input type="text" name="email" id="email" size="60" />
+            <input type="button" id="btn-newsletter" value="OK" style="cursor:pointer;" />
+        </form>
+
+	</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('.m2brdialog').m2brDialog({texto:'PAM! O fim dos alertas!'});
+	
+	$('.m2brdialog-pergunta').m2brDialog({
+		tipo: 		'pergunta',
+		titulo:		'Confirme',
+		texto:		'Tem certeza que deseja executar esta opera&ccedil;&atilde;o?',
+		draggable: true,
+		botoes: {
+			1: {
+				label: 'sim',
+				tipo: 'link',
+				endereco: 'http://www.daviferreira.com'
+			},
+			2: {
+				label: 'n&atilde;o',
+				tipo: 'fechar'
+			}
+		}
+	});	
+	
+	$('#btn-newsletter').m2brDialog({
+		tipo			: 'erro',
+		titulo			: 'Erro!',
+		texto			: 'Por favor, preencha o campo e-mail',
+		condicao		: {
+			origem		:	function() { return ($('#email').val() ? true : false); },
+			retorno		:	function() { return true; }
+		}
+	});
+	
+	alertaPadrao('Erro!', 'Exemplo de alerta on the fly', 'erro', 110, 250);
+	
+});
+
+// alerta padrão
+// função que cria um <a> on the fly para exibir um alerta
+// m2brDialog
+var alertaPadrao = function(titulo, msg, tipo, altura, largura) {
+		$('body').append('<a href="#" id="alerta-padrao"></a>');
+		$('#alerta-padrao').m2brDialog({
+				draggable: true,
+				texto: msg,
+				tipo: tipo,
+				titulo: titulo,
+				altura: altura,
+				largura: largura,
+				botoes: {
+					1: {
+						label: 'Fechar',
+						tipo: 'fechar'
+					}
+				}									   
+		});
+		$('#alerta-padrao')
+			.click()
+			.remove();
+}; // fim alertaPadrao
+
+</script>
+
+</body>
+</html>
