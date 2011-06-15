@@ -1,13 +1,20 @@
 <div id="bottom-toolbar">
-  <div class="container">
+  <div class="container clearfix">
     <% if blog_home_page? %>
-      <p>Meu nome é <%= link_to "Davi Ferreira", "http://www.twitter.com/davitferreira", :title => "Siga-me no twitter!" %> e sou um <%= link_to "desenvolvedor web", root_path, :title => "Visite meu portfólio!" %> com grande interesse em interfaces e usabilidade. Aqui você encontra artigos sobre programação e design. <%=link_to image_tag("rss.png"), blog_path(:format => "atom") %></p>
+      <ul class="social clearfix"><li><%=link_to image_tag("rss.png"), blog_path(:format => "atom") %></li></ul>
+      <p>Meu nome é <%= link_to "Davi Ferreira", "http://www.twitter.com/davitferreira", :title => "Siga-me no twitter!" %> e sou um <%= link_to "desenvolvedor web", root_path, :title => "Visite meu portfólio!" %> com grande interesse em interfaces e usabilidade. Aqui você encontra artigos sobre programação e design.</p>
     <% else %>
-      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.daviferreira.com/blog/post/<%=@post.id%>/<%=@post.cached_slug%>.html">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      <%= link_to "Ir para a capa do blog", blog_path %>.
-      Publicado há <%= time_ago_in_words(@post.published_date) %>. 
+    <ul class="social clearfix">
+      
+      <li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.daviferreira.com/blog/post/<%=@post.id%>/<%=@post.cached_slug%>.html">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+      
+      <li class="fb"><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" layout="button_count" show_faces="false" colorscheme="dark" font=""></fb:like></li>
+      <li class="rss"><%= link_to image_tag("rss.png"), post_path(@post, :format => "atom") %></li>
+    </ul>
+      <span class="home">&larr; <%= link_to "Ir para a capa do blog", blog_path %></span>
+      Publicado há <%= time_ago_in_words(@post.published_date) %>, com
       <%= link_to total_comments_in_words(@post.comments.published.length), "#comments" %>
-      <%= link_to image_tag("rss.png"), post_path(@post, :format => "atom") %>
+      
   <% end %>
     </div>
 </div>

@@ -147,10 +147,14 @@ position: fixed;
 background:transparent url(/images/bottom-toolbar.png) 0 0 repeat-x;
 color:#fff;
 width:100%;
-text-align:center;
 height:50px;
 padding:0 0;
 font-size:13px;
+}
+
+#bottom-toolbar span.home{
+  display:inline-block;
+  margin:0 180px 0 0;
 }
 
 #bottom-toolbar a{
@@ -168,25 +172,21 @@ h2 a:hover{
 #bottom-toolbar div.container{
   margin:0 auto;
   width:960px;
-  text-align:center;
   padding:20px 0 0;
 }
 
-#bottom-toolbar div.container iframe{
+#bottom-toolbar div.container ul.social{
   float:right;
 }
 
-#bottom-toolbar ul li{
-  float:right;
-  list-style:none;
-  margin:0 12px 0 0;
-  list-style:none;
-  padding:2px 0 0;
-}
-
-#bottom-toolbar ul li.first{
+#bottom-toolbar div.container ul.social li{
+  float:left;
   margin:0 0;
-  padding:0 0;
+  list-style:none;
+}
+
+#bottom-toolbar div.container ul.social li.rss{
+  margin:3px 0 0!important;
 }
 
 code{

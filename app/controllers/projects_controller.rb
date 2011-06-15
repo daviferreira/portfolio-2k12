@@ -64,45 +64,6 @@ class ProjectsController < ApplicationController
     @meta_title = "#{@project.name} - Detalhes do projeto - DaviFerreira.com"
 	  @meta_description = @project.description
   end
-
-  def new
-    @project = Project.new
-  end
-
-  def edit
-    @project = Project.find_using_slug(params[:id])
-  end
-
-  def create
-    @project = Project.new(params[:project])
-
-    respond_to do |format|
-      if @project.save
-        redirect_to(@project, :notice => 'Project was successfully created.')
-      else
-        render :action => "new"
-      end
-    end
-  end
-
-  def update
-    @project = Project.find_using_slug(params[:id])
-
-    respond_to do |format|
-      if @project.update_attributes(params[:project])
-        redirect_to(@project, :notice => 'Project was successfully updated.')
-      else
-        render :action => "edit"
-      end
-    end
-  end
-
-  def destroy
-    @project = Project.find_using_slug(params[:id])
-    @project.destroy
-
-    redirect_to(projects_url)
-  end
   
   private
     def initiate_contact
