@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   def home_page?
     controller_path == "projects" and  params[:action] == "index"

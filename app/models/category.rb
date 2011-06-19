@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Category < ActiveRecord::Base
   has_many :projects
   has_many :post_categories, :dependent => :destroy

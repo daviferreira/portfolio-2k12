@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPhotoToProjects < ActiveRecord::Migration
   def self.up
     remove_column :projects, :photo_file_name

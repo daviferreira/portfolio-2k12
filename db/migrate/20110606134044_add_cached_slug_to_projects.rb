@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCachedSlugToProjects < ActiveRecord::Migration
   
   def self.up

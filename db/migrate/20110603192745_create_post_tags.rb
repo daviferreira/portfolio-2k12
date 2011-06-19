@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePostTags < ActiveRecord::Migration
   def self.up
     create_table :post_tags do |t|

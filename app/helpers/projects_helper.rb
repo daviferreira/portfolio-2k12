@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ProjectsHelper
 
   def tags_as_links(tags)

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DropTableProjectTags < ActiveRecord::Migration
   def self.up
 		drop_table :project_tags

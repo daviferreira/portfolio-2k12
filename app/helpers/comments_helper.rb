@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CommentsHelper
 
   def gravatar_for(comment, options = { :size => 69 })

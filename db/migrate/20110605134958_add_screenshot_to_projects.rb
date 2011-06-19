@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddScreenshotToProjects < ActiveRecord::Migration
   def self.up
     add_column :projects, :screenshot_file_name,    :string

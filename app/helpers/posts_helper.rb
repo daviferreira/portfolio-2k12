@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module PostsHelper
   def total_comments_in_words(total)
     if total > 0

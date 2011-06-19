@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateProjectTags < ActiveRecord::Migration
   def self.up
     create_table :project_tags do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Post < ActiveRecord::Base
   has_many :comments
   has_many :post_categories, :dependent => :destroy

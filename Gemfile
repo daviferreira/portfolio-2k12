@@ -1,27 +1,27 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '>= 3.0.9' 
 gem 'sqlite3'
-gem 'nifty-generators'
-gem 'mongrel'
 gem 'paperclip'
 gem 'will_paginate'
 gem 'slugged'
+gem 'actionmailer', '>= 3.0.9' 
 gem 'mail'
 gem 'gravatar_image_tag'
 gem 'rakismet'
 gem 'devise'
+gem "mongrel", '>= 1.2.0.pre2' 
 
 group :development do
-  gem 'rspec-rails', '2.5.0'
-	gem 'annotate-models', '1.0.4'
-  gem 'faker', '0.3.1'
+  gem 'rspec-rails'
+	gem 'annotate-models'
+  gem 'faker'
 end
 
 group :test do
-  gem 'rspec', '2.5.0'
-  gem 'webrat', '0.7.1'
-  gem 'spork', '0.9.0.rc3'
+  gem 'rspec'
+  gem 'webrat'
+  gem 'spork'
   gem 'ZenTest'
-	gem 'factory_girl_rails', '1.0'
+	gem 'factory_girl_rails'
 end

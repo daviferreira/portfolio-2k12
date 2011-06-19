@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Factory.define :project do |project|
   project.name "Foo"
   project.description "Bar"

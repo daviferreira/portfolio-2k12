@@ -2,6 +2,10 @@
   msgTopo("Não deu pra salvar seu comentário. Verifique os campos obrigatórios.", "erro", 5000);
 <% else %>
   msgTopo("<%=@message%>", "msg", 5000);
+  if($('#list-comments').length < 1){
+    $('<ul id="list-comments"></ul>').insertAfter('div#comments h2:first');
+    $('div#comments h2:first').text('1 comentário.');
+  }
   $('#list-comments').append("<%= escape_javascript(render(@comment)) %>");
   $('#new_comment').find('input:text, textarea').val('');
 <% end %>

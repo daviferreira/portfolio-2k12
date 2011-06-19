@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTagsToPosts < ActiveRecord::Migration
   def self.up
     add_column :posts, :tags, :string
