@@ -14,16 +14,17 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_using_slug(params[:id])
+    
     categories = ""
     unless @post.post_categories.empty?
-      categories = " |"
       @post.post_categories.each do |post_category|
-        category = Category.find(post_category.category_id)
-        categories += " " + category.name
+        categories += " | " + post_category.category.name
       end
     end
+    
     @meta_title = @post.title + categories
     @meta_description = categories + @post.title
+    
     redirect_to blog_path if not @post or not @post.published?
     
     respond_to do |format|

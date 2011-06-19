@@ -41,12 +41,6 @@ class ProjectsController < ApplicationController
 		
     @posts = Post.published.limit(3)
     @categories = Category.where("area = 1")
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @projects }
-      format.js
-    end
   end
   
   def live_search
