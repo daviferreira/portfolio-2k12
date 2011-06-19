@@ -1,17 +1,19 @@
-<%= form_for @contact, :url => { :controller => "contacts", :action => "create" }, :html => { :method => :post }, :remote => true do |f| %>
-  <div class="field">
-    <%= f.label "Seu nome" %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label "Seu e-mail" %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label "Sua mensagem" %>
-    <%= f.text_area :message %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Enviar" %>
-  </div>
+<% if @contact %>
+  <%= form_for @contact, :url => { :controller => "contacts", :action => "create" }, :html => { :method => :post }, :remote => true do |f| %>
+    <div class="field">
+      <%= f.label "Seu nome" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label "Seu e-mail" %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label "Sua mensagem" %>
+      <%= f.text_area :message %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Enviar" %>
+    </div>
+  <% end %>
 <% end %>
