@@ -15,6 +15,10 @@ Portfolio::Application.routes.draw do
     
     resources :categories
 
+    resources :users
+
+    match '/users/:id/edit', :to => 'users#edit', :as => :edit_user
+
     #resources :users
   end
 

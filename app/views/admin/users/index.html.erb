@@ -1,0 +1,26 @@
+<header><h3>usuários</h3></header>
+<div class="module_content">
+<table class="tablesorter" cellspacing="0"> 
+  <thead> 
+  <tr> 
+      <th></th> 
+      <th>E-mail</th> 
+      <th>Actions</th> 
+  </tr> 
+  </thead> 
+  <tbody> 
+
+  <% @users.each do |user| %>
+    <tr> 
+      <td><input type="checkbox"></td> 
+      <td><%= user.email %></td> 
+      <td>
+        <%= link_to image_tag("admin/icn_edit.png", :title => "Editar usuário"),  admin_edit_user_path(user) %>
+        <input type="image" src="/images/admin/icn_trash.png" title="Trash">
+      </td> 
+    </tr> 
+  <% end %>
+
+</tbody>
+</table>
+</div>
