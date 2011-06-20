@@ -13,7 +13,7 @@ Portfolio::Application.routes.draw do
     
     root :to => "home#index"
     
-    match "categories/new" => "categories#new", :as => :new_category
+    resources :categories
 
     #resources :users
   end

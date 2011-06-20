@@ -9,33 +9,34 @@
 </head>
 <body>
 
-  	<header id="header">
+  	<!-- header id="header">
   		<hgroup>
   			<h1 class="site_title"><a href="index.html">DaviFerreira.com</a></h1>
   			<% if user_signed_in? %><h2 class="section_title">Dashboard</h2><div class="btn_view_site"><%= link_to "Visitar o site", root_path, :rel => "external" %></div><% end %>
   		</hgroup>
-  	</header> <!-- end of header bar -->
+  	</header --> <!-- end of header bar -->
 
     <% if user_signed_in? %>
   	<section id="secondary_bar">
   		<div class="user">
-  			<p><%= current_user.email %></p>
+  			<p><%= link_to "DaviFerreira.com", admin_root_path %></p>
+  			<%= link_to "Logout", destroy_user_session_path, :class => "logout_user" %>
   			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
   		</div>
   		<div class="breadcrumbs_container">
-  			<article class="breadcrumbs"><a href="index.html">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
+  			<article class="breadcrumbs"><%= link_to "Admin", admin_root_path %> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
   		</div>
   	</section><!-- end of secondary bar -->
 
   	<aside id="sidebar" class="column">
-  		<!-- form class="quick_search">
+  		<form class="quick_search">
   			<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
-  		</form -->
+  		</form>
   		<hr/>
   		<h3>Categorias</h3>
   		<ul class="toggle">
-  			<li class="icn_new_article"><%= link_to "Nova categoria", new_category_path %></li>
-  			<li class="icn_edit_article"><a href="#">Editar categorias</a></li>
+  			<li class="icn_new_article"><%= link_to "Nova categoria", new_admin_category_path %></li>
+  			<li class="icn_edit_article"><%= link_to "Editar categorias", admin_categories_path %></li>
   		</ul>
   		<h3>Projetos</h3>
   		<ul class="toggle">
@@ -59,11 +60,11 @@
   			<li class="icn_jump_back"><%= link_to "Logout", destroy_user_session_path %></li>
   		</ul>
 
-  		<footer>
+  		<!-- footer>
   			<hr />
   			<p><strong>Copyright &copy; 2011 DaviFerreira.com</strong></p>
   			<p>Theme by <a href="http://www.medialoot.com">MediaLoot</a></p>
-  		</footer>
+  		</footer -->
   	</aside><!-- end of sidebar -->
   	<% end %>
 
