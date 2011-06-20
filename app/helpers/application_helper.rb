@@ -3,11 +3,7 @@ module ApplicationHelper
   def home_page?
     controller_path == "projects" and  params[:action] == "index"
   end
-  
-  def blog?
-    controller_path == "posts"
-  end
-  
+    
   def blog_home_page?
     controller_path == "posts" and  params[:action] == "index"
   end
