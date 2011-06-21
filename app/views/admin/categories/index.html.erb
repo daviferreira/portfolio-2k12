@@ -1,0 +1,29 @@
+<header><h3>categorias</h3></header>
+<div class="module_content">
+<table class="tablesorter" cellspacing="0"> 
+  <thead> 
+  <tr> 
+      <th></th> 
+      <th>Nome</th> 
+      <th>Ações</th> 
+  </tr> 
+  </thead> 
+  <tbody> 
+
+  <% @categories.each do |category| %>
+    <tr> 
+      <td><input type="checkbox"></td> 
+      <td><%= category.name %></td> 
+      <td>
+        <%= link_to image_tag("admin/icn_edit.png", :title => "Editar categoria"), "#" %>
+        <input type="image" src="/images/admin/icn_trash.png" title="Trash">
+      </td> 
+    </tr> 
+  <% end %>
+
+</tbody>
+</table>
+
+<%= will_paginate @categories, :next_label => "próximo &raquo;", :previous_label => "&laquo; anterior" %>
+
+</div>
