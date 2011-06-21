@@ -818,7 +818,7 @@ line-height: 150%;
 
 /* Alerts */
 
-#main h4.alert_info {
+#main h4.info {
 display: block;
 width: 95%;
 margin: 20px 3% 0 3%;
@@ -834,7 +834,7 @@ padding: 10px 0;
 text-indent: 40px;
 font-size: 14px;}
 
-#main h4.alert_warning {
+#main h4.notice {
 display: block;
 width: 95%;
 margin: 20px 3% 0 3%;
@@ -850,7 +850,7 @@ padding: 10px 0;
 text-indent: 40px;
 font-size: 14px;}
 
-#main h4.alert_error {
+#main h4.error {
 display: block;
 width: 95%;
 margin: 20px 3% 0 3%;
@@ -866,7 +866,7 @@ padding: 10px 0;
 text-indent: 40px;
 font-size: 14px;}
 
-#main h4.alert_success {
+#main h4.success {
 display: block;
 width: 95%;
 margin: 20px 3% 0 3%;

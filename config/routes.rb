@@ -22,10 +22,7 @@ Portfolio::Application.routes.draw do
     root :to => "home#index"
     
     resources :categories
-
-    resources :users, :controller => "users"
-
-    match '/users/:id/edit', :to => 'users#edit', :as => :edit_user
+    resources :users
 
   end
 

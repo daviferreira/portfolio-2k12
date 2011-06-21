@@ -1,0 +1,16 @@
+<%= form_for @category, :url => url do |f| %>
+
+  <%= render 'admin/shared/error_messages', :object => f.object %>
+
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <footer>
+    <div class="submit_link">
+      <%= f.submit "Salvar", :class => "alt_btn" %>
+    </div>
+  </footer>
+
+<% end %>

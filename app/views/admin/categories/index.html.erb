@@ -1,5 +1,11 @@
 <header><h3>categorias</h3></header>
 <div class="module_content">
+  
+<% flash.each do |key, value| %>
+  <h4 class="flash <%= key %>"><%= value %></h4>
+  <div class="clear" style="margin:0 0 12px 0;"></div>
+<% end %>
+  
 <table class="tablesorter" cellspacing="0"> 
   <thead> 
   <tr> 
@@ -15,7 +21,7 @@
       <td><input type="checkbox"></td> 
       <td><%= category.name %></td> 
       <td>
-        <%= link_to image_tag("admin/icn_edit.png", :title => "Editar categoria"), "#" %>
+        <%= link_to image_tag("admin/icn_edit.png", :title => "Editar categoria"), edit_admin_category_path(category) %>
         <input type="image" src="/images/admin/icn_trash.png" title="Trash">
       </td> 
     </tr> 

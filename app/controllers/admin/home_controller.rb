@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class Admin::HomeController < Admin::AdminController
-  layout "admin"
   
   def index
     if user_signed_in?
