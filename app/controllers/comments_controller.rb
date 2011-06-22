@@ -17,5 +17,10 @@ class CommentsController < ApplicationController
       @erro = true
     end
   end
+  
+  def reply
+    @comment = Comment.find(params[:id])
+    @post = Post.find_using_slug(@comment.post_id)
+  end
 
 end

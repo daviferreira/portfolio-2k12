@@ -20,6 +20,15 @@
 </div>
 
 <script type="text/javascript">
+<% if not blog_home_page? %>
+$('p.reply a').live('click',function(e){  
+  $.getScript(this.href, function(){
+    
+  });  
+  e.preventDefault();
+});
+<% end %>
+
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>

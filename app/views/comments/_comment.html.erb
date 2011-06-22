@@ -7,7 +7,7 @@
 		<p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> escreveu:</strong></p>
 		<p><%= sanitize comment.body, :tags => %w(strong em code a br) %></p>
 		<% unless @post.block_comments %>
-    <p class="reply"><a href="#" data-id="<%= comment.id %>" class="lnk-reply">Responder</a></p>
+    <p class="reply"><%= link_to "Responder", reply_comment_path(comment), :id => "lnk-reply-#{comment.id}" %></p>
     <% end %>
   </div>
 </li>

@@ -469,6 +469,11 @@ ul#blog-posts{
   margin:0 12px 0 10px;
 }
 
+ul#blog-posts h3 a{
+  color:#fff;
+  text-decoration:none;
+}
+
 ul#blog-posts li{
   color:#333;
   border-bottom:1px solid #333;

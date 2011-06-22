@@ -53,7 +53,7 @@ Portfolio::Application.routes.draw do
   match "/blog/feed",         :to => "posts#feed", :as => :feed_posts
   match "/post/:id/feed",     :to => "posts#feed_comments", :as => :feed_comments
   
-  
+  match "/comment/:id/reply", :to => "comments#reply", :as => :reply_comment
   
   #match '*path' => redirect('/')
 
