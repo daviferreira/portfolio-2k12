@@ -208,6 +208,8 @@ div#comments{
 
 div.post-abstract{
   margin:24px 0 24px 0;
+  padding:0 0 24px 0;
+  border-bottom:1px dashed #ccc;
 }
 
 div.post-abstract h2 a{
@@ -252,3 +254,12 @@ div.post-abstract span a{
 }
 
 #new_comment small{display:block;}
+
+p.abstract a{
+  color:#333!important;
+}
+
+p.abstract a:hover{
+  color:#000!important;
+}
+

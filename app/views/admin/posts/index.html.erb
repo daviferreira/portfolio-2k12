@@ -1,0 +1,48 @@
+<header><h3>posts</h3></header>
+<div class="module_content">
+  
+<% flash.each do |key, value| %>
+  <h4 class="flash <%= key %>"><%= value %></h4>
+  <div class="clear" style="margin:0 0 12px 0;"></div>
+<% end %>
+  
+<table class="tablesorter" cellspacing="0"> 
+  <thead> 
+  <tr> 
+      <th></th> 
+      <th>Título</th> 
+      <th>Categorias</th> 
+      <th>Data de publicação</th> 
+      <th>Publicado?</th>
+      <th>Ações</th> 
+  </tr> 
+  </thead> 
+  <tbody> 
+
+  <% @posts.each do |post| %>
+    <tr> 
+      <td><input type="checkbox"></td> 
+      <td><%= post.title %></td> 
+      <td>
+        <% post.post_categories.each do |post_category| %>
+          <%= post_category.category.name %><br />
+        <% end %>
+      </td> 
+      <td><%= post.published_date.strftime("%d/%m/%Y %l:%M") %></td> 
+      <td><% if post.published? %>sim<% else %>não<% end %></td>
+      <td>
+        <%= link_to image_tag("admin/icn_edit.png", :title => "Editar post"), edit_admin_post_path(post) %>
+        <%= link_to image_tag("admin/icn_trash.png", :title => "Excluir post"), admin_post_path(post), 
+                                 :method => :delete,
+    														 :confirm => "Tem certeza que deseja excluir este post?",
+    												 		 :title => "Excluir post" %>
+      </td> 
+    </tr> 
+  <% end %>
+
+</tbody>
+</table>
+
+<%= will_paginate @posts, :next_label => "próximo &raquo;", :previous_label => "&laquo; anterior" %>
+
+</div>

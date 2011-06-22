@@ -18,6 +18,10 @@ Portfolio::Application.routes.draw do
     resources :categories
     resources :users
     resources :projects
+    resources :posts
+    resources :comments
+    
+    match "/project/:id/delete_screenshot", :to => "users#destroy_screenshot", :as => :delete_project_screenshot
 
   end
 

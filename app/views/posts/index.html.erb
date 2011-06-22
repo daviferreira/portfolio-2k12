@@ -4,10 +4,7 @@
   <div class="post-abstract">
     <h2><%= link_to post.title, post_path(post) %></h2>
     <p class="time-ago">Publicado há <%= time_ago_in_words(post.published_date) %>. <%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %></p>
-    <p class="abstract"><%= post.abstract %></p>
-    <p class="actions">
-      <span><%= link_to "Continue lendo", post_path(post) %></span>
-    </p>
+    <p class="abstract"><%= link_to post.abstract, post_path(post) %></p>
   </div>
   <% end %>
   

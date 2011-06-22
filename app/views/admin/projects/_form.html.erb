@@ -26,7 +26,7 @@
     <% categories_array = Category.where("area=1").map { |category| [category.name, category.id] } %>    
     <select name="project[category_id]">
       <option value=""></option>
-      <%= options_for_select(categories_array) %>
+      <%= options_for_select(categories_array, @project.category_id) %>
     </select>
   </fieldset>
 
@@ -35,11 +35,53 @@
      <%= f.text_field :tags %>
    </fieldset>
 
-   <fieldset>
-       <%= f.label :screenshot %>
-       <%= f.file_field :screenshot %>
-     </fieldset>
+		<% if @project.screenshot.exists? then %>
+		<div id="box-form-screenshot">
+			<%= image_tag @project.screenshot.url(:thumb) %>
+			<div class="actions">
+				<div class="buttons">
+					<%= link_to "Excluir", "#", :class => "lnk-del-img" %> ou 
+					<%= link_to "trocar imagem", "#", :id => "btn-change-image" %>
+				</div>
+				<%= render "screenshot_field", :f => f, :display => false %>
+				<div class="confirmation" style="display:none">
+					Deseja mesmo excluir seu screenshot atual?
+					<ul class="clearfix">
+						<li><%= link_to "sim!", admin_delete_project_screenshot_path(@project), :class => "yes", :remote => true %></li>
+						<li><%= link_to "não, mudei de ideia...", "#", :class => "no" %></li>
+					</ul>
+				</div>
+			</div>
+			
+			<script>
+			$('#btn-change-image').live('click', function(e){
+				if($('#screenshot-field').is(':visible')){
+					$('#screenshot-field').fadeOut();
+				}else{
+					$('#screenshot-field').fadeIn();
+				}
+				e.preventDefault();
+			});
+			$('.lnk-del-img').live('click', function(e){
+				$('#box-form-screenshot div.actions div.buttons').fadeOut(function(){
+					$('#box-form-screenshot div.actions div.confirmation').fadeIn();
+				});
+				e.preventDefault();
+			});
+			$('#box-form-screenshot a.no').live('click', function(e){
+				$('#box-form-screenshot div.actions div.confirmation').fadeOut(function(){
+					$('#box-form-screenshot div.actions div.buttons').fadeIn();
+				});
+				e.preventDefault();
+			});
+		</script>
+		</div>  	  
+  <% else %>
+  	<%= render "screenshot_field", :f => f, :display => true %>
+  <% end %>
 
+
+ 
    <fieldset>
      <%= f.label "Publicar?" %>
      <%= f.check_box :published %>
