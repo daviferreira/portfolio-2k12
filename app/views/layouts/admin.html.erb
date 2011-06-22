@@ -40,8 +40,13 @@
   		</ul>
   		<h3>Projetos</h3>
   		<ul class="toggle">
-  			<li class="icn_new_article"><a href="#">Novo projeto</a></li>
-  			<li class="icn_edit_article"><a href="#">Editar projetos</a></li>
+  			<li class="icn_new_article"><%= link_to "Novo projeto", new_admin_project_path %></li>
+  			<li class="icn_edit_article"><%= link_to "Editar projetos", admin_projects_path %></li>
+  		</ul>
+  		<h3>Screenshots</h3>
+  		<ul class="toggle">
+  			<li class="icn_new_article"><%= link_to "Novo screenshot", "#" %></li>
+  			<li class="icn_edit_article"><%= link_to "Editar screenshots", "#" %></li>
   		</ul>
   		<h3>Posts</h3>
   		<ul class="toggle">
@@ -53,7 +58,7 @@
   		<ul class="toggle">
         <li class="icn_add_user"><%= link_to "Novo usuário", new_admin_user_path %></li>
         <li class="icn_view_users"><%= link_to "Editar usuários", admin_users_path %><!-- a href="#">View Users</a --></li>
-        <li class="icn_profile"><%= link_to "Sua conta", "#" %></li>
+        <li class="icn_profile"><%= link_to "Sua conta", edit_admin_user_path(current_user) %></li>
   		</ul>
   		<h3>Admin</h3>
   		<ul class="toggle">

@@ -1,25 +1,3 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
-$('.pagination a').live('click',function(e){  
-  $('<div class="loader clearfix"><img src="/images/loader.gif" width="62" height="13" /></div>').insertAfter('.pagination-container');
-  $('.pagination-container').hide();
-
-  var pg = $('span.current:first').text();
-  var pg_click = $(this).text();
-  var link = this;
-  //<span class="current">1</span>
-  //<a href="/?page=2" rel="next">2</a>
-  $.getScript(this.href+"&pg_atual="+pg+"&pg_click="+pg_click, function(){
-    $('.loader').remove();
-    $('.pagination-container').show();
-    $('<a href="/?page='+pg+'" rel="next">'+pg+'</a>').insertAfter('span.current');
-    $('span.current').remove();
-    $('<span class="current">'+pg_click+'</span>').insertAfter(link);
-    $(link).remove();
-  });  
-  e.preventDefault();
-});
-
 $('div.select a').live('click', function(e){
   $('.filter-options').hide();
   $('div.select a').parent().removeClass('active');

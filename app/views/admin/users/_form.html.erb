@@ -1,0 +1,15 @@
+<%= form_for @user, :url => url do |f| %>
+
+  <%= render 'admin/shared/error_messages', :object => f.object %>
+
+  <p><%= f.label :email %><br />
+  <%= f.email_field :email %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password, :autocomplete => "off" %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, :autocomplete => "off" %></p>
+
+  <p><%= f.submit "Salvar" %></p>
+<% end %>

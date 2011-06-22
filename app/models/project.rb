@@ -5,6 +5,10 @@ class Project < ActiveRecord::Base
   has_many :photos
   is_sluggable :name
   
-  default_scope :order => 'projects.due_date DESC'
   scope :published, :conditions => { :published => true }, :order => 'projects.due_date DESC'
+  
+  validates :name, :presence 	=> true
+  validates :description, :presence 	=> true
+  validates :category_id, :presence 	=> true
+  validates :due_date, :presence 	=> true
 end

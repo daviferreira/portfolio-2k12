@@ -1,0 +1,55 @@
+<%= form_for @project, :url => url, :html => {:multipart => true} do |f| %>
+
+  <%= render 'admin/shared/error_messages', :object => f.object %>
+
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :due_date %>
+    <%= f.text_field :due_date, :class => "calendar" %>
+  </fieldset>
+
+  <fieldset>
+    <% categories_array = Category.where("area=1").map { |category| [category.name, category.id] } %>    
+    <select name="project[category_id]">
+      <option value=""></option>
+      <%= options_for_select(categories_array) %>
+    </select>
+  </fieldset>
+
+  <fieldset>
+     <%= f.label :tags %>
+     <%= f.text_field :tags %>
+   </fieldset>
+
+   <fieldset>
+       <%= f.label :screenshot %>
+       <%= f.file_field :screenshot %>
+     </fieldset>
+
+   <fieldset>
+     <%= f.label "Publicar?" %>
+     <%= f.check_box :published %>
+   </fieldset>
+
+
+  <footer>
+    <div class="submit_link">
+      <%= f.submit "Salvar", :class => "alt_btn" %>
+    </div>
+  </footer>
+
+<% end %>

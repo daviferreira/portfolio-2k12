@@ -9,13 +9,7 @@ Portfolio::Application.routes.draw do
 
   resources :projects
 
-  scope '/admin' do
-    devise_for :users, :controllers => { :sessions => "admin/sessions" }, :skip => [:sessions] do
-      get 'signin' => 'admin/sessions#new', :as => :new_user_session
-      post 'signin' => 'admin/sessions#create', :as => :user_session
-      get 'signout' => 'admin/sessions#destroy', :as => :destroy_user_session
-    end
-  end
+
 
   namespace :admin do 
     
@@ -23,9 +17,23 @@ Portfolio::Application.routes.draw do
     
     resources :categories
     resources :users
+    resources :projects
 
   end
 
+
+  scope '/admin' do
+    devise_for :users, :controllers => { :sessions => "admin/sessions" }, :skip => [:sessions] do
+      get 'signin' => 'admin/sessions#new', :as => :new_user_session
+      post 'signin' => 'admin/sessions#create', :as => :user_session
+      get 'signout' => 'admin/sessions#destroy', :as => :destroy_user_session
+    end
+    devise_scope :user do 
+      match "/users/:id/edit" => "admin/users#edit" 
+      match "/users/new" => "admin/users#new" 
+      match "/users" => "admin/users#index" 
+    end
+  end
   
   root :to => "projects#index"
   

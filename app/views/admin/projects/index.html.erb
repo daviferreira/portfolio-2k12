@@ -1,0 +1,40 @@
+<header><h3>projetos</h3></header>
+<div class="module_content">
+  
+<% flash.each do |key, value| %>
+  <h4 class="flash <%= key %>"><%= value %></h4>
+  <div class="clear" style="margin:0 0 12px 0;"></div>
+<% end %>
+  
+<table class="tablesorter" cellspacing="0"> 
+  <thead> 
+  <tr> 
+      <th></th> 
+      <th>Nome</th> 
+      <th>Publicado em</th>
+      <th>Ações</th> 
+  </tr> 
+  </thead> 
+  <tbody> 
+
+  <% @projects.each do |project| %>
+    <tr> 
+      <td><input type="checkbox"></td> 
+      <td><%= project.name %></td> 
+      <td><%= project.due_date.strftime("%d/%m/%Y %l:%M") %></td>
+      <td>
+        <%= link_to image_tag("admin/icn_edit.png", :title => "Editar projeto"), edit_admin_project_path(project) %>
+        <%= link_to image_tag("admin/icn_trash.png", :title => "Excluir projeto"), admin_project_path(project), 
+                                 :method => :delete,
+    														 :confirm => "Tem certeza que deseja excluir este projeto?",
+    												 		 :title => "Excluir #{project.name}" %>
+      </td> 
+    </tr> 
+  <% end %>
+
+</tbody>
+</table>
+
+<%= will_paginate @projects, :next_label => "próximo &raquo;", :previous_label => "&laquo; anterior" %>
+
+</div>

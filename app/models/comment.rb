@@ -9,7 +9,6 @@ class Comment < ActiveRecord::Base
                    :content => :body,
                    :user_ip => :ip
   
-  default_scope :order => 'comments.created_at ASC'
   scope :published, :conditions => { :published => true }, :order => 'comments.created_at ASC'
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

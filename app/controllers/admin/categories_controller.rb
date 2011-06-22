@@ -40,5 +40,12 @@ class Admin::CategoriesController < Admin::AdminController
       render 'edit'
     end
   end
+  
+  def destroy
+    @category = Category.find_using_slug(params[:id])
+		@category.destroy
+		flash[:success] = "Categoria excluída com sucesso"
+		redirect_to admin_categories_path
+  end
 
 end

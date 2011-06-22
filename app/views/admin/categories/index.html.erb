@@ -22,7 +22,10 @@
       <td><%= category.name %></td> 
       <td>
         <%= link_to image_tag("admin/icn_edit.png", :title => "Editar categoria"), edit_admin_category_path(category) %>
-        <input type="image" src="/images/admin/icn_trash.png" title="Trash">
+        <%= link_to image_tag("admin/icn_trash.png", :title => "Excluir categoria"), admin_category_path(category), 
+                                 :method => :delete,
+    														 :confirm => "Tem certeza que deseja excluir esta categoria?",
+    												 		 :title => "Excluir #{category.name}" %>
       </td> 
     </tr> 
   <% end %>
