@@ -1,0 +1,67 @@
+<%= form_for @post, :url => url do |f| %>
+
+  <%= render 'admin/shared/error_messages', :object => f.object %>
+
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :published_date %>
+    <%= f.text_field :published_date %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :abstract %>
+    <%= f.text_area :abstract %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label "Publicar?" %>
+    <%= f.check_box :published %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label "Bloquear comentários?" %>
+    <%= f.check_box :block_comments %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :meta_title %>
+    <%= f.text_field :meta_title %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :meta_description %>
+    <%= f.text_area :meta_description %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :tags %>
+    <%= f.text_field :tags %>
+  </fieldset>
+  
+  <fieldset>
+  <% @categories.each do |category| %>
+    <% if @post.categories and @post.categories.include?(category) %>
+      <% checked = true %>
+    <% else %>
+      <% checked = false %>
+    <% end %>
+    <label><%= check_box_tag "categories[]", category.id, checked %> <%= category.name %></label>
+  <% end %>  
+  </fieldset>
+  
+  <footer>
+    <div class="submit_link">
+      <%= f.submit "Salvar", :class => "alt_btn" %>
+    </div>
+  </footer>
+
+<% end %>

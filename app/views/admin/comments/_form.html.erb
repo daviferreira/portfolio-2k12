@@ -1,0 +1,31 @@
+<%= form_for @comment, :url => url do |f| %>
+
+  <%= render 'admin/shared/error_messages', :object => f.object %>
+
+  <fieldset>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </fieldset>
+
+  <footer>
+    <div class="submit_link">
+      <%= f.submit "Salvar", :class => "alt_btn" %>
+    </div>
+  </footer>
+
+<% end %>
