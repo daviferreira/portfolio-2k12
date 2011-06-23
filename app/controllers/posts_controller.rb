@@ -17,11 +17,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_using_slug(params[:id])
+    @comment = Comment.new
     
     categories = ""
-    unless @post.post_categories.empty?
-      @post.post_categories.each do |post_category|
-        categories += " | " + post_category.category.name
+    unless @post.categories.empty?
+      @post.categories.each do |category|
+        categories += " | " + category.name
       end
     end
     

@@ -6,6 +6,11 @@
     $('<ul id="list-comments"></ul>').insertAfter('div#comments h2:first');
     $('div#comments h2:first').text('1 comentário.');
   }
-  $('#list-comments').append("<%= escape_javascript(render(@comment)) %>");
+  <% if @comment.comment_id > 0 %>
+    $('#new_comment_<%= @comment.comment_id %>').fadeOut('fast', function(){ $(this).remove(); });
+    $("<%= escape_javascript(render(@comment)) %>").insertAfter('#comment-<%= @comment.comment_id %>');
+  <% else %>
+    $('#list-comments').append("<%= escape_javascript(render(@comment)) %>");
+  <% end %>
   $('#new_comment').find('input:text, textarea').val('');
 <% end %>

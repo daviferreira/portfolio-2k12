@@ -9,14 +9,14 @@
     <% unless @post.comments.published.empty? %>
       <ul id="list-comments">
         <% @post.comments.published.each do |comment| %>
-          <%= render comment %>
+          <%= render comment if comment.comment_id == 0 %>
         <% end %>
       </ul>
     <% end %>
     
     <% if not @post.block_comments %>
     <h3 id="tit-form-comment">Deixe seu comentário</h3>
-      <%= render "comments/form" %>
+      <%= render "comments/form", :id => "new_comment" %>
     <% end %>
   </div>
 </div>

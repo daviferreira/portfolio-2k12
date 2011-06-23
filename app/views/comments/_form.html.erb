@@ -1,5 +1,6 @@
-<% form_for(@post.comments.build, :remote => true) do |f| %>
+<% form_for(@post.comments.build, :remote => true, :html => { :id => id, :class => "new_comment" } ) do |f| %>
   <%= f.hidden_field :post_id, {:value => @post.id} %>
+  <%= f.hidden_field :comment_id, {:value => @comment.id } %>
 	<p>
 		<%= f.label :author, "* Seu nome " %>
 		<%= f.text_field :author %>

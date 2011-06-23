@@ -1,4 +1,4 @@
-<li id="comment-<%=comment.id%>" class="clearfix <% if comment.author == "Davi Ferreira" %>owner<% end %>">
+<li id="comment-<%=comment.id%>" class="clearfix<% if comment.author == "Davi Ferreira" %> owner<% end %><% if comment.comment_id > 0 %> reply<% end %>">
 	<div class="author">
 		<p><%= gravatar_for comment %></p>
 		<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %l:%M").sub(' ', '<br />')) %></p>
@@ -11,3 +11,8 @@
     <% end %>
   </div>
 </li>
+<% unless comment.comments.empty? %>
+  <% comment.comments.each do |reply| %>
+    <%= render reply %>
+  <% end %>
+<% end %>

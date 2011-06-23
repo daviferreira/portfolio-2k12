@@ -1,1 +1,2 @@
-$('<%= escape_javascript(render("comments/form")) %>').insertAfter('#lnk-reply-<%= @comment.id %>');
+$('<%= escape_javascript(render("comments/form", :id => "new_comment_#{@comment.id}")) %>').insertAfter('#lnk-reply-<%= @comment.id %>');
+$('#new_comment_<%= @comment.id %> input:text:first').focus();

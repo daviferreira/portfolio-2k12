@@ -122,7 +122,16 @@ ul#list-comments li.owner p.date, ul#list-comments li.owner a{
   color:#33a0da;
 }
 
-form#new_comment p label, form#new_comment-reply p label {
+form.new_comment{
+  padding:12px;
+  background-color:#f2f2f2;
+  width:470px;
+  border-radius:6px;
+  -moz-border-radius:6px;
+  -moz-border-radius:6px;
+}
+
+form.new_comment p label, form.new_comment-reply p label {
 	display:block;
 } 
 
@@ -131,7 +140,7 @@ small {
 	color:#333;
 }
 
-form#new_comment-reply input[type="text"], form#new_comment-reply textarea, form#new_comment input[type="text"], form#new_comment textarea {
+form.new_comment-reply input[type="text"], form.new_comment-reply textarea, form.new_comment input[type="text"], form.new_comment textarea {
 	width:450px;
 	padding:0.7em;
 }
@@ -248,12 +257,12 @@ div.post-abstract span a{
   background-color:#fff;
 }
 
-#new_comment input[type="submit"]{
+.new_comment input[type="submit"]{
   font-size:16px!important;
   cursor:pointer;
 }
 
-#new_comment small{display:block;}
+.new_comment small{display:block;}
 
 p.abstract a{
   color:#333!important;
