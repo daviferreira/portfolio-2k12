@@ -1,0 +1,75 @@
+<%= form_for @photo, :url => url, :html => {:multipart => true} do |f| %>
+
+  <%= render 'admin/shared/error_messages', :object => f.object %>
+
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :order %>
+    <%= f.text_field :order %>
+  </fieldset>
+  
+  <fieldset>
+    <% projects = Project.order("name ASC").all.map { |project| [project.name, project.id] } %>    
+    <select name="photo[project_id]">
+      <option value=""></option>
+      <%= options_for_select(projects, @photo.project_id) %>
+    </select>
+  </fieldset>
+
+		<% if @photo.photo.exists? then %>
+		<div id="box-form-photo">
+			<%= image_tag @photo.photo.url(:thumb) %>
+			<div class="actions">
+				<div class="buttons">
+					<%= link_to "Excluir", "#", :class => "lnk-del-img" %> ou 
+					<%= link_to "trocar imagem", "#", :id => "btn-change-image" %>
+				</div>
+				<%= render "photo_field", :f => f, :display => false %>
+				<div class="confirmation" style="display:none">
+					Deseja mesmo excluir seu photo atual?
+					<ul class="clearfix">
+						<li><%= link_to "sim!", admin_delete_photo_path(@photo), :class => "yes", :remote => true %></li>
+						<li><%= link_to "não, mudei de ideia...", "#", :class => "no" %></li>
+					</ul>
+				</div>
+			</div>
+			
+			<script>
+			$('#btn-change-image').live('click', function(e){
+				if($('#photo-field').is(':visible')){
+					$('#photo-field').fadeOut();
+				}else{
+					$('#photo-field').fadeIn();
+				}
+				e.preventDefault();
+			});
+			$('.lnk-del-img').live('click', function(e){
+				$('#box-form-photo div.actions div.buttons').fadeOut(function(){
+					$('#box-form-photo div.actions div.confirmation').fadeIn();
+				});
+				e.preventDefault();
+			});
+			$('#box-form-photo a.no').live('click', function(e){
+				$('#box-form-photo div.actions div.confirmation').fadeOut(function(){
+					$('#box-form-photo div.actions div.buttons').fadeIn();
+				});
+				e.preventDefault();
+			});
+		</script>
+		</div>  	  
+  <% else %>
+  	<%= render "photo_field", :f => f, :display => true %>
+  <% end %>
+
+
+  <footer>
+    <div class="submit_link">
+      <%= f.submit "Salvar", :class => "alt_btn" %>
+    </div>
+  </footer>
+
+<% end %>

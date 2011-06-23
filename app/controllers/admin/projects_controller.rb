@@ -48,4 +48,15 @@ class Admin::ProjectsController < Admin::AdminController
 		redirect_to admin_projects_path
   end
 
+  
+
+	def destroy_screenshot
+    @project = Project.find_using_slug(params[:id])
+    @project.update_attributes(:screenshot => nil)
+    respond_to do |format|
+			format.html { redirect_to admin_edit_project_path(@project) }
+			format.js
+		end
+	end
+
 end

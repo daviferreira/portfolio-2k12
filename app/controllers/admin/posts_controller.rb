@@ -29,6 +29,7 @@ class Admin::PostsController < Admin::AdminController
       flash[:success] = "Post cadastrada com sucesso."
       redirect_to admin_posts_path
     else
+      @categories = Category.where("area!=1")
       render 'new'
     end
   end
@@ -41,6 +42,7 @@ class Admin::PostsController < Admin::AdminController
       flash[:success] = "Post editada com sucesso."
       redirect_to admin_posts_path
     else
+      @categories = Category.where("area!=1")
       render 'edit'
     end
   end

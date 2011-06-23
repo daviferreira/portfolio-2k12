@@ -6,4 +6,9 @@ class Post < ActiveRecord::Base
   is_sluggable :title
   
   scope :published, :conditions => { :published => true }, :order => 'posts.published_date DESC'
+  
+  validates :title, :presence 	=> true
+  validates :abstract, :presence 	=> true
+  validates :body, :presence 	=> true
+  validates :published_date, :presence 	=> true
 end

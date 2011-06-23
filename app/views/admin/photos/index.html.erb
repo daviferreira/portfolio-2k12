@@ -1,0 +1,44 @@
+<header><h3>screenshots</h3></header>
+<div class="module_content">
+  
+<% flash.each do |key, value| %>
+  <h4 class="flash <%= key %>"><%= value %></h4>
+  <div class="clear" style="margin:0 0 12px 0;"></div>
+<% end %>
+  
+<table class="tablesorter" cellspacing="0"> 
+  <thead> 
+  <tr> 
+      <th></th>
+      <th></th> 
+      <th>Title</th> 
+      <th>Project</th>
+      <th>Ações</th> 
+  </tr> 
+  </thead> 
+  <tbody> 
+
+  <% @photos.each do |photo| %>
+    <tr> 
+      <td><input type="checkbox"></td> 
+      <td>
+    			<%= image_tag photo.photo.url(:thumb) if photo.photo.exists? %>
+      </td>
+      <td><%= photo.title %></td> 
+      <th><%= photo.project.name if photo.project %></td>
+      <td>
+        <%= link_to image_tag("admin/icn_edit.png", :title => "Editar screenshot"), edit_admin_photo_path(photo) %>
+        <%= link_to image_tag("admin/icn_trash.png", :title => "Excluir screenshot"), admin_photo_path(photo), 
+                                 :method => :delete,
+    														 :confirm => "Tem certeza que deseja excluir esta screenshot?",
+    												 		 :title => "Excluir #{photo.title}" %>
+      </td> 
+    </tr> 
+  <% end %>
+
+</tbody>
+</table>
+
+<%= will_paginate @photos, :next_label => "próximo &raquo;", :previous_label => "&laquo; anterior" %>
+
+</div>
