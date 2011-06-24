@@ -4,7 +4,7 @@ class Admin::PhotosController < Admin::AdminController
   before_filter :authenticate_user!
 
   def index
-    @photos = Photo.order("project_id ASC").paginate(:page => params[:page], :per_page => 50)
+    @photos = Photo.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
