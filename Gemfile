@@ -14,7 +14,7 @@ gem "mongrel", '>= 1.2.0.pre2'
 
 group :development do
   gem 'rspec-rails'
-	gem 'annotate-models'
+	gem 'annotate'
   gem 'faker'
 end
 
