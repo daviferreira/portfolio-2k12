@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 
   def create
     params[:comment][:body].gsub!(/\n/, '<br />')
-    params[:comment][:ip] = request.env["HTTP_X_FORWARDED_FOR"] #request.remote_ip
+    params[:comment][:ip] = request.remote_ip
+    @remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
     @comment = Comment.new(params[:comment])
     @erro = false
     if @comment.save
