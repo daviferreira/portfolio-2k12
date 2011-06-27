@@ -4,7 +4,7 @@ module PostsHelper
     if total > 1 
       "#{total} comentários."
     elsif total == 1
-      "1 comentário"
+      "1 comentário."
     else
       "Ninguém comentou este post."
     end
