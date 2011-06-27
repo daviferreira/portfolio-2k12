@@ -1,2 +1,8 @@
-$('<%= escape_javascript(render("comments/form", :id => "new_comment_#{@comment.id}")) %>').insertAfter('#lnk-reply-<%= @comment.id %>');
-$('#new_comment_<%= @comment.id %> input:text:first').focus();
+if($('#new_comment_<%= @comment.id %>').length == 0){
+  $('<%= escape_javascript(render("comments/form", :id => "new_comment_#{@comment.id}")) %>').insertAfter('#lnk-reply-<%= @comment.id %>');
+  $('#new_comment_<%= @comment.id %> input:text:first').focus();
+}else{
+  $('#new_comment_<%= @comment.id %>').slideUp('fast', function(){
+    $(this).remove();
+  });
+}
