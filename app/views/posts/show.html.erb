@@ -9,7 +9,7 @@
     <% unless @post.comments.published.empty? %>
       <ul id="list-comments">
         <% @post.comments.published.each do |comment| %>
-          <%= render comment if comment.comment_id == 0 or comment.comment_id.nil? %>
+          <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
         <% end %>
       </ul>
     <% end %>
