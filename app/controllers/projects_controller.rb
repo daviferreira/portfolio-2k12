@@ -5,17 +5,6 @@ class ProjectsController < ApplicationController
 
   def index
     
-    # temp slug
-		Project.all.each do |o|
-			o.generate_slug!
-		end
-		Category.all.each do |o|
-			o.generate_slug!
-		end
-		Post.all.each do |o|
-			o.generate_slug!
-		end
-		
 		@pg_atual = params[:pg_atual]
 		@pg_click = params[:pg_click]
 
