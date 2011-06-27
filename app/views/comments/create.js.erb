@@ -6,7 +6,7 @@
     $('<ul id="list-comments"></ul>').insertAfter('div#comments h2:first');
     $('div#comments h2:first').text('1 comentário.');
   }
-  <% if not @comment.nil? and not @comment.commend_id.nil? and @comment.comment_id > 0 %>
+  <% if not @comment.nil? and not @comment.comment_id.nil? and @comment.comment_id > 0 %>
     $('#new_comment_<%= @comment.comment_id %>').fadeOut('fast', function(){ $(this).remove(); });
     $("<%= escape_javascript(render(@comment)) %>").insertAfter('#comment-<%= @comment.comment_id %>');
   <% else %>
