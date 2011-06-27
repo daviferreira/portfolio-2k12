@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @erro = false
     if @comment.save
       if not @comment.spam?
+				@comment.toggle!(:published)
         @message = "Comentário enviado com sucesso, obrigado."
         @post = Post.find(@comment.post_id)
       else
