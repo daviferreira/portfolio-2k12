@@ -57,6 +57,8 @@ Portfolio::Application.routes.draw do
   
   match "/comment/:id/reply", :to => "comments#reply", :as => :reply_comment
   
-  #match '*path' => redirect('/')
+  match "/blog/rss.html" => redirect("/blog.atom")
+
+  match '*path' => redirect('/')
 
 end
