@@ -83,14 +83,18 @@ $(function(){
       e.preventDefault();
     }
   });
-  $("div#screenshots a").fancybox({
-		'transitionIn'	: 'elastic',
-		'transitionOut'	: 'elastic',
-		'easingIn'      : 'easeOutBack',
-		'easingOut'     : 'easeInBack',
-		'titlePosition' 	: 'over',
-    		'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
-    		    return '<span id="fancybox-title-over">Imagem ' +  (currentIndex + 1) + ' / ' + currentArray.length + ' ' + title + '</span>';
-    		}
-	});
+
+  if($.isFunction($("div#screenshots a").fancybox)){
+    $("div#screenshots a").fancybox({
+      'transitionIn'	: 'elastic',
+      'transitionOut'	: 'elastic',
+      'easingIn'      : 'easeOutBack',
+      'easingOut'     : 'easeInBack',
+      'titlePosition' 	: 'over',
+          'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
+              return '<span id="fancybox-title-over">Imagem ' +  (currentIndex + 1) + ' / ' + currentArray.length + ' ' + title + '</span>';
+          }
+    });
+  }
+
 });
