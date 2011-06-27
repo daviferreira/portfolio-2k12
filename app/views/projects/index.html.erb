@@ -6,7 +6,7 @@
       </div>
     <% else %>
       <%= render 'projects' %>
-      <div class="pagination-container">
+      <div class="pagination-container" data-category="<%= params[:category] %>" data-tag="<%= params[:tag] %>">
         <%= will_paginate @projects %>
       </div>
     <% end %>

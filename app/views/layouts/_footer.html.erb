@@ -30,13 +30,16 @@ $('.pagination a').live('click',function(e){
   $('<div class="loader clearfix"><img src="/images/loader.gif" width="62" height="13" /></div>').insertAfter('.pagination-container');
   $('.pagination-container').hide();
 
+  var category = $('.pagination-container:last').data('category');
+  var tag = $('.pagination-container:last').data('tag');
+
   var pg = $('span.current:first').text();
   var pg_click = $(this).text();
   var link = this;
   $.getScript(this.href+"&pg_atual="+pg+"&pg_click="+pg_click, function(){
     $('.loader').remove();
     $('.pagination-container').show();
-    $('<a href="/?page='+pg+'" rel="next">'+pg+'</a>').insertAfter('span.current');
+    $('<a href="/?page='+pg+'<% if params[:category] %>&category='+category+'<% end %><% if params[:tag] %>&tag='+tag+'<%end%>" rel="next">'+pg+'</a>').insertAfter('span.current');
     $('span.current').remove();
     $('<span class="current">'+pg_click+'</span>').insertAfter(link);
     $(link).remove();
