@@ -4,7 +4,7 @@ class Admin::CommentsController < Admin::AdminController
   before_filter :authenticate_user!
 
   def index
-    @comments = Comment.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
+    @comments = Comment.where("published = 't'").order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
