@@ -12,8 +12,8 @@
       <li class="rss"><%= link_to image_tag("rss.png"), post_path(@post, :format => "atom") %></li>
     </ul>
       <span class="home">&larr; <%= link_to "Ir para a capa do blog", blog_path %></span>
-      Publicado há <%= time_ago_in_words(@post.published_date) %>, com
-      <%= link_to total_comments_in_words(@post.comments.published.length), "#comments" %>
+      Publicado há <%= time_ago_in_words(@post.published_date) %><% if @post.comments.length > 1 %>, com
+      <%= link_to total_comments_in_words(@post.comments.published.length), "#comments" %><% else %>.<% end %>
       
   <% end %>
     </div>
