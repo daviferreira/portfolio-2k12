@@ -5,6 +5,7 @@ class Admin::CommentsController < Admin::AdminController
 
   def index
     @comments = Comment.where("published = 't'").order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
+    @spams = Comment.where("published != 't'").order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
