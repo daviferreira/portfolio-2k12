@@ -48,7 +48,7 @@ Portfolio::Application.routes.draw do
   match '/projects/category/:category' => 'projects#index'
   match '/projects/tag/:tag' => 'projects#index'
   
-  match '/blog' => 'posts#index'
+  match '/blog' => 'posts#index', :as => :blog
   
   match "/blog/post/:id/:slug.html" => redirect{ |params| "/posts/#{params[:slug]}" }
   

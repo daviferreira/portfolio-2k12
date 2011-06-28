@@ -11,6 +11,7 @@ gem 'gravatar_image_tag'
 gem 'rakismet'
 gem 'devise'
 gem "mongrel", '>= 1.2.0.pre2' 
+gem 'sitemap_generator'
 
 group :development do
   gem 'rspec-rails'

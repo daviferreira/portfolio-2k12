@@ -101,6 +101,7 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+    sitemap_generator (2.0.1)
     slugged (0.4.0)
       activerecord (~> 3.0.0)
       activesupport (~> 3.0.0)
@@ -139,6 +140,7 @@ DEPENDENCIES
   rakismet
   rspec
   rspec-rails
+  sitemap_generator
   slugged
   spork
   sqlite3
