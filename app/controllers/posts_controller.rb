@@ -29,10 +29,9 @@ class PostsController < ApplicationController
     @meta_title = @post.title + categories
     @meta_description = categories + @post.title
     
-    redirect_to blog_path if not @post or not @post.published?
-    
+   
     respond_to do |format|
-      format.html
+      format.html { redirect_to blog_path if not @post or not @post.published? }
       format.atom { render :action => "feed_comments", :layout => false }
       format.rss { redirect_to feed_comments_path(:format => :atom), :status => :moved_permanently }
     end
