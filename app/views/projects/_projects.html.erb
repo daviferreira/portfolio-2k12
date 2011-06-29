@@ -9,14 +9,14 @@
         <p class="category">Categoria: <%= link_to project.category.name, "/projects/category/" + project.category.cached_slug %></p>
         <p class="tags clearfix"><span class="label">Tags:</span> <%= tags_as_links(project.tags) %></p>
         <p class="time-ago round-small">Finalizado há <%= time_ago_in_words(project.due_date) %>.</p>
-        <% unless project.url.nil? or project.url.empty? %>
         <div class="actions clearfix">
           <ul>
-            <li><%= link_to image_tag('/images/link_to.gif', :width => 12, :height => 6)+" "+strip_url(project.url), project.url, :rel => "external" %></li>
+            <% unless project.url.nil? or project.url.empty? %>
+              <li><%= link_to image_tag('/images/link_to.gif', :width => 12, :height => 6)+" "+strip_url(project.url), project.url, :rel => "external" %></li>
+            <% end %>
             <li class="more-details"><%= link_to "Mais detalhes", project_path(project) %></li>
           </ul>
         </div>
-        <% end %>
       </div>
     </li>
   <% end %>
