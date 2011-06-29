@@ -6,11 +6,13 @@
     <% else %>
     <ul class="social clearfix">
 
-      <li class="googleplus"><g:plusone size="medium"></g:plusone></li>
 
       <li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.daviferreira.com/blog/post/<%=@post.id%>/<%=@post.cached_slug%>.html">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
       
       <li class="fb"><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" layout="button_count" show_faces="false" colorscheme="dark" font=""></fb:like></li>
+
+      <li class="googleplus"><g:plusone size="medium"></g:plusone></li>
+
       <li class="rss"><%= link_to image_tag("rss.png"), post_path(@post, :format => "atom") %></li>
     </ul>
       <span class="home">&larr; <%= link_to "Ir para a capa do blog", blog_path %></span>
