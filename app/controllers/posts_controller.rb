@@ -18,7 +18,13 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_using_slug(params[:id])
     @comment = Comment.new
-    
+
+    if @post.id < 20
+      @share_url = "http://www.daviferreira.com/blog/post/#{@post.id}/#{@post.cached_slug}.html"
+    else
+      @share_url = "http://www.daviferreira.com/posts/#{@post.cached_slug}"
+    end
+
     categories = ""
     unless @post.categories.empty?
       @post.categories.each do |category|
