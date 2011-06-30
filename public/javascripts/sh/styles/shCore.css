@@ -188,7 +188,7 @@
 
 .syntaxhighlighter.collapsed .toolbar .item.expandSource
 {
-	background-image: url(../_js/sh/styles/magnifier.png) !important;
+	background-image: url(/javascripts/sh/styles/magnifier.png) !important;
 	display: inline !important;
 	text-indent: 0 !important;
 	width: auto !important;
@@ -199,12 +199,12 @@
 
 .syntaxhighlighter .toolbar .item.viewSource
 {
-	background-image: url(../_js/sh/styles/page_white_code.png) !important;
+	background-image: url(/javascripts/sh/styles/page_white_code.png) !important;
 }
 
 .syntaxhighlighter .toolbar .item.printSource
 {
-	background-image: url(../_js/sh/styles/printer.png) !important;
+	background-image: url(/javascripts/sh/styles/printer.png) !important;
 }
 
 .syntaxhighlighter .toolbar .item.copyToClipboard
@@ -216,7 +216,7 @@
 
 .syntaxhighlighter .toolbar .item.about
 {
-	background-image: url(../_js/sh/styles/help.png) !important;
+	background-image: url(/javascripts/sh/styles/help.png) !important;
 }
 
 /** 
