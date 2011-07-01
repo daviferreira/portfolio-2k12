@@ -51,6 +51,7 @@ Portfolio::Application.routes.draw do
   match '/blog' => 'posts#index', :as => :blog
   
   match "/blog/post/:id/:slug.html" => redirect{ |params| "/posts/#{params[:slug]}" }
+  match "/blog/2007/09/07/classe-imagem-php.html" => redirect("/posts/manipulando-e-redimensionando-imagens-com-php")
   
   match "/blog/feed",         :to => "posts#feed", :as => :feed_posts
   match "/post/:id/feed",     :to => "posts#feed_comments", :as => :feed_comments
