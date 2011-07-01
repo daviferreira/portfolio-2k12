@@ -59,6 +59,6 @@ Portfolio::Application.routes.draw do
   
   match "/blog/rss.html" => redirect("/blog.atom")
 
-  match '*path' => redirect('/')
+  #match '*path' => redirect('/')
 
 end
