@@ -57,6 +57,7 @@ class Admin::CommentsController < Admin::AdminController
       end
     end
     flash[:success] = "Spams excluídos com sucesso."
+    redirect_to admin_comments_path
   end
 
 end
