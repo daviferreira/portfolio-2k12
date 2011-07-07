@@ -23,7 +23,7 @@ Portfolio::Application.routes.draw do
     match "/project/:id/delete_screenshot", :to => "projects#destroy_screenshot", :as => :delete_project_screenshot
     match "/photo/:id/delete_photo", :to => "photos#destroy_photo", :as => :delete_photo
 
-    match "/comments/delete_all_spam", :to => "comments#destroy_all_spam", :as => :delete_all_spam
+    match "/delete_all_spam", :to => "comments#destroy_all_spam", :as => :delete_all_spam
   end
 
   scope '/admin' do
