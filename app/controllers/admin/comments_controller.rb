@@ -45,8 +45,19 @@ class Admin::CommentsController < Admin::AdminController
   def destroy
     @comment = Comment.find(params[:id])
 		@comment.destroy
-		flash[:success] = "Comment excluída com sucesso"
+		flash[:success] = "Comment excluída com sucesso."
 		redirect_to admin_comments_path
+  end
+
+  def destroy_all_spam
+    @spams = Comment.where("published != 't' OR published IS NULL")
+    unless @spams.empty?
+      @spams.each do |spam|
+        spam.destroy
+      end
+    end
+    flash[:success] = "Spams excluídos com sucesso."
+    redirect_to admin_comments_path
   end
 
 end
