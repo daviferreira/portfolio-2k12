@@ -1,5 +1,5 @@
 atom_feed do |feed|
-  unless @post.comments.empty?
+  unless @post.comments.published.empty?
     feed.title("#{@post.title} - Comentários")
     feed.updated(@post.comments.published.first.created_at)
 
