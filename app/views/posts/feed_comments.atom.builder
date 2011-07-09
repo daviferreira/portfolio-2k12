@@ -1,6 +1,6 @@
 atom_feed do |feed|
   feed.title("#{@post.title} - Comentários")
-  feed.updated(@post.comments.published.first.created_at)
+  feed.updated(@post.comments.published.first.created)
 
   for comment in @post.comments.published
     next if comment.updated_at.blank?  
