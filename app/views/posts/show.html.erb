@@ -4,7 +4,8 @@
   </article>
   
   <div id="comments">
-    <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>
+    <% if not @post.block_comments or not @post.comments.published.empty? %>
+      <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    <% end %>
     
     <% unless @post.comments.published.empty? %>
       <ul id="list-comments">
