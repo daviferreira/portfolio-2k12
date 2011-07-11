@@ -5,8 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.published.all
-    @meta_title = "PHP, MySQL, jQuery, Javascript, Design, Rails, Ruby - Blog do programador Davi Ferreira";
-    @meta_description = "Blog sobre PHP, Design, Interfaces, MySQL, jQuery, Javascript, HTML/CSS, Rails e Ruby. Mantido pelo programador Davi Ferreira."
+    @meta_title = "PHP, jQuery, Javascript, Python, Django, Ruby, Rails - Blog do programador Davi Ferreira";
+    @meta_description = "Blog sobre PHP, Design, Interfaces, MySQL, jQuery, Javascript, HTML/CSS, Rails, Ruby, Python e Django. Mantido pelo programador Davi Ferreira."
     
     respond_to do |format|
       format.html
