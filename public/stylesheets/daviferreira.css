@@ -79,6 +79,7 @@ header, section#main, div#blog-container, nav#menu{
   width:940px;
   margin:0 auto;
   padding:20px;
+  display:block;
 }
 
 
