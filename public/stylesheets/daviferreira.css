@@ -82,6 +82,10 @@ header, section#main, div#blog-container, nav#menu{
   display:block;
 }
 
+footer{
+  display:block;
+}
+
 
 /* Misc/Util
 -------------------------------------------------------------- */

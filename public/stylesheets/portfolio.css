@@ -315,8 +315,7 @@ div.pagination{
 }
 
 section#blog{
-  border-top:1px #fff solid;
-  background-color:#7d7d71;
+  display:block;
 }
 
 section#blog p.more{
@@ -345,6 +344,8 @@ div#blog-container h2{
   text-shadow: #666 -1px -1px 0;
   padding:0 12px 12px 10px;
   font-size:32px;
+  border-top:1px #fff solid;
+  background-color:#7d7d71;
 }
 
 nav#menu ul.sections{
@@ -526,6 +527,7 @@ ul#blog-posts li p.abstract a:hover{
 footer{
   background-color:#000;
   border-top:1px solid #666;
+
 }
 
 div#footer-container{
