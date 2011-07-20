@@ -317,6 +317,7 @@ div.pagination{
 section#blog{
   display:block;
   background-color:#7d7d71;
+  border-top:1px #fff solid;
 }
 
 section#blog p.more{
@@ -345,7 +346,6 @@ div#blog-container h2{
   text-shadow: #666 -1px -1px 0;
   padding:0 12px 12px 10px;
   font-size:32px;
-  border-top:1px #fff solid;
   background-color:#7d7d71;
 }
 
