@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(daviferreira\.com)(:80)? [NC]
+RewriteRule ^(.*) http://www.daviferreira.com/$1 [R=301,L]
+order deny,allow
