@@ -215,13 +215,21 @@ div#comments{
   padding:4px;
 }
 
+div#posts{
+  margin:24px 0 0;
+}
+
 div.post-abstract{
-  margin:24px 0 24px 0;
-  padding:0 0 24px 0;
-  border-bottom:1px dashed #ccc;
+  margin:12px 0 12px 0;
+  padding:0 0 12px 0;
+}
+
+div.post-abstract h2{
+  margin:0 0 ;
 }
 
 div.post-abstract h2 a{
+  font-size:22px!important;
   color:#333!important;
 }
 
@@ -230,10 +238,10 @@ div.post-abstract h2 a:hover{
 }
 
 div.post-abstract p.time-ago{
-  color:#999;
+  color:#ccc;
   font-weight:300;
   font-size:14px;
-  margin:0 0 12px 0;
+  margin:0 0;
 }
 
 div.post-abstract p.actions{
