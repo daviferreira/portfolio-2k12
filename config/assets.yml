@@ -31,4 +31,4 @@ stylesheets:
     - public/stylesheets/blog.css
     - public/javascripts/sh/styles/shCore.css
     - public/javascripts/sh/styles/shThemeDefault.css
-
+    - public/javascripts/fancybox/*.css
