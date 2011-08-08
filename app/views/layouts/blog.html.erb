@@ -6,15 +6,15 @@
   <meta description="<%= meta_description %>">
 
   <% if blog_home_page? %>
-    <%= include_javascripts :common %>
+    <%= include_javascripts :blog%>
   <% else %>
-    <%= include_javascripts :common, :post %>
+    <%= include_javascripts :post %>
   <% end %>
 
   <% if blog_home_page? %>
-    <%= include_stylesheets :common, :blog, :media => 'all' %>
+    <%= include_stylesheets :blog, :media => 'all' %>
   <% else %>
-    <%= include_stylesheets :common, :blog, :post, :media => 'all' %>
+    <%= include_stylesheets :post, :media => 'all' %>
   <% end %>
 
   <%= auto_discovery_link_tag(:atom, {:controller => "posts", :action => "feed"}) %>
