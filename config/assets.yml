@@ -2,6 +2,7 @@ embed_assets: on
 
 javascripts:
   common:
+    - public/javascripts/jquery.js
     - public/javascripts/*.js
   portfolio:
     - public/javascripts/fancybox/jquery.easing-1.3.pack.js
