@@ -229,7 +229,7 @@ div.post-abstract h2{
 }
 
 div.post-abstract h2 a{
-  font-size:32px!important;
+  font-size:24px!important;
   color:#333!important;
 }
 
@@ -240,7 +240,7 @@ div.post-abstract h2 a:hover{
 div.post-abstract p.time-ago{
   color:#ccc;
   font-weight:300;
-  font-size:14px;
+  font-size:12px;
   margin:6px 0 0;
 }
 
