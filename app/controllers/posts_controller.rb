@@ -21,20 +21,6 @@ class PostsController < ApplicationController
 
     if @post.id < 20
       @share_url = "http://www.daviferreira.com/blog/post/#{@post.id}/#{@post.cached_slug}.html"
-      if @post.id == 19
-        require 'nokogiri'
-        require 'open-uri'
-        doc = Nokogiri::XML(open('http://www.tableless.com.br/author/davitferreira/feed'))
-        doc.xpath("./rss/channel/item").each do |node|
-          @post.body += "<h3>"+node.xpath("./title").inner_text.strip + "</h3>"
-          description = node.xpath("./description").inner_text.split('<h3>')
-          @post.body += "<p>"+description[0].strip+"</p>"
-          @post.body += '<p><a href="'+node.xpath("./link").inner_text.strip+'">Ler este artigo</a></p>'
-          #print node.xpath("./link").inner_text.strip + "\n"
-          #print node.xpath("./comments").inner_text.strip + "\n"
-          #print node.xpath("./slash:comments").inner_text.strip + "\n"
-        end
-      end
     else
       @share_url = "http://www.daviferreira.com/posts/#{@post.cached_slug}"
     end
