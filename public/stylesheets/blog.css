@@ -4,7 +4,7 @@ h1, h2, h3 { margin-top:0; margin-bottom:0; }
 h1 { font-size:60px; padding:20px 0 20px 7px; border-bottom:1px dotted #ccc; }
 h2 { font-size:1.75em; margin-bottom:10px; }
 h3 { font-size:1.7em; margin:12px 0 12px 0; }
-h1, h2, h3, h4{ font-weight:300; line-height:1; font-family: 'Comfortaa', cursive; }
+h1, h2, h3, h4{ font-weight:300; line-height:1; font-family: 'Didact Gothic', sans-serif; }
 
 a{ text-decoration:none; }
 a:link { color:#ff6600; } 
