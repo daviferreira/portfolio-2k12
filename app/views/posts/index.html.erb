@@ -3,7 +3,7 @@
   <% @posts.each do |post| %>
   <div class="post-abstract">
     <h2><%= link_to post.title, post_path(post) %></h2>
-    <p class="time-ago">Publicado há <%= time_ago_in_words(post.published_date) %>. <% if not post.block_comments or not post.comments.published.empty? %><%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %><% end %></p>
+    <% if not post.block_comments or not post.comments.published.empty? %><p class="time-ago"><%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %></p><% end %>
     <!--
     <p class="abstract"><%= link_to post.abstract, post_path(post) %></p>
     -->

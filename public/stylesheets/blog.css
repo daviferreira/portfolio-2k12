@@ -1,10 +1,10 @@
-html{ font-family: "Georgia", "Times New Roman", serif; }
+html{ font-family:  'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif; }
 body { font-size:100%; line-height:1.25; padding-bottom:60px; background: #fff; }
 h1, h2, h3 { margin-top:0; margin-bottom:0; }
 h1 { font-size:4em; padding:20px 0 20px 7px; border-bottom:1px dotted #ccc;  letter-spacing:-2px; }
 h2 { font-size:1.75em; margin-bottom:10px; letter-spacing:-1px }
 h3 { font-size:1.7em; margin:12px 0 12px 0; }
-h1, h2, h3, h4{ font-weight:normal; }
+h1, h2, h3, h4{ font-weight:300; line-height:1; }
 
 a{ text-decoration:none; }
 a:link { color:#ff6600; } 
@@ -220,8 +220,8 @@ div#posts{
 }
 
 div.post-abstract{
-  margin:12px 0 12px 0;
-  padding:0 0 12px 0;
+  margin:24px 0;
+  padding:24px 0;
 }
 
 div.post-abstract h2{
@@ -229,7 +229,7 @@ div.post-abstract h2{
 }
 
 div.post-abstract h2 a{
-  font-size:42px!important;
+  font-size:32px!important;
   color:#333!important;
 }
 
