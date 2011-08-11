@@ -13,7 +13,7 @@ javascripts:
     - public/javascripts/jquery.js
     - public/javascripts/*.js
     - public/javascripts/fancybox/jquery.fancybox-1.3.4.pack.js
-    - public/javascripts/sh/scripts/*.js
+    - public/javascripts/jquery.snippet.min.js
 
 stylesheets:
   portfolio:
@@ -29,6 +29,5 @@ stylesheets:
     - public/stylesheets/daviferreira.css
     - public/stylesheets/msgtopo.css
     - public/stylesheets/blog.css
-    - public/javascripts/sh/styles/shCore.css
-    - public/javascripts/sh/styles/shThemeDefault.css
+    - public/stylesheets/jquery.snippet.min.css
     - public/javascripts/fancybox/*.css

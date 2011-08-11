@@ -24,7 +24,14 @@
 
 <script type="text/javascript">
 $(function(){
-	SyntaxHighlighter.config.clipboardSwf = '/clipboard.swf';
-	SyntaxHighlighter.all();
+  $('pre').each(function(){
+    var lang = $(this).attr('class').replace(/brush:/, '');
+    console.log(lang.replace(/["\\]/g, ''));
+    if(lang == "") lang = "xml";
+    $(this).snippet(lang,{
+      style:"rand01",
+      clipboard:"/flash/ZeroClipboard.swf",
+    });
+  });
 });
 </script>
