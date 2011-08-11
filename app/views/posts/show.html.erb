@@ -26,7 +26,6 @@
 $(function(){
   $('pre').each(function(){
     var lang = $(this).attr('class').replace(/brush:/, '');
-    console.log(lang.replace(/["\\]/g, ''));
     if(lang == "") lang = "xml";
     $(this).snippet(lang,{
       style:"rand01",
