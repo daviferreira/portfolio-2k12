@@ -222,6 +222,7 @@ div#posts{
 div.post-abstract{
   margin:24px 0;
   padding:12px 0;
+  text-align:center;
 }
 
 div.post-abstract h2{
@@ -240,7 +241,7 @@ div.post-abstract h2 a:hover{
 div.post-abstract p.time-ago{
   color:#ccc;
   font-weight:300;
-  font-size:12px;
+  font-size:13px;
   margin:6px 0 0;
 }
 
