@@ -322,3 +322,9 @@ ul.list li{
   border-bottom:1px dashed #ccc;
   list-style:square;
 }
+
+
+pre{
+  font-family:'Droid Sans Mono', monospace;
+  font-size:12px;
+}
