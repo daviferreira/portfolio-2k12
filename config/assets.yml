@@ -1,0 +1,34 @@
+embed_assets: on
+package_assets: always
+
+javascripts:
+  portfolio:
+    - public/javascripts/jquery.js
+    - public/javascripts/*.js
+    - public/javascripts/fancybox/jquery.fancybox-1.3.4.pack.js
+  blog:
+    - public/javascripts/jquery.js
+    - public/javascripts/*.js
+  post:
+    - public/javascripts/jquery.js
+    - public/javascripts/*.js
+    - public/javascripts/fancybox/jquery.fancybox-1.3.4.pack.js
+    - public/javascripts/sh/scripts/*.js
+
+stylesheets:
+  portfolio:
+    - public/stylesheets/daviferreira.css
+    - public/stylesheets/msgtopo.css
+    - public/stylesheets/portfolio.css
+    - public/javascripts/fancybox/*.css
+  blog:
+    - public/stylesheets/daviferreira.css
+    - public/stylesheets/msgtopo.css
+    - public/stylesheets/blog.css
+  post:
+    - public/stylesheets/daviferreira.css
+    - public/stylesheets/msgtopo.css
+    - public/stylesheets/blog.css
+    - public/javascripts/sh/styles/shCore.css
+    - public/javascripts/sh/styles/shThemeDefault.css
+    - public/javascripts/fancybox/*.css

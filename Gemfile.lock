@@ -1,6 +1,10 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
     ZenTest (4.5.0)
     abstract (1.0.0)
     actionmailer (3.0.9)
@@ -50,6 +54,8 @@ GEM
     gem_plugin (0.2.3)
     gravatar_image_tag (1.0.0)
     i18n (0.5.0)
+    jammit (0.6.3)
+      yui-compressor (>= 0.9.3)
     macaddr (1.0.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -61,6 +67,7 @@ GEM
       daemons (~> 1.0.10)
       gem_plugin (~> 0.2.3)
     nokogiri (1.4.6)
+    open4 (1.1.0)
     orm_adapter (0.0.5)
     paperclip (2.3.11)
       activerecord (>= 2.3.0)
@@ -121,6 +128,8 @@ GEM
       rack (>= 1.0)
       rack-test (>= 0.5.3)
     will_paginate (2.3.15)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
@@ -133,6 +142,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   gravatar_image_tag
+  jammit
   mail
   mongrel (>= 1.2.0.pre2)
   paperclip
