@@ -18,6 +18,8 @@
     <% if not @post.block_comments %>
     <h3 id="tit-form-comment">Deixe seu comentário:</h3>
       <%= render "comments/form", :id => "new_comment" %>
+    <% else %>
+      <div class="alert-message info" style="text-align:center;">O envio de comentários está bloqueado para este post.</div>
     <% end %>
   </div>
 </div>
