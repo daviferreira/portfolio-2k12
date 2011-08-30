@@ -22,7 +22,7 @@ class Contact
 
   def save
     if self.valid?
-      ContactMailer.contact(self).deliver
+      #ContactMailer.contact(self).deliver
       return true
     end
     return false
