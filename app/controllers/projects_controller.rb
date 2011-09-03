@@ -23,8 +23,8 @@ class ProjectsController < ApplicationController
 		  q = "%" + params[:search].downcase + "%"
       @projects = Project.published.where("name LIKE ? OR tags LIKE ? OR description LIKE ?", q, q, q).limit(30).paginate(:page => params[:page], :per_page => 6)
       @meta_title = "#{params[:search]} - Resultado da busca - DaviFerreira.com"
-		  @meta_description = "Resultado da busca de trabalhos do programador PHP/Ruby Davi Ferreira para #{params[:search]}"
-		  @search = params[:search]
+		  @meta_description = "Resultado da busca de trabalhos do programador PHP/Ruby Davi Ferreira para #{params[:tag]}"
+		  @search = params[:tag]
     else
 		  @projects = Project.published.limit(30).paginate(:page => params[:page], :per_page => 6)
 	  end
@@ -63,7 +63,8 @@ class ProjectsController < ApplicationController
         "forum" => "fórum",
         "volei" => "vôlei",
         "clinica" => "clínica",
-        "musica" => "música"
+        "musica" => "música",
+        "promocao" => "promoção"
       }
       tag = translations[tag] if translations[tag]
       tag
