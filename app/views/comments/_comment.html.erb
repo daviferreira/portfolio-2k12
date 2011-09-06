@@ -1,11 +1,11 @@
 <li id="comment-<%=comment.id%>" class="clearfix<% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %>">
 	<div class="author">
 		<p><%= gravatar_for comment %></p>
-		<p class="date"><%= comment.created_at.strftime("%d/%m/%Y %H:%M").sub(' ', '<br />') %></p>
+		<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %H:%M").sub(' ', '<br />')) %></p>
 	</div>
 	<div class="comment">
 		<p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> escreveu:</strong></p>
-		<p><%= sanitize comment.body, :tags => %w(strong em code a br) %></p>
+		<p><%= sanitize comment.body, :tags => %w(strong em code br) %></p>
 		<% unless @post.block_comments %>
     <p class="reply"><%= link_to "Responder", reply_comment_path(comment), :id => "lnk-reply-#{comment.id}" %></p>
     <% end %>
