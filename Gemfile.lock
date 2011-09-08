@@ -146,7 +146,7 @@ DEPENDENCIES
   mail
   mongrel (>= 1.2.0.pre2)
   paperclip
-  rails (>= 3.0.9)
+  rails (= 3.0.9)
   rakismet
   rspec
   rspec-rails
