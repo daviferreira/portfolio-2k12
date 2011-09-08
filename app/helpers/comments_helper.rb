@@ -12,6 +12,7 @@ module CommentsHelper
       code.inner_html = h code.inner_html.gsub('<br>', '')
       code.inner_html = code.inner_html.gsub('&amp;', '&')
       code.inner_html = code.inner_html.gsub('%20', ' ')
+      code.inner_html = code.inner_html.gsub('%24', '$')
     end
     sanitize doc.to_html, :tags => %w(strong em code br a) 
   end
