@@ -202,8 +202,15 @@ h2 a:hover{
   margin:3px 0 0!important;
 }
 
-code{
-  font-size:16px!important;
+code {
+  padding: 0 3px 2px;
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
 }
 
 div#comments{
@@ -214,9 +221,11 @@ div#comments{
 #comments code{
   display:block;
   white-space:pre;
+/*
   font-size:14px !important;
   margin:12px 0 12px 0;
   padding:4px;
+*/
 }
 
 div#posts{

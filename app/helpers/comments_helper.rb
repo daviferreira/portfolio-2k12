@@ -9,6 +9,7 @@ module CommentsHelper
     require 'nokogiri'
     doc = Nokogiri::HTML::DocumentFragment.parse comment
     doc.css('code').each do |code|
+      code.inner_html = code.inner_html.gsub('<br />', '')
       code.inner_html = h code.inner_html.gsub('<br>', '')
       code.inner_html = code.inner_html.gsub('&amp;', '&')
       code.inner_html = code.inner_html.gsub('%20', ' ')
