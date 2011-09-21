@@ -26,4 +26,5 @@ group :test do
   gem 'spork'
   gem 'ZenTest'
 	gem 'factory_girl_rails'
+  gem 'simplecov', :require => false
 end
