@@ -1,7 +1,0 @@
-@charset "utf-8";
-/* CSS Document */
-html,*{margin:0;padding:0;}
-body{color:#000;font:13px Georgia, "Times New Roman", Times, serif;background-color:#eaf3fa;height:100%;width:100%;margin:0;padding:0;}
-a{color:#06C;}
-p{margin:10px;}
-form#frm-newsletter{border:1px solid #ccc;padding:10px;background-color:#eee;width:420px;margin:0 auto;}
