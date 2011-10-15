@@ -17,8 +17,6 @@
     <%= include_stylesheets :post, :media => 'all' %>
   <% end %>
 
-  <link href='http://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
-
   <%= auto_discovery_link_tag(:atom, {:controller => "posts", :action => "feed"}) %>
 
   <%= csrf_meta_tag %>
