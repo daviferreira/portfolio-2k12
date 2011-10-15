@@ -2,8 +2,8 @@ body { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:100%; 
 
 p{font-size:13px;font-weight:normal;line-height:18px;margin-bottom:18px;}p small{font-size:11px;color:#bfbfbf;}
 h1,h2,h3,h4,h5,h6{font-weight:bold;color:#404040;}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{color:#bfbfbf;}
-h1{margin-bottom:18px;font-size:30px;line-height:36px;}h1 small{font-size:18px;}
-h2{font-size:24px;line-height:36px;}h2 small{font-size:14px;}
+h1{margin-bottom:18px;font-size:36px;line-height:36px;color:#000;letter-spacing:-2px;}h1 small{font-size:18px;}
+h2{font-size:24px;line-height:36px;letter-spacing:-1.5px;color:#000;}h2 small{font-size:14px;}
 h3,h4,h5,h6{line-height:36px;}
 h3{font-size:18px;}h3 small{font-size:14px;}
 h4{font-size:16px;}h4 small{font-size:12px;}
@@ -233,13 +233,27 @@ div#posts{
 }
 
 div.post-abstract{
-  margin:12px 0;
+  margin:40px 0;
+  text-align:center;
 }
 
 div.post-abstract h1{
   margin:0 0 ;
-  font-weight:400;
-  font-size:24px;
+  font-size:26px;
+  line-height:26px;
+  letter-spacing:-1.5px;
+  color:#999;
+  font-family:Helvetica, Arial, sans-serif;
+  font-weight:500;
+}
+
+div.post-abstract h1 a{
+  color:#333!important;
+}
+
+
+div.post-abstract h1 a:hover{
+  color:#666!important;
 }
 
 div.post-abstract h2 a{
