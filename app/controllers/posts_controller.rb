@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     
    
     respond_to do |format|
-      format.html { redirect_to blog_path if not @post or not @post.published? }
+      format.html { redirect_to blog_path if not @post or not @post.published? or @post.tableless }
       format.atom { render :action => "feed_comments", :layout => false }
       format.rss { redirect_to feed_comments_path(:format => :atom), :status => :moved_permanently }
     end

@@ -22,7 +22,9 @@ SitemapGenerator::Sitemap.create do
   end
   
   Post.published.each do |post|
-    add post_path(post), :lastmod => post.updated_at
+    if not post.tableless
+      add post_path(post), :lastmod => post.updated_at
+    end
   end
   
 end
