@@ -9,4 +9,20 @@ module PostsHelper
       "Ninguém comentou este post."
     end
   end
+
+  def post_url(post)
+    if from_tableless(post)
+      post.tableless 
+    else
+      post_path(post)
+    end
+  end
+
+  def from_tableless(post)
+    if not post.tableless.nil? and not post.tableless.blank?
+      true
+    else
+      false
+    end
+  end
 end

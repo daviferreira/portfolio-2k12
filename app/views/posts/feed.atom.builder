@@ -4,7 +4,7 @@ atom_feed do |feed|
 
   for post in @posts
     next if post.updated_at.blank?  
-      feed.entry(post, :url => (post.tableless ? post.tableless : post_path(post))) do |entry|
+      feed.entry(post, :url => post_url(post)) do |entry|
         entry.title(post.title)  
         entry.content(post.body, :type => 'html')
         entry.updated(post.updated_at.strftime("%Y-%m-dT%H:%M:%SZ"))

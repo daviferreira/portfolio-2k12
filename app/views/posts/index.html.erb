@@ -2,8 +2,8 @@
 
   <% @posts.each do |post| %>
   <div class="post-abstract">
-    <h1><%= link_to post.title, (post.tableless ? post.tableless : post_path(post)) %><% if post.tableless %><span class="label important">Tableless</span><% end %></h1>
-    <p class="time-ago">Publicado há <%= time_ago_in_words(post.published_date) %><% if not post.tableless and (not post.block_comments or not post.comments.published.empty?) %> | <%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %><% end %></p>
+    <h1><%= link_to post.title, post_url(post) %><% if from_tableless(post) %><span class="label important">Tableless</span><% end %></h1>
+    <p class="time-ago">Publicado há <%= time_ago_in_words(post.published_date) %><% if not from_tableless(post) and (not post.block_comments or not post.comments.published.empty?) %> | <%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %><% end %></p>
     <!--
     <p class="abstract"><%= link_to post.abstract, post_path(post) %></p>
     -->
