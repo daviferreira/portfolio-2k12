@@ -23,8 +23,9 @@ end
 group :test do
   gem 'rspec'
   gem 'webrat'
-  gem 'spork'
+  gem 'spork', :git => "git://github.com/chrismdp/spork.git"
   gem 'ZenTest'
 	gem 'factory_girl_rails'
   gem 'simplecov', :require => false
+  gem 'ruby-debug19', :require => 'ruby-debug'  
 end
