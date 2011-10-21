@@ -22,8 +22,6 @@ class PostsController < ApplicationController
     if @post
       if @post.id < 20
         @share_url = "http://www.daviferreira.com/blog/post/#{@post.id}/#{@post.cached_slug}.html"
-      elsif @post.cached_slug == "ta-chegando-a-rubyconf-brasil-2011"
-        @share_url = "http://kingo.to/Rad"
       else
         @share_url = "http://www.daviferreira.com/posts/#{@post.cached_slug}"
       end
