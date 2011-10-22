@@ -16,16 +16,16 @@ gem 'jammit'
 
 group :development do
   gem 'rspec-rails'
-	gem 'annotate'
+  gem 'annotate'
   gem 'faker'
 end
 
 group :test do
   gem 'rspec'
   gem 'webrat'
-  gem 'spork', :git => "git://github.com/chrismdp/spork.git"
+  gem 'spork'
   gem 'ZenTest'
-	gem 'factory_girl_rails'
+  gem 'factory_girl_rails'
   gem 'simplecov', :require => false
   gem 'ruby-debug'
 end
