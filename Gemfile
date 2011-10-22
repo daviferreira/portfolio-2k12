@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9' 
 gem 'sqlite3'
 gem 'paperclip'
-gem 'will_paginate'
+gem 'will_paginate', '2.3.16'
 gem 'slugged'
 gem 'actionmailer', '>= 3.0.9' 
 gem 'mail'
@@ -26,6 +26,5 @@ group :test do
   gem 'spork'
   gem 'ZenTest'
   gem 'factory_girl_rails'
-  gem 'simplecov', :require => false
   gem 'ruby-debug'
 end
