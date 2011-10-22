@@ -12,3 +12,4 @@ public/sitemap*
 public/assets*
 public/blog*
 coverage*
+Gemfile.lock

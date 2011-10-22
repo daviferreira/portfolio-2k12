@@ -13,7 +13,9 @@
 
       <li class="googleplus"><g:plusone size="medium"></g:plusone></li>
 
+      <% if not @post.block_comments %>
       <li class="rss"><%= link_to image_tag("rss.png"), post_path(@post, :format => "atom") %></li>
+      <% end %>
     </ul>
       <span class="home">&larr; <%= link_to "Ir para a capa do blog", blog_path %></span>
       Publicado há <%= time_ago_in_words(@post.published_date) %><% if @post.comments.length > 1 %>, com

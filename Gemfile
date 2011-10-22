@@ -10,7 +10,7 @@ gem 'mail'
 gem 'gravatar_image_tag'
 gem 'rakismet'
 gem 'devise'
-gem "mongrel", '>= 1.2.0.pre2' 
+gem 'mongrel'
 gem 'sitemap_generator'
 gem 'jammit'
 
@@ -27,5 +27,5 @@ group :test do
   gem 'ZenTest'
 	gem 'factory_girl_rails'
   gem 'simplecov', :require => false
-  gem 'ruby-debug19', :require => 'ruby-debug'  
+  gem 'ruby-debug'
 end
