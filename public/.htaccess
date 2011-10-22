@@ -1,3 +1,28 @@
+Header unset ETag
+FileETag None
+
+ExpiresActive On
+ExpiresDefault A0
+
+# Set up caching on media files for 1 year (forever?)
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|gif|jpg|jpeg|png|swf)$">
+ExpiresDefault A29030400
+Header append Cache-Control "public"
+</FilesMatch>
+ 
+# Set up caching on media files for 1 week
+<FilesMatch "\.(js|css)$">
+ExpiresDefault A604800
+Header append Cache-Control "public"
+</FilesMatch>
+
+# Add Proper MIME-Type for Favicon
+AddType image/x-icon .ico
+ExpiresByType image/x-icon "access plus 1 month"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ 
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(daviferreira\.com)(:80)? [NC]
 RewriteRule ^(.*) http://www.daviferreira.com/$1 [R=301,L]
