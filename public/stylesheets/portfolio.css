@@ -202,7 +202,7 @@ ul#projects-main li.project div.actions{
 
 ul#projects-main li.project div.actions a{
   text-decoration:none;
-  font-size:12px;
+  font-size:11px;
   color:#666;
 }
 
@@ -244,10 +244,6 @@ ul#projects-main li.project p.category a:hover{
   color:#98CB66;
   border-color:#98CB66;
   border-style:solid;
-}
-
-ul#projects-main li.project div.actions ul{
-  float:right;
 }
 
 ul#projects-main li.project div.actions ul li{
@@ -756,6 +752,7 @@ form#new_contact textarea{
 
 li.more-details{
   margin:0 0 0 12px!important;
+  float:right!important;
 }
 
 p.more-details{
