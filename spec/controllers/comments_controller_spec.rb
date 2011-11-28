@@ -11,11 +11,6 @@ describe CommentsController do
                    :email => "contato@daviferreira.com",
                    :author => "Davi Ferreira",
                    :post_id => @post.id }
-      class ActionController::Request
-        def remote_ip
-          '192.178.33.4'
-        end
-      end
     end
 
     it "should accept a valid comment" do
@@ -24,18 +19,13 @@ describe CommentsController do
       end.should change(Comment, :count).by(1)
     end
 
-    it "should block spams" do
-      post :create, :comment => @comment.merge({:body => "Viagra"}), 
-                    :format => :js
-      Comment.last.published.should be_false
-    end
-
-    it "should block spams" do
+    it "should publish a valid comment" do
+      Comment.any_instance.stub(:spam?).and_return(false)
       post :create, :comment => @comment, 
                     :format => :js
-      debugger
       Comment.last.published.should be_true
     end
+
 
   end
 
