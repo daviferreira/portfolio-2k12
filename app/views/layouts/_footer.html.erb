@@ -12,7 +12,6 @@
       <ul>
         <li>
           <a href="http://twitter.com/davitferreira" class="twitter-follow-button" data-button="grey" data-text-color="#FFFFFF" data-link-color="#00AEFF" data-lang="pt">Follow @davitferreira</a>
-          <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
         </li>
         <li>Mais sobre minha vida profissional, visite meu perfil no <%=link_to "Linkedin", "http://br.linkedin.com/in/daviferreira" %>.</li>
         <li>Meus projetos open source estão hospedados no <%=link_to "GitHub", "http://www.github.com/daviferreira" %>.</li>
@@ -49,9 +48,13 @@ $('.pagination a').live('click',function(e){
 });
 
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+$.getScriptWithCache(gaJsHost + "google-analytics.com/ga.js");
+$.getScriptWithCache("http://platform.twitter.com/widgets.js");
+
 try {
 var pageTracker = _gat._getTracker("UA-1735379-1");
 pageTracker._trackPageview();
 } catch(err) {}
+
 </script>
