@@ -33,7 +33,7 @@ Portfolio::Application.configure do
   config.serve_static_assets = true 
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = "http://assets.daviferreira.com"
+  config.action_controller.asset_host = "http://dfimg.com"
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
