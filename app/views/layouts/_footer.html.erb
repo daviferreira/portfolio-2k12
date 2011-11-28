@@ -26,4 +26,32 @@
 </footer>
 
 
-<script>$(".pagination a").live("click",function(a){$('<div class="loader clearfix"><img src="/images/loader.gif" width="62" height="13" /></div>').insertAfter(".pagination-container");$(".pagination-container").hide();var b=$(".pagination-container:last").data("category");var c=$(".pagination-container:last").data("tag");var d=$("span.current:first").text();var e=$(this).text();var f=this;$.getScript(this.href+"&pg_atual="+d+"&pg_click="+e,function(){$(".loader").remove();$(".pagination-container").show();$('<a href="/?page='+d+"<% if params[:category] %>&category="+b+"<% end %><% if params[:tag] %>&tag="+c+'<%end%>" rel="next">'+d+"</a>").insertAfter("span.current");$("span.current").remove();$('<span class="current">'+e+"</span>").insertAfter(f);$(f).remove()});a.preventDefault()});var gaJsHost="https:"==document.location.protocol?"https://ssl.":"http://www.";document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));try{var pageTracker=_gat._getTracker("UA-1735379-1");pageTracker._trackPageview()}catch(err){}</script>
+<script>
+$('.pagination a').live('click',function(e){  
+  $('<div class="loader clearfix"><img src="/images/loader.gif" width="62" height="13" /></div>').insertAfter('.pagination-container');
+  $('.pagination-container').hide();
+
+  var category = $('.pagination-container:last').data('category');
+  var tag = $('.pagination-container:last').data('tag');
+
+  var pg = $('span.current:first').text();
+  var pg_click = $(this).text();
+  var link = this;
+  $.getScript(this.href+"&pg_atual="+pg+"&pg_click="+pg_click, function(){
+    $('.loader').remove();
+    $('.pagination-container').show();
+    $('<a href="/?page='+pg+'<% if params[:category] %>&category='+category+'<% end %><% if params[:tag] %>&tag='+tag+'<%end%>" rel="next">'+pg+'</a>').insertAfter('span.current');
+    $('span.current').remove();
+    $('<span class="current">'+pg_click+'</span>').insertAfter(link);
+    $(link).remove();
+  });  
+  e.preventDefault();
+});
+
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+try {
+var pageTracker = _gat._getTracker("UA-1735379-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
