@@ -25,33 +25,4 @@
   </div>
 </footer>
 
-<script type="text/javascript">
-$('.pagination a').live('click',function(e){  
-  $('<div class="loader clearfix"><img src="/images/loader.gif" width="62" height="13" /></div>').insertAfter('.pagination-container');
-  $('.pagination-container').hide();
-
-  var category = $('.pagination-container:last').data('category');
-  var tag = $('.pagination-container:last').data('tag');
-
-  var pg = $('span.current:first').text();
-  var pg_click = $(this).text();
-  var link = this;
-  $.getScript(this.href+"&pg_atual="+pg+"&pg_click="+pg_click, function(){
-    $('.loader').remove();
-    $('.pagination-container').show();
-    $('<a href="/?page='+pg+'<% if params[:category] %>&category='+category+'<% end %><% if params[:tag] %>&tag='+tag+'<%end%>" rel="next">'+pg+'</a>').insertAfter('span.current');
-    $('span.current').remove();
-    $('<span class="current">'+pg_click+'</span>').insertAfter(link);
-    $(link).remove();
-  });  
-  e.preventDefault();
-});
-
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-1735379-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+<script type="text/javascript">var gaJsHost,pageTracker;$(".pagination a").live("click",function(a){var b,c,d,e,f;$('<div class="loader clearfix"><img src="/images/loader.gif" width="62" height="13" /></div>').insertAfter(".pagination-container"),$(".pagination-container").hide();b=$(".pagination-container:last").data("category"),c=$(".pagination-container:last").data("tag"),d=$("span.current:first").text(),e=$(this).text(),f=this;$.getScript(this.href+"&pg_atual="+d+"&pg_click="+e,function(){$(".loader").remove(),$(".pagination-container").show(),$('<a href="/?page='+d+"<% if params[:category] %>&category="+b+"<% end %><% if params[:tag] %>&tag="+c+'<%end%>" rel="next">'+d+"</a>").insertAfter("span.current"),$("span.current").remove(),$('<span class="current">'+e+"</span>").insertAfter(f),$(f).remove()}),a.preventDefault()});gaJsHost="https:"==document.location.protocol?"https://ssl.":"http://www.";document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));try{pageTracker=_gat._getTracker("UA-1735379-1");pageTracker._trackPageview()}catch(err){}</script>
