@@ -10,14 +10,14 @@ module ApplicationHelper
   
   def meta_title
     if @meta_title.nil? or @meta_title.empty?
-      @meta_title = "Davi Ferreira - Programador PHP/MySQL, Rails, Ruby, Javascript, jQuery, HTML/CSS"
+      @meta_title = "Davi Ferreira - Programador Python, Django, Rails, Ruby, Javascript, jQuery, HTML/CSS, PHP/MySQL"
     end
     @meta_title
   end
   
   def meta_description
     if @meta_description.nil? or @meta_description.empty?
-      @meta_description = "Página/portfolio pessoal do programador Davi Ferreira. Design, PHP/MySQL, Rails, Ruby, Javascript, jQuery, HTML/CSS";
+      @meta_description = "Página/portfolio pessoal do programador Davi Ferreira. Design, Python, Django, Rails, Ruby, Javascript, jQuery, HTML/CSS, PHP/MySQL";
     end
     @meta_description
   end

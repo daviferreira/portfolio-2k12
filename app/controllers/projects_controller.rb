@@ -12,19 +12,19 @@ class ProjectsController < ApplicationController
       @category = Category.find_using_slug(params[:category])
       @projects = Project.published.where("category_id = #{@category.id}").limit(30).paginate(:page => params[:page], :per_page => 6)
       @meta_title = "#{@category.name} - Projetos na categoria #{@category.name} - DaviFerreira.com"
-      @meta_description = "Lista de trabalhos do programador PHP/Ruby Davi Ferreira na categoria #{@category.name} - DaviFerreira.com"
+      @meta_description = "Lista de trabalhos do programador Python/Ruby/PHP Davi Ferreira na categoria #{@category.name} - DaviFerreira.com"
     elsif params[:tag]
       @search = params[:tag]
       q = translate_tag(params[:tag]).downcase
 		  @projects = Project.published.where("lower(tags) LIKE ? OR lower(tags) LIKE ? OR lower(tags) LIKE ? OR lower(tags) = ?", q+",%", "%,"+q+",%", "%,"+q, q).limit(30).paginate(:page => params[:page], :per_page => 6)
 		  @meta_title = translate_tag(params[:tag]) + " - Projetos com a tag " + translate_tag(params[:tag]) + " - DaviFerreira.com"
-		  @meta_description = "Lista de trabalhos do programador PHP/Ruby Davi Ferreira com a tag " + translate_tag(params[:tag]) + " - DaviFerreira.com"
+		  @meta_description = "Lista de trabalhos do programador Python/Ruby/PHP Davi Ferreira com a tag " + translate_tag(params[:tag]) + " - DaviFerreira.com"
 		elsif params[:search]
 		  @search = params[:search]
 		  q = "%" + params[:search].downcase + "%"
       @projects = Project.published.where("name LIKE ? OR tags LIKE ? OR description LIKE ?", q, q, q).limit(30).paginate(:page => params[:page], :per_page => 6)
       @meta_title = "#{params[:search]} - Resultado da busca - DaviFerreira.com"
-		  @meta_description = "Resultado da busca de trabalhos do programador PHP/Ruby Davi Ferreira para #{params[:search]}"
+		  @meta_description = "Resultado da busca de trabalhos do programador Python/Ruby/PHP Davi Ferreira para #{params[:search]}"
     else
 		  @projects = Project.published.limit(30).paginate(:page => params[:page], :per_page => 6)
 	  end
