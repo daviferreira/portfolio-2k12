@@ -18,5 +18,6 @@ Factory.define :post do |post|
   post.body "Post"
   post.published_date "2011-01-01 11:11:11"
   post.published true
+  post.tableless nil
   post.block_comments false
 end
