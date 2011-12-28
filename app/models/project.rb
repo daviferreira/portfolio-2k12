@@ -12,3 +12,26 @@ class Project < ActiveRecord::Base
   validates :category_id, :presence 	=> true
   validates :due_date, :presence 	=> true
 end
+
+# == Schema Information
+#
+# Table name: projects
+#
+#  id                      :integer         not null, primary key
+#  name                    :string(255)
+#  description             :text
+#  url                     :string(255)
+#  start_date              :date
+#  due_date                :date
+#  category_id             :integer
+#  published               :boolean
+#  created_at              :datetime
+#  updated_at              :datetime
+#  tags                    :string(255)
+#  screenshot_file_name    :string(255)
+#  screenshot_content_type :string(255)
+#  screenshot_file_size    :integer
+#  screenshot_updated_at   :datetime
+#  cached_slug             :string(255)
+#
+

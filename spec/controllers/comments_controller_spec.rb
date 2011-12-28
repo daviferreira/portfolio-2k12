@@ -26,6 +26,13 @@ describe CommentsController do
       Comment.last.published.should be_true
     end
 
+    it "should highlight owner comment" do
+      
+    end
+    
+    it "should nest a comment reply" do
+      
+    end
 
   end
 

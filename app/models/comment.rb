@@ -21,3 +21,21 @@ class Comment < ActiveRecord::Base
 	validates :body, :presence => true
 										
 end
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer         not null, primary key
+#  author     :string(255)
+#  email      :string(255)
+#  url        :string(255)
+#  body       :text
+#  post_id    :integer
+#  published  :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#  ip         :string(255)
+#  comment_id :integer
+#
+

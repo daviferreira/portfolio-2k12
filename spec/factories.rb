@@ -21,3 +21,14 @@ Factory.define :post do |post|
   post.tableless nil
   post.block_comments false
 end
+
+Factory.define :comment do |comment|
+  comment.author "Author"
+  comment.email "author@example.com"
+  comment.url "http://example.com"
+  comment.body "Test comment"
+  comment.published true
+  comment.ip "127.0.0.1"
+  comment.association :post
+  comment.comment_id nil
+end
