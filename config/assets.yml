@@ -22,11 +22,8 @@ stylesheets:
     - public/stylesheets/portfolio.css
     - public/javascripts/fancybox/*.css
   blog:
-    - public/stylesheets/daviferreira.css
-    - public/stylesheets/msgtopo.css
     - public/stylesheets/blog.css
   post:
-    - public/stylesheets/daviferreira.css
     - public/stylesheets/msgtopo.css
     - public/stylesheets/blog.css
     - public/stylesheets/jquery.snippet.min.css

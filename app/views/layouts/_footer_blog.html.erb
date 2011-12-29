@@ -1,31 +1,4 @@
-<div id="bottom-toolbar">
-  <div class="container clearfix">
-    <% if blog_home_page? %>
-      <ul class="social clearfix"><li><%=link_to image_tag("rss.png"), blog_path(:format => "atom") %></li></ul>
-      <p>Meu nome é <%= link_to "Davi Ferreira", "http://www.twitter.com/davitferreira", :title => "Siga-me no twitter!" %> e sou um <%= link_to "desenvolvedor web", root_path, :title => "Visite meu portfólio!" %> com grande interesse em interfaces. Aqui você encontra textos sobre programação e design.</p>
-    <% else %>
-    <ul class="social clearfix">
-
-
-      <li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= @share_url %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
-      
-      <li class="fb"><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= @share_url %>" layout="button_count" show_faces="false" colorscheme="dark" font=""></fb:like></li>
-
-      <li class="googleplus"><g:plusone size="medium"></g:plusone></li>
-
-      <% if not @post.block_comments %>
-      <li class="rss"><%= link_to image_tag("rss.png"), post_path(@post, :format => "atom") %></li>
-      <% end %>
-    </ul>
-      <span class="home">&larr; <%= link_to "Ir para a capa do blog", blog_path %></span>
-      Publicado há <%= time_ago_in_words(@post.published_date) %><% if @post.comments.length > 1 %>, com
-      <%= link_to total_comments_in_words(@post.comments.published.length), "#comments" %><% else %>.<% end %>
-      
-  <% end %>
-    </div>
-</div>
-
-<script type="text/javascript">
+<script>
 <% if not blog_home_page? %>
 $('p.reply a').live('click',function(e){  
   $.getScript(this.href, function(){
@@ -37,13 +10,8 @@ $('p.reply a').live('click',function(e){
 
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
 try {
 var pageTracker = _gat._getTracker("UA-1735379-1");
 pageTracker._trackPageview();
-} catch(err) {}</script>
-
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'pt-BR'}
+} catch(err) {}
 </script>

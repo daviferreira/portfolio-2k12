@@ -1,13 +1,14 @@
-<header>
+<header class="clearfix">
   <% if blog_home_page? %>
-  <!-- div id="search">
-    <form action="<%=blog_path%>" id="frm-query" method="GET">
-      <input type="text" name="query" id="query" placeholder="Pesquisar..." />
-    </form>
-  </div -->
-  <!-- h1>Davi Ferreira/blog/*</h1 -->
+  <nav class="clearfix">
+    <ul>
+      <li><a href="/">Portfolio</a></li>
+      <li><a href="#">Github</a></li>
+      <li><a href="#">Twitter</a></li>
+    </ul>
+  </nav>
+  <h1>Davi Ferreira<small>Desenvolvedor @ Globo.com</small></h1>
   <% else %>
   <h1><%= @post.title %></h1>
   <% end %>
-  
 </header>

@@ -24,13 +24,13 @@
 </head>
 <body class="blog <% if not blog_home_page? %>post<%end%>">
 
-  <%= render "layouts/header_blog" %>
+  <div id="blog" class="clearfix">
+	  <%= render "layouts/header_blog" %>
 
-  <section id="main">
-    <%= yield %>
-  </section>
+	  <%= yield %>
   
-  <%= render "layouts/footer_blog" %>
+	  <%= render "layouts/footer_blog" %>
+  </div>
 
 </body>
 </html>
