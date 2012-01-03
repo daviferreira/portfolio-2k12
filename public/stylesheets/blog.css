@@ -53,12 +53,6 @@ table {
 	border-spacing: 0;
 }
 
-
-.clearfix:after                 { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
-* html .clearfix                { zoom: 1; } /* IE6 */
-*:first-child+html .clearfix    { zoom: 1; } /* IE7 */
-
-
 html {
   background-color: #4e7178;
 }
@@ -66,8 +60,7 @@ html {
 body {
   font-family: "Helvetica Neue", "Arial", sans-serif;
   margin:2% auto;
-  width:96%;
-  max-width:1440px;
+  width:960px;
   background-color:#f1f7e2;
   background:#f1f7e2 -webkit-gradient(linear, left bottom, left top, from(#f1f7e2), to(#e5e7eb)) repeat-x;
   background:#f1f7e2 -webkit-linear-gradient(bottom, #f1f7e2 40%, #e5e7eb) repeat-x;
@@ -88,44 +81,62 @@ code, pre {
   text-shadow: none;
 }
 
-div#blog {
+section#blog {
   padding: 40px;
 }
 
-header {
+section#top header {
   margin: 0 0 60px 0;
 }
 
-header nav {
+section#top nav {
   float: right;
-  margin: 16px 0 0;
+  margin: 32px 0 0;
 }
 
-header nav ul {
+section#top nav ul {
   display:block;
 }
 
-header nav ul li {
+section#top nav ul li {
   float:left;
   border-left: 1px dotted #ccc;
+  display: block;
+  height: 13px;
+  overflow: hidden;
 }
 
-header nav li a {
+section#top nav ul li:first-child {
+  border: none;
+}
+
+section#top nav li a {
   font-size:12px;
-  color:#333;
+  color:#4e7178;
   text-decoration:none;
   text-transform:uppercase;
   padding:0 13px;
+  -webkit-transition:150ms all linear;
+  -moz-transition:150ms all linear;
+  -o-transition:150ms all linear;
+  transition:150ms all linear; 
+  margin: 0 0;
+  display:block;
 }
 
-header nav li a:hover {
+section#top nav li a:after {
+	content:attr(title);
+	display:block;
+}
+
+section#top nav li a:hover {
+  margin-top:-13px;
   color:#000;
-  text-decoration: underline;
 }
 
 h1 {
   font-size: 62px;
-  line-height:48px;
+  line-height:66px;
   text-shadow:#fff 0 1px 0;
   letter-spacing: -2px;
   font-weight: 500;
@@ -171,8 +182,12 @@ ul#posts-index li{
   padding: 0 0 0 20px;
 }
 
-ul#posts-index li:hover{
+ul#posts-index li:hover {
   border-color: #4e7178;
+}
+
+ul#posts-index li:hover a {
+  color: #4e7178
 }
 
 ul#posts-index li div.time-ago{
@@ -200,4 +215,19 @@ span.label{
 
 span.label.tableless{
   background-color: #eb181e;
+}
+
+section#post p {
+  line-height: 22px;
+  margin: 0 0 22px 0;
+}
+
+section#post h2, section#post h4 {
+  font-weight: 300;
+  margin: 22px 0;
+}
+
+body.post h1 {
+  font-size: 48px;
+  line-height: 52px;
 }

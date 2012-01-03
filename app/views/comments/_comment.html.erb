@@ -1,4 +1,4 @@
-<li id="comment-<%=comment.id%>" class="clearfix<% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %>">
+<article id="comment-<%=comment.id%>" class="comment<% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %>">
 	<div class="author">
 		<p><%= gravatar_for comment %></p>
 		<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %H:%M").sub(' ', '<br />')) %></p>
@@ -10,7 +10,7 @@
     <p class="reply"><%= link_to "Responder", reply_comment_path(comment), :id => "lnk-reply-#{comment.id}" %></p>
     <% end %>
   </div>
-</li>
+</article>
 <% unless comment.comments.empty? %>
   <% comment.comments.each do |reply| %>
     <%= render reply %>

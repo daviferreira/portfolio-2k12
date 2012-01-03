@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title><%= meta_title %></title>
   <meta description="<%= meta_description %>">
 
@@ -20,17 +20,17 @@
   <%= auto_discovery_link_tag(:atom, {:controller => "posts", :action => "feed"}) %>
 
   <%= csrf_meta_tag %>
-  <link rel="shortcut icon" href="/images/favicon.gif" />
+  <link rel="shortcut icon" href="/images/favicon.gif">
 </head>
 <body class="blog <% if not blog_home_page? %>post<%end%>">
 
-  <div id="blog" class="clearfix">
+  <section id="blog">
 	  <%= render "layouts/header_blog" %>
 
 	  <%= yield %>
   
 	  <%= render "layouts/footer_blog" %>
-  </div>
+  </section>
 
 </body>
 </html>
