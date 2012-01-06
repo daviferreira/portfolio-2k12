@@ -29,7 +29,7 @@ body > header p {
 	margin: 0;
 	font-size: 14px;
 	font-weight: 600;
-	padding: 5px 0 0;
+	padding: 3px 0 0;
 	text-shadow: -1px -1px 0 #55665e;
 	color: #e2e2e2;
 }
@@ -52,7 +52,7 @@ body > header ul li:first-child iframe {
 }
 
 body > header ul li:last-child {
-	margin: 1px 0 0;
+	margin: 2px 0 0;
 }
 
 p {
