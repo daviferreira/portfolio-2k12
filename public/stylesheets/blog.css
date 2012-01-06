@@ -110,19 +110,19 @@ section#blog > article > a:hover > p {
 }
 
 section#blog > article > a:hover > header > div.tableless {
-	background-color: #333;
+	display: inline-block;
 }
 
 section#blog div.tableless {
 	font-size: 12px;
 	text-transform: uppercase;
 	float: right;
-	display: inline-block;
+	display: none;
 	padding: 6px;
 	background-color: #e84167;
 	border-radius: 3px;
 	color: #fff;
-	margin: 10px 0 0;
+	margin: 8px 0 0;
 }
 
 @media screen and (min-width: 767px) {
