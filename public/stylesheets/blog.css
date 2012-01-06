@@ -5,17 +5,18 @@
 body {
     -webkit-font-smoothing: antialiased;
     background: #e2e2e2 url(../images/cardboard.png) 0 0 repeat scroll;	
+	font-family: "Helvetica Neue", arial, sans-serif;
 }
 
 body > header {
 	position: fixed;
-	border-bottom: 1px dotted #333;
-	background-color: #c4d4cb;
+	border-bottom: 1px dotted #ccc;
+	background-color: #333;
 	width: 100%;
 	z-index: 10;
 	top: 0;
 	left: 0;
-	opacity: 0.8;
+	opacity: 0.9;
 	padding: 10px 60px;
 	color: #333;
 }
@@ -29,8 +30,8 @@ body > header p {
 	font-size: 14px;
 	font-weight: 600;
 	padding: 5px 0 0;
-	text-shadow: -1px -1px 0 #e2e2e2;
-	color: #55665e;
+	text-shadow: -1px -1px 0 #55665e;
+	color: #e2e2e2;
 }
 
 body > header nav {
@@ -56,7 +57,6 @@ body > header ul li:last-child {
 
 p {
     color: #30282a;
-    font-family: "Helvetica Neue", arial, sans-serif;
     font-size: 16px;
     line-height: 22px;
     margin-bottom: 24px;
@@ -85,6 +85,11 @@ article {
     padding: 10px 0 20px;
 }
 
+article:last-child {
+	background: none;
+	padding: 10px 0 0;
+}
+
 section#blog {
     margin: 60px;
 	z-index: 1;
@@ -105,7 +110,6 @@ section#blog > article > a:hover > header > div.tableless {
 section#blog div.tableless {
 	font-size: 12px;
 	text-transform: uppercase;
-	font-family: "Helvetica Neue", arial, sans-serif;
 	float: right;
 	display: inline-block;
 	padding: 6px;
