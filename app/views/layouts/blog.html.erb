@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title><%= meta_title %></title>
-  <meta description="<%= meta_description %>">
+  <meta name="description" content="<%= meta_description %>">
 
   <% if blog_home_page? %>
     <%= include_javascripts :blog%>
@@ -22,14 +22,14 @@
   <%= csrf_meta_tag %>
   <link rel="shortcut icon" href="/images/favicon.gif" />
 </head>
-<body class="blog <% if not blog_home_page? %>post<%end%>">
+<body>
 
   <%= render "layouts/header_blog" %>
 
-  <section id="main">
+  <section id="blog">
     <%= yield %>
   </section>
-  
+
   <%= render "layouts/footer_blog" %>
 
 </body>

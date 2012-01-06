@@ -1,28 +1,36 @@
-<div class="post">
-  <article class="alpha">
+<section id="post">
+  <article>
+	<header>
+		<h1><%= @post.title %></h1>
+	</header>
     <%= raw(@post.body) %>
   </article>
   
-  <div id="comments">
+  <section id="comments">
     <% if not @post.block_comments or not @post.comments.published.empty? %>
-      <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    <% end %>
+	<header>
+      <h1><%= total_comments_in_words(@post.comments.published.length) %></h1>
+	</header>
+	<% end %>
     
     <% unless @post.comments.published.empty? %>
-      <ul id="list-comments">
-        <% @post.comments.published.each do |comment| %>
-          <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
-        <% end %>
-      </ul>
+	    <% @post.comments.published.each do |comment| %>
+	      <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
+	    <% end %>
     <% end %>
-    
+   </section>
+   <section id="comment-form">
     <% if not @post.block_comments %>
-    <h3 id="tit-form-comment">Deixe seu comentário:</h3>
-      <%= render "comments/form", :id => "new_comment" %>
+		<header>
+    		<h1 id="tit-form-comment">Deixe seu comentário:</h1>
+		</header>
+      	<%= render "comments/form", :id => "new_comment" %>
     <% else %>
-      <div class="alert-message info" style="text-align:center;">O envio de comentários está bloqueado para este post.</div>
+      	<div class="alert-message info" style="text-align:center;">O envio de comentários está bloqueado para este post.</div>
     <% end %>
-  </div>
-</div>
+	</section>
+  </section>
+</section>
 
 <script type="text/javascript">
 $(function(){
@@ -30,7 +38,7 @@ $(function(){
     var lang = $(this).attr('class').replace(/brush:/, '');
     if(lang == "") lang = "xml";
     $(this).snippet(lang,{
-      style:"vim-dark",
+      style:"vim",
       clipboard:"/flash/ZeroClipboard.swf",
     });
   });

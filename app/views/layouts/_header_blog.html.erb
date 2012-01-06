@@ -1,13 +1,16 @@
-<header>
-  <% if blog_home_page? %>
-  <!-- div id="search">
-    <form action="<%=blog_path%>" id="frm-query" method="GET">
-      <input type="text" name="query" id="query" placeholder="Pesquisar..." />
-    </form>
-  </div -->
-  <!-- h1>Davi Ferreira/blog/*</h1 -->
-  <% else %>
-  <h1><%= @post.title %></h1>
-  <% end %>
-  
-</header>
+  <header>
+	  <section>
+		  <nav>
+		      <ul>
+
+
+		        <li><a href="http://twitter.com/davitferreira" class="twitter-follow-button" data-button="grey" data-text-color="#FFFFFF" data-link-color="#00AEFF" data-lang="pt" >Follow @davitferreira</a></li>
+
+	      	  	<li><%=link_to image_tag("rss.png"), blog_path(:format => "atom") %></li>
+
+		  
+			  </ul>
+			</nav>
+		  <p>Boa tarde :-)</p>
+		</section>
+  </header>
