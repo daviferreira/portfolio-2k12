@@ -9,8 +9,8 @@ body {
 
 body > header {
 	position: fixed;
-	border-bottom: 1px dotted #ccc;
-	background-color: #fff;
+	border-bottom: 1px dotted #333;
+	background-color: #c4d4cb;
 	width: 100%;
 	z-index: 10;
 	top: 0;
@@ -28,11 +28,14 @@ body > header p {
 	margin: 0;
 	font-size: 14px;
 	font-weight: 600;
-	padding: 2px 0 0;
+	padding: 5px 0 0;
+	text-shadow: -1px -1px 0 #e2e2e2;
+	color: #55665e;
 }
 
 body > header nav {
 	float: right;
+	margin: 4px 0 0;
 }
 
 body > header ul {
@@ -48,7 +51,7 @@ body > header ul li:first-child iframe {
 }
 
 body > header ul li:last-child {
-	margin: 2px 0 0;
+	margin: 1px 0 0;
 }
 
 p {
