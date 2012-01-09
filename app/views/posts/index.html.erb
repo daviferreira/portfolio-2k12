@@ -8,6 +8,7 @@
 	  </header>
       <p><%= post.abstract %></p>
 	</a>
+    <p class="pub-date">Publicado há <time><%= time_ago_in_words post.published_date %></time></p>
   </article>
   <% end %>
 

@@ -125,6 +125,24 @@ section#blog div.tableless {
 	margin: 8px 0 0;
 }
 
+p.pub-date {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #62716a;
+    line-height: 14px;
+    margin-bottom: 20px;
+}
+
+header > section > p > a {
+    text-decoration: none;
+    color: #666;
+}
+
+header > section > p > a > img {
+    border-radius: 3px;
+    vertical-align: top;
+}
+
 @media screen and (min-width: 767px) {
     #blog { width: 70%; max-width: 940px; }
 }
