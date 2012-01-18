@@ -26,7 +26,7 @@
   <tr> 
         <td><input type="checkbox"></td> 
       <td><%= sanitize comment.body, :tags => %w(strong em code a br) %></td> 
-      <td><%= comment.post.title %></td>
+      <td><%= comment.post.title if comment.post %></td>
       <td><%= comment.author %></td> 
       <td><%= comment.created_at.strftime("%d/%m/%Y %l:%M") %></td> 
       <td><input type="image" src="images/admin/icn_edit.png" title="Edit"><input type="image" src="images/admin/icn_trash.png" title="Trash"></td> 

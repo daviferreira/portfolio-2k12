@@ -26,7 +26,7 @@ ExpiresByType image/png "access plus 1 month"
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(daviferreira\.com)(:80)? [NC]
 RewriteRule ^(.*) http://www.daviferreira.com/$1 [R=301,L]
-RewriteCond %{HTTP_HOST} ^(www\.)?(daviferreira\.com\.br)(:80)? [NC]
+RewriteCond %{HTTP_HOST} ^(.*)(daviferreira\.com\.br)(:80)? [NC]
 RewriteRule ^(.*) http://www.daviferreira.com/$1 [R=301,L]
 
 order deny,allow
