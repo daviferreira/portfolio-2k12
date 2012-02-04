@@ -1,10 +1,24 @@
-<ul id="posts-index">
+<section id="posts_index" class="container_12">
 
   <% @posts.each do |post| %>
-  <li>
-    <h2><%= link_to post.title, post_url(post) %><% if from_tableless(post) %><span class="label tableless">Tableless</span><% end %></h2>
-    <div class="time-ago">Publicado há <%= time_ago_in_words(post.published_date) %><% if not from_tableless(post) and (not post.block_comments or not post.comments.published.empty?) %> | <%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %><% end %></div>
-  </li>
+  <article class="clearfix">
+    <aside class="grid_4">
+      <time datetime="<%= post.published_date %>" pubtime><em>/</em><%= l post.published_date, :format => '%d de %B de %Y' %></time>
+      <% if not from_tableless(post) and (not post.block_comments or not post.comments.published.empty?) %>
+        <div class="comments">
+          <em>+</em><%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %>
+        </div>
+      <% end %>
+    </aside>
+    <section class="grid_8">
+      <a href="<%= post_url(post) %>">
+    	  <header>
+          <h2><%= post.title %><% if from_tableless(post) %><span class="label tableless">Tableless</span><% end %></h2>
+        </header>
+        <p><%= post.abstract %></p>
+      </a>
+    </section>
+  </article>
   <% end %>
   
-</ul>
+</section>

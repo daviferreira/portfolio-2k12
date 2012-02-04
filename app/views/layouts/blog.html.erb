@@ -22,15 +22,26 @@
   <%= csrf_meta_tag %>
   <link rel="shortcut icon" href="/images/favicon.gif">
 </head>
-<body class="blog <% if not blog_home_page? %>post<%end%>">
-
-  <section id="blog">
+<body>
+  <% if not blog_home_page? %>
+  <nav id="nav_posts">
+  <a href="#" class="prev">
+    <span>&larr;</span>
+    <p>Nunca confie em um programador vestindo terno</p>
+  </a>
+  <a href="#" class="next">
+    <span>&rarr;</span>
+    <p>Canvas: nova classe para manipulação e redimensionamento de imagens com PHP</p>
+  </a>
+  </nav>
+  <% end %>
+  <div id="blog-container">
 	  <%= render "layouts/header_blog" %>
 
 	  <%= yield %>
   
 	  <%= render "layouts/footer_blog" %>
-  </section>
+  </div>
 
 </body>
 </html>
