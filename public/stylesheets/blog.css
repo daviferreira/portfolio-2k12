@@ -557,6 +557,10 @@ article.owner, article.owner time{ color: #4ca5fe; }
   border-bottom: 1px dotted #ccc;
 }
 
+#post-info header hgroup {
+  margin-bottom: 40px;
+}
+
 #post-info time {
   border-bottom: none;
   padding: 0 0;
@@ -569,10 +573,10 @@ article.owner, article.owner time{ color: #4ca5fe; }
 }
 
 #post-info h2 {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: normal;
-  line-height: 18px;
-  margin: 6px 0;
+  line-height: 22px;
+  margin: 6px 0 12px 0;
 }
 
 #post-info header {
