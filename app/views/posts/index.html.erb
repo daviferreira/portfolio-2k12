@@ -9,11 +9,12 @@
           <em>+</em><%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %>
         </div>
       <% end %>
+      <% if from_tableless(post) %><p><span class="label tableless">Tableless</span></p><% end %>
     </aside>
     <section class="grid_8">
       <a href="<%= post_url(post) %>">
     	  <header>
-          <h2><%= post.title %><% if from_tableless(post) %><span class="label tableless">Tableless</span><% end %></h2>
+          <h2><%= post.title %></h2>
         </header>
         <p><%= post.abstract %></p>
       </a>
