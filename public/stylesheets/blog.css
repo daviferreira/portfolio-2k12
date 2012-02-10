@@ -569,9 +569,10 @@ article.owner, article.owner time{ color: #4ca5fe; }
 }
 
 #post-info h2 {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: normal;
-  line-height: 22px;
+  line-height: 18px;
+  margin: 6px 0;
 }
 
 #post-info header {
