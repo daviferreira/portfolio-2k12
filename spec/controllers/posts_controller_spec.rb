@@ -10,7 +10,7 @@ describe PostsController do
       @first_post = Factory(:post)
       @second_post = Factory(:post, :title => "Second Post", :published_date => '2011-01-01 12:12:12')
       @third_post = Factory(:post, :title => "Third Post", :published_date => '2011-01-01 13:13:13')
-      @fourth_post = Factory(:post, :title => "Tableless Post", :published_date => '2011-01-01 14:14:14', :tableless => true)
+      @fourth_post = Factory(:post, :title => "Tableless Post", :published_date => '2011-01-01 14:14:14', :tableless => 'http://www.tableless.com.br')
       @fifth_post = Factory(:post, :title => "Fifth Post", :published_date => '2011-01-01 15:15:15')
     end
 

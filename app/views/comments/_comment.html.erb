@@ -1,6 +1,6 @@
 <article id="comment-<%=comment.id%>" class="comment<% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %> container_12 clearfix">
 	<div class="author grid_2">
-		<p><%= gravatar_for comment %></p>
+		<p class="image-wrap"><%= gravatar_for comment %></p>
 		<time datetime="<%= comment.created_at %>" pubdate><%= l comment.created_at, :format => "%d/%m/%Y" %><br /><%= l comment.created_at, :format => "%H:%M" %></time>
 	</div>
 	<div class="comment grid_10">

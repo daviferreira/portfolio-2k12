@@ -1,14 +1,14 @@
 <nav id="nav_posts">
-<% if @previous_post %>
-  <a href="<%= post_url(@previous_post) %>" class="prev">
+<% if @post.previous_post %>
+  <a href="<%= post_url(@post.previous_post) %>" class="prev">
     <span>&larr;</span>
-    <p><%= @previous_post.title %></p>
+    <p><%= @post.previous_post.title %></p>
   </a>
 <% end %>
-<% if @next_post %>
-  <a href="<%= post_url(@next_post) %>" class="next">
+<% if @post.next_post %>
+  <a href="<%= post_url(@post.next_post) %>" class="next">
     <span>&rarr;</span>
-    <p><%= @next_post.title %></p>
+    <p><%= @post.next_post.title %></p>
   </a>
 <% end %>
 </nav>

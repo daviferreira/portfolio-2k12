@@ -259,6 +259,16 @@ span.label.tableless{
   background-color: #eb181e;
 }
 
+#post time {
+  border-bottom: 1px dotted #CCCCCC;
+  color: #666666;
+  display: block;
+  font-size: 14px;
+  font-style: oblique;
+  margin: 0 0 30px;
+  padding: 0 0 12px;
+}
+
 #post p {
   line-height: 26px
 }
@@ -501,7 +511,35 @@ form.new_comment-reply input[type="text"], form.new_comment-reply textarea, form
   margin-right: -10px;
 }
 
-blockquote{margin-bottom:18px;border-left:5px solid #eee;padding-left:15px;}blockquote p{font-family: Georgia, serif; font-size:18px;font-weight:300;line-height:18px;margin-bottom:0;}
+blockquote{margin:24px;border-left:5px solid #e5687e;padding:15px;}blockquote p{font-family: Georgia, serif; font-size:18px;font-weight:300;line-height:18px;margin-bottom:0;}
 blockquote small,blockquote cite{display:block;font-size:14px;font-weight:300;line-height:18px;color:#bfbfbf;}blockquote small:before,blockquote cite:before{content:'\2014 \00A0';}
 blockquote p{margin:0 0!important;line-height:auto!important;}
 
+article.owner, article.owner time{ color: #4ca5fe; }
+
+.image-wrap {
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    vertical-align: bottom;
+}
+.image-wrap:after {
+    border: 1px solid #1B1B1B;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 2px rgba(0, 0, 0, 0.3);
+    content: " ";
+    height: 100%;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+}
+.image-wrap img {
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    vertical-align: bottom;
+}
+
+.cutout .image-wrap:after {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 5px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.6) inset;
+}

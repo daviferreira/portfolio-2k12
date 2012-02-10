@@ -24,7 +24,7 @@
 </head>
 <body>
 
-  <%= render "posts/navigation" if not blog_home_page? and (@previous_post or @next_post) %>
+  <%= render "posts/navigation" if not blog_home_page? and (@post.previous_post or @post.next_post) %>
 
   <div id="blog-container">
 	  <%= render "layouts/header_blog" %>
