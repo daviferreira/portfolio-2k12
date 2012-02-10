@@ -221,7 +221,7 @@ h2 a:hover {
 }
 
 #posts_index time, .author time{
-  font-family: 'Monaco', fixed, monospace;    
+  font-family: 'Monaco', fixed, monospace;  
   font-size: 12px;
   text-transform: uppercase;
   color: #666;
@@ -522,28 +522,84 @@ blockquote p{margin:0 0!important;line-height:auto!important;}
 article.owner, article.owner time{ color: #4ca5fe; }
 
 .image-wrap {
-    display: inline-block;
-    max-width: 100%;
-    position: relative;
-    vertical-align: bottom;
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  vertical-align: bottom;
 }
 .image-wrap:after {
-    border: 1px solid #1B1B1B;
-    border-radius: 7px 7px 7px 7px;
-    box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 2px rgba(0, 0, 0, 0.3);
-    content: " ";
-    height: 100%;
-    left: -1px;
-    position: absolute;
-    top: -1px;
-    width: 100%;
+  border: 1px solid #1B1B1B;
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 2px rgba(0, 0, 0, 0.3);
+  content: " ";
+  height: 100%;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 100%;
 }
 .image-wrap img {
-    border-radius: 6px 6px 6px 6px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    vertical-align: bottom;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  vertical-align: bottom;
 }
 
 .cutout .image-wrap:after {
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 5px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.6) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 5px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.6) inset;
+}
+
+#post-info {
+  position: relative;
+}
+
+#post-info header {
+  margin-bottom: 15px;
+  border-bottom: 1px dotted #ccc;
+}
+
+#post-info time {
+  border-bottom: none;
+  padding: 0 0;
+}
+
+#post-info h1 {
+  font-size: 18px;
+  letter-spacing: normal;
+  line-height: 24px;
+}
+
+#post-info h2 {
+  font-size: 16px;
+  letter-spacing: normal;
+  line-height: 22px;
+}
+
+#post-info header {
+  display: none;
+}
+
+#post-info .inactive {
+  background: none;
+}
+
+#post-info .inactive a {
+  color: #333;
+  border: none;
+}
+
+#post-info h1 a, #post-info h2 a {
+  color: #df0d32;
+  color: rgba(223, 13, 50, 0.7);
+  border-bottom: 1px dotted #df0d32;
+}
+
+#post-info h1 a:hover, #post-info h2 a:hover {
+  color: #df0d32;
+	color: rgba(223, 13, 50, 1);
+}
+
+#post-info div.fixed {
+  position: fixed;
+  top: 30px;
+  width: 298px;
 }

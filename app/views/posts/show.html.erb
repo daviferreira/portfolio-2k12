@@ -1,9 +1,24 @@
 <section id="post" class="container_12 clearfix">
-  <article>
+  <aside class="grid_4 clearfix" id="post-info">
+    &nbsp;
+    <div>
+      <header>
+        <hgroup>
+        </hgroup>
+      </header>
+      <time datetime="<%= @post.published_date %>" pubtime><em>/</em><%= l @post.published_date, :format => '%d de %B de %Y' %></time>
+      <% if not from_tableless(@post) and (not @post.block_comments or not @post.comments.published.empty?) %>
+        <div class="comments">
+          <em>+</em><%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %>
+        </div>
+      <% end %>
+    </div>
+  </aside>
+  <article class="grid_8">
 	  <header>
 		  <h1><%= @post.title %></h1>
 	</header>
-	<time datetime="<%= @post.published_date %>" pubtime>Publicado em <%= l @post.published_date, :format => '%d de %B de %Y' %></time>
+	
 	
 	
 	   	   	<%= raw(@post.body) %>
@@ -46,17 +61,3 @@
 <% else %>
   <div class="alert-message info" style="text-align:center;">O envio de comentários está bloqueado para este post.</div>
 <% end %>
-
-
-<script type="text/javascript">
-$(function(){
-  $('pre').each(function(){
-    var lang = $(this).attr('class').replace(/brush:/, '');
-    if(lang == "") lang = "xml";
-    $(this).snippet(lang,{
-      style:"vim-dark",
-      clipboard:"/flash/ZeroClipboard.swf",
-    });
-  });
-});
-</script>
