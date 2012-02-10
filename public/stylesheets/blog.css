@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: #df0d32;
-  color: rgba(223, 13, 50, .6);
+  color: rgba(223, 13, 50, .8);
   -webkit-transition: color .3s ease-in-out;  
   -moz-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;  
