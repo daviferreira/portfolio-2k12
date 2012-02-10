@@ -21,13 +21,13 @@ $(function(){
   $(window).scroll(function(){
     var visible_title = '';
     
-    if($(document).scrollTop() > ($title.offset().top) && !$aside.find('header').is(':visible') && $(document).scrollTop() <= ($comments.offset().top - 528)){
+    if($(document).scrollTop() > ($title.offset().top) && !$aside.find('header').is(':visible') && $(document).scrollTop() <= ($comments.offset().top - 500)){
       $aside.find('div:first').addClass('fixed')
       $aside.find('header').slideDown('fast');
       $aside.find('h2').addClass('inactive')
       $aside.find('h1').removeClass('inactive');
-    } else if (($(document).scrollTop() <= ($title.offset().top) || $(document).scrollTop() >= ($comments.offset().top - 528)) && $aside.find('header').is(':visible')) {
-      if($(document).scrollTop() < ($comments.offset().top - 528))
+    } else if (($(document).scrollTop() <= ($title.offset().top) || $(document).scrollTop() >= ($comments.offset().top - 500)) && $aside.find('header').is(':visible')) {
+      if($(document).scrollTop() < ($comments.offset().top - 500))
         $aside.find('div:first').removeClass('fixed');
       $aside.find('header').slideUp('fast', function(){
         $aside.find('div:first').removeClass('fixed');
