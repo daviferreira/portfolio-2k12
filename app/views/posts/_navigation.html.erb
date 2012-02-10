@@ -1,0 +1,14 @@
+<nav id="nav_posts">
+<% if @post.previous_post %>
+  <a href="<%= post_url(@post.previous_post) %>" class="prev">
+    <span>&larr;</span>
+    <p><%= @post.previous_post.title %></p>
+  </a>
+<% end %>
+<% if @post.next_post %>
+  <a href="<%= post_url(@post.next_post) %>" class="next">
+    <span>&rarr;</span>
+    <p><%= @post.next_post.title %></p>
+  </a>
+<% end %>
+</nav>

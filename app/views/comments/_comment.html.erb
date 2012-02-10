@@ -1,16 +1,16 @@
-<li id="comment-<%=comment.id%>" class="clearfix<% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %>">
-	<div class="author">
-		<p><%= gravatar_for comment %></p>
-		<p class="date"><%= raw(comment.created_at.strftime("%d/%m/%Y %H:%M").sub(' ', '<br />')) %></p>
+<article id="comment-<%=comment.id%>" class="comment<% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %> container_12 clearfix">
+	<div class="author grid_2">
+		<p class="image-wrap"><%= gravatar_for comment %></p>
+		<time datetime="<%= comment.created_at %>" pubdate><%= l comment.created_at, :format => "%d/%m/%Y" %><br /><%= l comment.created_at, :format => "%H:%M" %></time>
 	</div>
-	<div class="comment">
+	<div class="comment grid_10">
 		<p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> escreveu:</strong></p>
 		<p><%= sanitize_preserving_code comment.body %></p>
 		<% unless @post.block_comments %>
     <p class="reply"><%= link_to "Responder", reply_comment_path(comment), :id => "lnk-reply-#{comment.id}" %></p>
     <% end %>
   </div>
-</li>
+</article>
 <% unless comment.comments.empty? %>
   <% comment.comments.each do |reply| %>
     <%= render reply %>

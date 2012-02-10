@@ -17,9 +17,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_using_slug(params[:id])
-    @comment = Comment.new
 
-    if @post
+    if @post and @post.published?
+      @comment = Comment.new
+
       if @post.id < 20
         @share_url = "http://www.daviferreira.com/blog/post/#{@post.id}/#{@post.cached_slug}.html"
       else
@@ -35,7 +36,6 @@ class PostsController < ApplicationController
       
       @meta_title = @post.title + categories
       @meta_description = categories + @post.title
-      
     end
    
     respond_to do |format|

@@ -1,28 +1,51 @@
-<div class="post">
-  <article class="alpha">
-    <%= raw(@post.body) %>
+<section id="post" class="container_12 clearfix">
+  <article>
+	  <header>
+		  <h1><%= @post.title %></h1>
+	</header>
+	<time datetime="<%= @post.published_date %>" pubtime>Publicado em <%= l @post.published_date, :format => '%d de %B de %Y' %></time>
+	
+	   	   	<%= raw(@post.body) %>
+	
+	
+	<ul class="social clearfix">
+
+
+	      <li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= @share_url %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+      
+	      <li class="fb"><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= @share_url %>" layout="button_count" show_faces="false" colorscheme="dark" font=""></fb:like></li>
+
+	      <li class="googleplus"><g:plusone size="medium"></g:plusone></li>
+	    </ul>
+	
   </article>
+</section>
   
-  <div id="comments">
-    <% if not @post.block_comments or not @post.comments.published.empty? %>
-      <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    <% end %>
+<section id="comments" class="container_12">
+	<% if not @post.block_comments or not @post.comments.published.empty? %>
+	<header>
+	  <h1><%= total_comments_in_words(@post.comments.published.length) %></h1>    
+	</header>
+	<% end %>
     
-    <% unless @post.comments.published.empty? %>
-      <ul id="list-comments">
-        <% @post.comments.published.each do |comment| %>
-          <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
-        <% end %>
-      </ul>
-    <% end %>
-    
-    <% if not @post.block_comments %>
-    <h3 id="tit-form-comment">Deixe seu comentário:</h3>
-      <%= render "comments/form", :id => "new_comment" %>
-    <% else %>
-      <div class="alert-message info" style="text-align:center;">O envio de comentários está bloqueado para este post.</div>
-    <% end %>
-  </div>
-</div>
+	<% unless @post.comments.published.empty? %>
+	    <% @post.comments.published.each do |comment| %>
+	      <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
+	    <% end %>
+	<% end %>
+</section>
+
+<% if not @post.block_comments %>
+<section id="comments-form" class="container_12 clearfix">
+	<header>
+		<h3 id="tit-form-comment">Deixe seu comentário:</h3>
+	</header>
+  <%= render "comments/form", :id => "new_comment" %>
+</section>
+<% else %>
+  <div class="alert-message info" style="text-align:center;">O envio de comentários está bloqueado para este post.</div>
+<% end %>
+
 
 <script type="text/javascript">
 $(function(){
