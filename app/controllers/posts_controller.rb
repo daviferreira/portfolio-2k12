@@ -17,9 +17,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_using_slug(params[:id])
-    @comment = Comment.new
 
-    if @post
+    if @post and @post.published?
+      @comment = Comment.new
+
       if @post.id < 20
         @share_url = "http://www.daviferreira.com/blog/post/#{@post.id}/#{@post.cached_slug}.html"
       else
@@ -36,6 +37,7 @@ class PostsController < ApplicationController
       @meta_title = @post.title + categories
       @meta_description = categories + @post.title
       
+      find_previous_and_next 
     end
    
     respond_to do |format|
@@ -52,6 +54,11 @@ class PostsController < ApplicationController
   
   def feed_comments
     @post = Post.find_using_slug(params[:id])
+  end
+
+  def find_previous_and_next 
+    @previous_post = Post.published_local.where("published_date < ? and id != ?", @post.published_date, @post.id).first
+    @next_post = Post.published_local.where("published_date > ? and id != ?", @post.published_date, @post.id).last
   end
 
 end
