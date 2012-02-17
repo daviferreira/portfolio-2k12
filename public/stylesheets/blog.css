@@ -376,7 +376,7 @@ text-align:right;
   margin-left: 24px;
 }
 
-#comments article {
+#comments section.comment {
   margin: 24px 0;
   padding: 24px 0;
   border-bottom: 1px dotted #ccc;
@@ -385,6 +385,13 @@ text-align:right;
 #comments .comment p, .new_comment p {
   line-height: 26px;
   margin: 0 0 16px 0;
+}
+
+#comments section.reply {
+	margin: 0 0 0 68px;
+  clear: both;
+  border-bottom: none;
+  border-top: 1px dotted #ccc;
 }
 
 .author img {
@@ -519,7 +526,7 @@ blockquote{margin:24px;border-left:5px solid #e5687e;padding:15px;}blockquote p{
 blockquote small,blockquote cite{display:block;font-size:14px;font-weight:300;line-height:18px;color:#bfbfbf;}blockquote small:before,blockquote cite:before{content:'\2014 \00A0';}
 blockquote p{margin:0 0!important;line-height:auto!important;}
 
-article.owner, article.owner time{ color: #4ca5fe; }
+section.owner, section.owner time{ color: #4ca5fe; }
 
 .image-wrap {
   display: inline-block;
