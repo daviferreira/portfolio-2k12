@@ -12,11 +12,9 @@
   </div>
   
   <% unless comment.comments.empty? %>
-    <section class="reply clearfix">
     <% comment.comments.each do |reply| %>
       <%= render reply %>
     <% end %>
-	</section>
   <% end %>
 
 </section>
