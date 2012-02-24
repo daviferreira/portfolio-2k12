@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015213725) do
+ActiveRecord::Schema.define(:version => 20120223201536) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20111015213725) do
     t.string   "tags"
     t.string   "cached_slug"
     t.string   "tableless"
+    t.string   "locale",           :default => "pt_BR"
   end
 
   add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug"

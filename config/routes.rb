@@ -46,23 +46,27 @@ Portfolio::Application.routes.draw do
   match '/projects/category/:category' => 'projects#index'
   match '/projects/tag/:tag' => 'projects#index'
   
-  match '/blog' => 'posts#index', :as => :blog
+  scope "(:locale)", :locale => /en/ do
   
-  match "/blog/post/:id/:slug.html" => redirect{ |params| "/posts/#{params[:slug]}" }
+    match '/blog' => 'posts#index', :as => :blog
   
-  match "/blog/2007/05/26/definindo-cores-para-seu-lay-out.html" => redirect("/posts/definindo-cores-para-seu-layout")
-  match "/blog/2007/05/29/formularios-css.html" => redirect("/posts/formularios-sem-tabelas")
-  match "/blog/2007/08/12/interface-drag-and-drop-com-jquery.html" => redirect("/posts/interface-drag-and-drop-com-jquery")
-  match "/blog/2007/09/07/classe-imagem-php.html" => redirect("/posts/manipulando-e-redimensionando-imagens-com-php")
-  match "/blog/2008/11/20/esqueca-as-funcoes-javascript-alert-e-confirm.html" => redirect("/posts/esqueca-as-funcoes-javascript-alert-e-confirm")
-  match "/blog/2009/10/23/11-dicas-de-php-que-talvez-voce-nao-conheca.html" => redirect("/posts/11-dicas-de-php-que-talvez-voce-nao-conheca")
+    match "/blog/post/:id/:slug.html" => redirect{ |params| "/posts/#{params[:slug]}" }
   
-  match "/blog/feed",         :to => "posts#feed", :as => :feed_posts
-  match "/post/:id/feed",     :to => "posts#feed_comments", :as => :feed_comments
+    match "/blog/2007/05/26/definindo-cores-para-seu-lay-out.html" => redirect("/posts/definindo-cores-para-seu-layout")
+    match "/blog/2007/05/29/formularios-css.html" => redirect("/posts/formularios-sem-tabelas")
+    match "/blog/2007/08/12/interface-drag-and-drop-com-jquery.html" => redirect("/posts/interface-drag-and-drop-com-jquery")
+    match "/blog/2007/09/07/classe-imagem-php.html" => redirect("/posts/manipulando-e-redimensionando-imagens-com-php")
+    match "/blog/2008/11/20/esqueca-as-funcoes-javascript-alert-e-confirm.html" => redirect("/posts/esqueca-as-funcoes-javascript-alert-e-confirm")
+    match "/blog/2009/10/23/11-dicas-de-php-que-talvez-voce-nao-conheca.html" => redirect("/posts/11-dicas-de-php-que-talvez-voce-nao-conheca")
   
-  match "/comment/:id/reply", :to => "comments#reply", :as => :reply_comment
+    match "/blog/feed",         :to => "posts#feed", :as => :feed_posts
+    match "/post/:id/feed",     :to => "posts#feed_comments", :as => :feed_comments
   
-  match "/blog/rss.html" => redirect("/blog.atom")
+    match "/comment/:id/reply", :to => "comments#reply", :as => :reply_comment
+  
+    match "/blog/rss.html" => redirect("/blog.atom")
+
+  end
 
   match '*path' => redirect('/')
 

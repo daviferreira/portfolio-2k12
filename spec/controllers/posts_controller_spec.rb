@@ -4,6 +4,32 @@ require 'spec_helper'
 describe PostsController do
   render_views
 
+  describe "GET 'index'" do
+    before(:each) do
+      @post = Factory(:post)
+      @post_in_english = Factory(:post, :title => "Post in english", :locale => "en")
+    end
+    
+    it "should list posts in portuguese without a locale" do
+      get :index
+      response.should have_selector("a", :content => @post.title)
+      response.should_not have_selector("a", :content => @post_in_english.title)
+    end
+
+    it "should list posts in english with locale as 'en'" do
+      get :index, :locale => 'en'
+      response.should have_selector("a", :content => @post_in_english.title)
+      response.should_not have_selector("a", :content => @post.title)      
+    end
+    
+    it "should list posts in portuguese with an invalid locale" do
+      get :index, :locale => 'invalid'
+      response.should have_selector("a", :content => @post.title)
+      response.should_not have_selector("a", :content => @post_in_english.title)
+    end
+
+  end
+
   describe "GET 'show'" do
 
     before(:each) do

@@ -2,9 +2,12 @@
 class PostsController < ApplicationController
 
   layout "blog"
-
-  def index
-    @posts = Post.published.all
+  
+  before_filter :set_locale
+  
+  def index    
+    @posts = Post.published.where("locale = '#{@locale}'")
+    
     @meta_title = "PHP, jQuery, Javascript, Python, Django, Ruby, Rails - Blog do programador Davi Ferreira";
     @meta_description = "Blog sobre PHP, Design, Interfaces, MySQL, jQuery, Javascript, HTML/CSS, Rails, Ruby, Python e Django. Mantido pelo programador Davi Ferreira."
     
@@ -52,6 +55,11 @@ class PostsController < ApplicationController
   
   def feed_comments
     @post = Post.find_using_slug(params[:id])
+  end
+  
+  def set_locale
+    @locale = params[:locale].to_s.downcase
+    @locale = 'pt_BR' if @locale != 'en'
   end
 
 end

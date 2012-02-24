@@ -33,6 +33,16 @@
   </fieldset>
   
   <fieldset>
+    <%= f.radio_button :locale, 'pt-br', :checked => true %> 
+    <%= f.label "locale_pt-br", "Português" %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.radio_button :locale, 'en' %> 
+    <%= f.label :locale_en, "Inglês" %>
+  </fieldset>
+  
+  <fieldset>
     <%= f.label "Bloquear comentários?" %>
     <%= f.check_box :block_comments %>
   </fieldset>
