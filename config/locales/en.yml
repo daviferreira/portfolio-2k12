@@ -24,3 +24,19 @@ en:
         email: * Your e-mail
         url: Do you have a website/blog?
         body: * Your comment
+
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      short: "%B %d"
+      long: "%d de %B de %Y"
+  
+ 
+  time:
+    formats:
+      default: '%B %d, %Y'
+      short: "%m/%d/%Y"
+      long: "%A, %d de %B de %Y, %H:%M h"
+    am: ''
+    pm: ''
+

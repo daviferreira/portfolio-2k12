@@ -62,12 +62,6 @@ class PostsController < ApplicationController
     locale = params[:locale].to_s.downcase
     locale = I18n.default_locale if locale != 'en'
     I18n.locale = locale 
-    if locale == 'en'
-      @date_format = '%B %d, %Y'
-    else
-      @date_format = '%d de %B de %Y'
-    end
   end
-
 
 end

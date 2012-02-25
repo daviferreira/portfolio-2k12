@@ -6,7 +6,7 @@
         <hgroup>
         </hgroup>
       </header>
-      <time datetime="<%= @post.published_date.to_s[0..9] %>"><em>/</em><%= l @post.published_date, :format => @date_format %></time>
+      <time datetime="<%= @post.published_date.to_s[0..9] %>"><em>/</em><%= l @post.published_date %></time>
       <% if not from_tableless(@post) and (not @post.block_comments or not @post.comments.published.empty?) %>
         <div class="comments">
           <em>+</em><%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %>
