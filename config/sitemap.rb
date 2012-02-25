@@ -16,6 +16,7 @@ SitemapGenerator::Sitemap.create do
 
   add projects_path, :priority => 0.7, :changefreq => 'weekly'
   add blog_path, :priority => 0.7, :changefreq => 'weekly'
+  add blog_path(:locale => 'en'), :priority => 0.7, :changefreq => 'weekly'
   
   Project.published.each do |project|
     add project_path(project), :lastmod => project.updated_at
