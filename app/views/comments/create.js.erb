@@ -1,16 +1,15 @@
 <% if @erro %>
-  msgTopo("Não deu pra salvar seu comentário. Verifique os campos obrigatórios.", "erro", 5000);
+  msgTopo("<%= @erro  %>", "erro", 5000);
 <% else %>
   msgTopo("<%=@message%>", "msg", 5000);
-  if($('#list-comments').length < 1){
-    $('<ul id="list-comments"></ul>').insertAfter('div#comments h2:first');
-    $('div#comments h2:first').text('1 comentário.');
+  if($('#comments section').length < 1){
+    $('#comments h2:first').text('1 <%= t :comment %>.');
   }
   <% if not @comment.nil? and not @comment.comment_id.nil? and @comment.comment_id > 0 %>
     $('#new_comment_<%= @comment.comment_id %>').fadeOut('fast', function(){ $(this).remove(); });
     $("<%= escape_javascript(render(@comment)) %>").insertAfter('#comment-<%= @comment.comment_id %>');
   <% else %>
-    $('#list-comments').append("<%= escape_javascript(render(@comment)) %>");
+    $('#comments').append("<%= escape_javascript(render(@comment)) %>");
   <% end %>
   $('#new_comment').find('input:text, textarea').val('');
 <% end %>

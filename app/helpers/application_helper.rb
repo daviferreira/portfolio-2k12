@@ -28,4 +28,5 @@ module ApplicationHelper
     end
     str
   end
+
 end

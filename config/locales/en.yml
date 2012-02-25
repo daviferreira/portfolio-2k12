@@ -11,6 +11,11 @@ en:
   email_privacy: Your e-mail won't be published - it's just for validation and gravatar.
   allowed_tags: Allowed HTML tags
   submit_comment: Post your comment
+  error_sending_comment: Some errors were found, check the required fields.
+  comment_submitted: Comment sucessfully submitted, thanks!
+  reply: reply 
+  said: said
+  leave_your_comment: Leave your comment
 
   activerecord:
     attributes:
