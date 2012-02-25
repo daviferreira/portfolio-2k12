@@ -14,10 +14,10 @@ class Post < ActiveRecord::Base
   validates :published_date, :presence 	=> true
   
   def previous_post
-    self.class.published_local.where("published_date < ? AND id != ?", published_date, id).first
+    self.class.published_local.where("published_date < ? AND id != ? AND locale = '#{I18n.locale}'", published_date, id).first
   end
   
   def next_post
-    self.class.published_local.where("published_date > ? AND id != ?", published_date, id).last
+    self.class.published_local.where("published_date > ? AND id != ? AND locale = '#{I18n.locale}'", published_date, id).last
   end
 end

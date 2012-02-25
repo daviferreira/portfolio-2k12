@@ -1,4 +1,15 @@
+# -*- encoding : utf-8 -*-
 "pt-BR":
+  # comentários
+  comments: comentários 
+  comment: comentário 
+  no_comments: ninguém comentou este post
+  blocked_comments: O envio de comentários está bloqueado para este post.
+
+  # metas
+  meta_title: "PHP, jQuery, Javascript, Python, Django, Ruby, Rails - Blog do programador Davi Ferreira"
+  meta_description: "Blog sobre PHP, Design, Interfaces, MySQL, jQuery, Javascript, HTML/CSS, Rails, Ruby, Python e Django. Mantido pelo programador Davi Ferreira."
+
   # formatos de data e hora
   date:
     formats:
@@ -212,3 +223,16 @@
 
       full_messages:
         format: "%{attribute}%{message}"
+
+
+  email_privacy: Seu e-mail não será divulgado - serve apenas para validação e gravatar.
+  allowed_tags: Tags HTML permitidas 
+  submit_comment: Enviar comentário 
+
+  activerecord:
+    attributes:
+      comment:
+        author: * Seu nome 
+        email: * Seu e-mail 
+        url: Você tem site/blog?
+        body: * Digite sua mensagem

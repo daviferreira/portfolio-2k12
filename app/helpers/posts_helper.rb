@@ -2,11 +2,11 @@
 module PostsHelper
   def total_comments_in_words(total)
     if total > 1 
-      "#{total} comentários."
+      "#{total} #{t :comments}."
     elsif total == 1
-      "1 comentário."
+      "1 #{t :comment}."
     else
-      "Ninguém comentou este post."
+     t :no_comments 
     end
   end
 

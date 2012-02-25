@@ -6,10 +6,10 @@ class PostsController < ApplicationController
   before_filter :set_locale
   
   def index    
-    @posts = Post.published.where("locale = '#{@locale}'")
+    @posts = Post.published.where("locale = '#{I18n.locale}'")
     
-    @meta_title = "PHP, jQuery, Javascript, Python, Django, Ruby, Rails - Blog do programador Davi Ferreira";
-    @meta_description = "Blog sobre PHP, Design, Interfaces, MySQL, jQuery, Javascript, HTML/CSS, Rails, Ruby, Python e Django. Mantido pelo programador Davi Ferreira."
+    @meta_title = t :meta_title
+    @meta_description = t :meta_description
     
     respond_to do |format|
       format.html
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     @post = Post.find_using_slug(params[:id])
 
     if @post and @post.published?
+      I18n.locale = @post.locale
       @comment = Comment.new
 
       if @post.id < 20
@@ -58,8 +59,14 @@ class PostsController < ApplicationController
   end
   
   def set_locale
-    @locale = params[:locale].to_s.downcase
-    @locale = 'pt_BR' if @locale != 'en'
+    locale = params[:locale].to_s.downcase
+    locale = I18n.default_locale if locale != 'en'
+    I18n.locale = locale 
+    if locale == 'en'
+      @date_format = '%B %d, %Y'
+    else
+      @date_format = '%d de %B de %Y'
+    end
   end
 
 end

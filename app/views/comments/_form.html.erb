@@ -2,22 +2,22 @@
   <%= f.hidden_field :post_id, {:value => @post.id} %>
   <%= f.hidden_field :comment_id, {:value => @comment.id } %>
 	<p>
-		<%= f.label :author, "* Seu nome " %>
+    <%= f.label :author %>
 		<%= f.text_field :author %>
 	</p>
 	<p>
-		<%= f.label :email, "* Seu e-mail" %><small>(Seu e-mail não será divulgado - serve apenas para validação e gravatar.)</small>
+    <%= f.label :email %><small>(<%= t :email_privacy %>)</small>
 		<%= f.text_field :email %>
 	</p>
 	<p>
-		<%= f.label :url, "Você tem site/blog?" %>
+		<%= f.label :url %>
 		<%= f.text_field :url %>
 	</p>
 	<p>
-		<%= f.label :body, "* Digite sua mensagem" %><small>(<strong>Tags HTML permitidas:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</small>
+    <%= f.label :body %><small>(<strong><%= t :allowed_tags %>:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</small>
 		<%= f.text_area :body %>
 	</p>
 	<p class="action">
-		<%= f.submit "Enviar comentário"%>
+		<%= f.submit(t :submit_comment)%>
 	</p>
 <% end %>

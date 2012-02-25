@@ -20,5 +20,5 @@ Factory.define :post do |post|
   post.published true
   post.block_comments false
   post.tableless ''
-  post.locale 'pt_BR'
+  post.locale 'pt-BR'
 end

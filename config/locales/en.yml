@@ -1,5 +1,21 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+# -*- encoding : utf-8 -*-
 en:
-  hello: "Hello world"
+  comments: comments 
+  comment: comment
+  no_comments: 0 comments
+  blocked_comments: Comments are blocked for this post. 
+
+  meta_title: PHP, jQuery, Javascript, Python, Django, Ruby, Rails - Davi Ferreira's blog
+  meta_description: Posts about PHP, Design, Interfaces, MySQL, jQuery, Javascript, HTML/CSS, Rails, Ruby, Python and Django. Written by Davi Ferreira.
+
+  email_privacy: Your e-mail won't be published - it's just for validation and gravatar.
+  allowed_tags: Allowed HTML tags
+  submit_comment: Post your comment
+
+  activerecord:
+    attributes:
+      comment:
+        author: * Your name
+        email: * Your e-mail
+        url: Do you have a website/blog?
+        body: * Your comment
