@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
 		  @projects = Project.published.limit(30).paginate(:page => params[:page], :per_page => 6)
 	  end
 		
-    @posts = Post.published.limit(3)
+    @posts = Post.published.where("locale = 'pt-BR'").limit(3)
     @categories = Category.where("area = 1")
   end
   
