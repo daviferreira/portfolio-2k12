@@ -7,7 +7,7 @@
     <p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> <%= t :said %>:</strong></p>
 		<p><%= sanitize_preserving_code comment.body %></p>
 		<% unless @post.block_comments %>
-      <p class="reply"><%= link_to(t(:reply), reply_comment_path(comment), :id => "lnk-reply-#{comment.id}") %></p>
+        <p class="reply"><%= link_to(t(:reply), reply_comment_path(comment), :id => "lnk-reply-#{comment.id}", :rel => "nofollow") %></p>
     <% end %>
   </div>
   
