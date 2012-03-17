@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title><%= meta_title %></title>
   <meta name="description" content="<%= meta_description %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <% if blog_home_page? %>
     <%= include_javascripts :blog%>
@@ -20,6 +21,11 @@
   <%= auto_discovery_link_tag(:atom, {:controller => "posts", :action => "feed"}) %>
 
   <%= csrf_meta_tag %>
+
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+  
   <link rel="shortcut icon" href="http://www.dfimg.com/images/favicon.gif">
 </head>
 <body>

@@ -615,3 +615,50 @@ section.owner > div > p, section.owner > div > time{ color: #4ca5fe !important; 
   top: 30px;
   width: 298px;
 }
+
+@media screen and (max-width: 320px) {
+  section#header {
+    margin-bottom: 16px;
+    height: auto;
+  } 
+  div#blog-container {
+    padding: 4px;
+    width: 100%;
+    margin: 0 0;
+  }
+  header#main, header nav {
+    float: none;
+    width: 100%;
+    display: block;
+  }
+  header#main {
+    text-align: center;
+  }
+  #header nav, #posts_index .comments, #posts_index section p, aside p, #post-info, .social, #nav_posts,
+  .author, p.reply {
+    display: none;
+  }
+  section.reply, section.comment {
+    margin: 0 0 !important;
+  }
+  #posts_index article aside, #posts_index article section, #post article, div.comment, section.reply {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  #posts_index article section {
+    margin-bottom: 16px;
+  }
+  #posts_index article section h2, #comments h1 {
+    font-size: 24px;
+    line-height: 26px;
+    width: 95%;
+  }
+  #post article h1 {
+    font-size: 24px;
+    line-height: 26px;
+  }
+  #post article {
+    font-family: Georgia, serif;
+  }
+}
