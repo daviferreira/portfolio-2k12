@@ -59,7 +59,6 @@ class PostsController < ApplicationController
   end
   
   def set_locale
-    locale = params[:locale].to_s.downcase
     locale = I18n.default_locale if locale != 'en'
     I18n.locale = locale 
   end
