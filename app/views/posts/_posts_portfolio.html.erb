@@ -6,7 +6,7 @@
       <% @posts.each do |post| %>
         <li<% if @posts.last == post %> class="last"<% elsif @posts.first == post %> class="first"<% end %>>
           <h3><%= link_to post.title, post_url(post) %></h3>
-          <p class="abstract"><%= link_to post.abstract, post_path(post) %></p>
+          <p class="abstract"><%= link_to post.abstract, post_url(post) %></p>
           <p class="time-ago">Publicado há <%= time_ago_in_words(post.published_date) %>.</p>
         </li>
       <% end %>
