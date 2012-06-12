@@ -1,20 +1,20 @@
-<section id="comment-<%=comment.id%>" class="comment<% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %> container_12 clearfix">
-	<div class="author grid_2">
-		<p class="image-wrap"><%= gravatar_for comment %></p>
-    <time datetime="<%= comment.created_at %>" pubdate><%= l comment.created_at, :format => :short %><br /><%= l comment.created_at, :format => "%H:%M" %></time>
-	</div>
-	<div class="comment grid_10">
-    <p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> <%= t :said %>:</strong></p>
-		<p><%= sanitize_preserving_code comment.body %></p>
-		<% unless @post.block_comments %>
-        <p class="reply"><%= link_to(t(:reply), reply_comment_path(comment), :id => "lnk-reply-#{comment.id}", :rel => "nofollow") %></p>
+<article id="comment-<%=comment.id%>" class="comment clearfix row <% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %>">
+  <div class="metadata span1<% if not comment.comment_id.nil? and comment.comment_id > 0 %> offset1<% end %>">
+    <div class="image-wrap"><%= gravatar_for comment %></div>
+  </div>
+  <div class="body <% if not comment.comment_id.nil? and comment.comment_id > 0 %>span6<% else %>span7<% end %>">
+    <time datetime="<%= comment.created_at %>" pubdate><%= l comment.created_at %></time>
+    <p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %></strong></p>
+    <p><%= sanitize_preserving_code comment.body %></p>
+    <% unless @post.block_comments %>
+    <p class="reply"><%= link_to(t(:reply), reply_comment_path(comment), :id => "lnk-reply-#{comment.id}", :rel => "nofollow") %></p>
     <% end %>
   </div>
-  
-  <% unless comment.comments.empty? %>
-    <% comment.comments.each do |reply| %>
-      <%= render reply %>
-    <% end %>
-  <% end %>
+</article>
 
-</section>
+  
+<% unless comment.comments.empty? %>
+  <% comment.comments.each do |reply| %>
+    <%= render reply %>
+  <% end %>
+<% end %>

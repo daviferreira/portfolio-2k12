@@ -248,15 +248,12 @@ code, pre {
 
 #content .comments header {
   border-bottom:1px dotted #000;
+  margin-bottom: 40px;
 }
 
 #content .comments h2 {
   font-family:ProximaNovaSemiBold,  Arial,  sans-serif;
   margin:20px 0 10px 0;
-}
-
-#content #comments article.first {
-  margin-top:40px;
 }
 
 #content #comments article .metadata .image-wrap img {
@@ -265,7 +262,7 @@ code, pre {
 
 #content #comments article .body time {
   display:block;
-  color:#ccc;
+  color:#666;
   font-size:13px;
   margin:0 0;
 }

@@ -1,23 +1,33 @@
-<%= form_for(@post.comments.build, :remote => true, :html => { :id => id, :class => "new_comment" } ) do |f| %>
+<%= form_for(@post.comments.build, :remote => true, :html => { :id => id, :class => "new_comment form-horizontal" } ) do |f| %>
   <%= f.hidden_field :post_id, {:value => @post.id} %>
   <%= f.hidden_field :comment_id, {:value => @comment.id } %>
-	<p>
-    <%= f.label :author %>
-		<%= f.text_field :author %>
-	</p>
-	<p>
-    <%= f.label :email %><small>(<%= t :email_privacy %>)</small>
-		<%= f.text_field :email %>
-	</p>
-	<p>
-		<%= f.label :url %>
-		<%= f.text_field :url %>
-	</p>
-	<p>
-    <%= f.label :body %><small>(<strong><%= t :allowed_tags %>:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</small>
-		<%= f.text_area :body %>
-	</p>
-	<p class="action">
-		<%= f.submit(t :submit_comment)%>
-	</p>
+	<div class="control-group">
+    <%= f.label :author, :class => "control-label" %>
+    <div class="controls">
+		  <%= f.text_field :author, :class => "input-xlarge" %>
+    </div>
+	</div>
+	<div class="control-group">
+    <%= f.label :email, :class => "control-label" %>
+    <div class="controls">
+		  <%= f.text_field :email, :class => "input-xlarge" %>
+      <span class="help-inline">(<%= t :email_privacy %>)</span>
+    </div>
+	</div>
+	<div class="control-group">
+		<%= f.label :url, :class => "control-label" %>
+    <div class="controls">
+		  <%= f.text_field :url, :class => "input-xlarge" %>
+    </div>
+	</div>
+	<div class="control-group">
+    <%= f.label :body, :class => "control-label" %>
+    <div class="controls">
+		  <%= f.text_area :body, :class => "input-xlarge" %>
+      <span class="help-inline">(<strong><%= t :allowed_tags %>:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</span>
+    </div>
+	</div>
+	<div class="form-actions">
+		<%= f.submit t(:submit_comment), :class => "btn btn-danger" %>
+	</div>
 <% end %>

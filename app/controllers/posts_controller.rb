@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   before_filter :set_locale
   
   def index    
-    @posts = Post.published.where("locale = '#{I18n.locale}'")
+    @posts = Post.published.where("locale = '#{I18n.locale}'").paginate(:page => params[:page], :per_page => 8)
     
     @meta_title = t :meta_title
     @meta_description = t :meta_description

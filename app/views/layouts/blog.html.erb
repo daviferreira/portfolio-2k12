@@ -32,11 +32,12 @@
 </head>
 <body>
   <div class="row"> 
-
 	  <%= render "layouts/header_blog" %>
-
-	  <%= yield %>
-
+    <div class="span8 offset4">
+      <section id="content">
+	     <%= yield %>
+      </section>
+    </div>
   </div>
 
   <% if blog_home_page? %>

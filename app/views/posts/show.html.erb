@@ -1,63 +1,42 @@
-<section id="post" class="container_12 clearfix">
-  <aside class="grid_4 clearfix alpha" id="post-info">
-    &nbsp;
-    <div>
-      <header>
-        <hgroup>
-        </hgroup>
-      </header>
-      <time datetime="<%= @post.published_date.to_s[0..9] %>"><em>/</em><%= l @post.published_date %></time>
-      <% if not from_tableless(@post) and (not @post.block_comments or not @post.comments.published.empty?) %>
-        <div class="comments">
-          <em>+</em><%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %>
-        </div>
-      <% end %>
+ <article class="single">
+            
+    <header>
+      <h1><a href="<%= post_url(@post) %>"><%= @post.title %></a></h1>
+    </header>
+
+    <div class="info">
+      <ul class="clearfix">
+        <li><time datetime="<%= @post.published_date.to_s[0..9] %>"><%= l @post.published_date %></time></li>
+        <% if not from_tableless(@post) and not @post.block_comments %>
+        <li><i class="icon-comment"></i> <%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %></li>
+        <% end %>
+        <li><i class="icon-tags"></i> tagged under <a href="#">javascript</a>, <a href="#">tableless</a></li>
+      </ul>
     </div>
-  </aside>
-  <article class="grid_8">
-	  <header>
-		  <h1><%= @post.title %></h1>
-	</header>
-	
-	
-	
-	   	   	<%= raw(@post.body) %>
-	
-	
-	<ul class="social clearfix">
 
+    <%= raw(@post.body) %>
 
-	      <li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= @share_url %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
-      
-	      <li class="fb"><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%= @share_url %>" layout="button_count" show_faces="false" colorscheme="dark" font=""></fb:like></li>
+</article>
 
-	      <li class="googleplus"><g:plusone size="medium"></g:plusone></li>
-	    </ul>
-	
-  </article>
-</section>
-  
-<section id="comments" class="container_12">
-	<% if not @post.block_comments or not @post.comments.published.empty? %>
-	<header>
-	  <h1><%= total_comments_in_words(@post.comments.published.length) %></h1>    
-	</header>
-	<% end %>
+<section id="comments" class="comments">
+  <% if not @post.block_comments or not @post.comments.published.empty? %>
+  <header>
+    <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    
+  </header>
+  <% end %>
     
-	<% unless @post.comments.published.empty? %>
-	    <% @post.comments.published.each do |comment| %>
-	      <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
-	    <% end %>
-	<% end %>
+  <% unless @post.comments.published.empty? %>
+      <% @post.comments.published.each do |comment| %>
+        <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
+      <% end %>
+  <% end %>
 </section>
 
 <% if not @post.block_comments %>
-<section id="comments-form" class="container_12 clearfix">
+<section id="comments-form" class="comments clearfix">
 	<header>
-    <h3 id="tit-form-comment"><%= t :leave_your_comment %>:</h3>
+    <h2 id="tit-form-comment"><%= t :leave_your_comment %>:</h2>
 	</header>
   <%= render "comments/form", :id => "new_comment" %>
 </section>
-<% else %>
-  <div class="alert-message info" style="text-align:center;"><%= t :blocked_comments %></div>
 <% end %>
