@@ -1,4 +1,30 @@
-<section id="posts_index" class="container_12">
+<div class="span8 offset4">
+  <section id="content">
+    <% @posts.each do |post| %>
+    <article>
+      <header>
+        <h1><a href="<%= post_url(post) %>"><%= post.title %></a></h1>
+      </header>
+
+      <%= raw post.body %>
+
+      <div class="info">
+        <ul class="clearfix">
+          <li><time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time></li>
+          <% if not from_tableless(post) and not post.block_comments %>
+          <li><i class="icon-comment"></i> <%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %></li>
+          <% end %>
+          <li><i class="icon-tags"></i> tagged under <a href="#">javascript</a>, <a href="#">tableless</a></li>
+        </ul>
+      </div>
+    </article>
+    <% end %>
+
+  </section>
+</div>
+
+
+<!-- section id="posts_index" class="container_12">
   <% @posts.each do |post| %>
   <article class="clearfix">
     <aside class="grid_4">
@@ -21,4 +47,4 @@
   </article>
   <% end %>
   
-</section>
+</section -->

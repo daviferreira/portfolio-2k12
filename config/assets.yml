@@ -23,6 +23,7 @@ stylesheets:
     - public/stylesheets/portfolio.css
     - public/javascripts/fancybox/*.css
   blog:
+    - public/stylesheets/bootstrap.min.css
     - public/stylesheets/blog.css
   post:
     - public/stylesheets/msgtopo.css

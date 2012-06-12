@@ -7,12 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <% if blog_home_page? %>
-    <%= include_javascripts :blog%>
-  <% else %>
-    <%= include_javascripts :post %>
-  <% end %>
-
-  <% if blog_home_page? %>
     <%= include_stylesheets :blog, :media => 'all' %>
   <% else %>
     <%= include_stylesheets :post, :media => 'all' %>
@@ -21,12 +15,6 @@
   <%= auto_discovery_link_tag(:atom, {:controller => "posts", :action => "feed"}) %>
 
   <%= csrf_meta_tag %>
-
-  <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-  <![endif]-->
-  
-  <link rel="shortcut icon" href="http://www.dfimg.com/images/favicon.gif">
   
   <script type="text/javascript">
 
@@ -43,16 +31,19 @@
   </script>
 </head>
 <body>
+  <div class="row"> 
 
-  <%= render "posts/navigation" if not blog_home_page? and (@post.previous_post or @post.next_post) %>
-
-  <div id="blog-container">
 	  <%= render "layouts/header_blog" %>
 
 	  <%= yield %>
-  
-	  <%= render "layouts/footer_blog" %>
+
   </div>
+
+  <% if blog_home_page? %>
+    <%= include_javascripts :blog%>
+  <% else %>
+    <%= include_javascripts :post %>
+  <% end %>
 
 </body>
 </html>
