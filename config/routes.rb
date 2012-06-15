@@ -49,6 +49,8 @@ Portfolio::Application.routes.draw do
   scope "(:locale)", :locale => /en/ do
   
     match '/blog' => 'posts#index', :as => :blog
+    match '/blog/categories' => 'posts#categories', :as => :posts_categories
+    match '/blog/archive' => 'posts#archive', :as => :posts_archive
   
   end
 

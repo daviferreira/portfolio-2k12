@@ -63,4 +63,12 @@ class PostsController < ApplicationController
     I18n.locale = locale 
   end
 
+  def archive
+
+  end
+
+  def categories
+
+  end
+
 end
