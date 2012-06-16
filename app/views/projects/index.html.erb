@@ -7,7 +7,7 @@
     <% else %>
       <%= render 'projects' %>
       <div class="pagination-container" data-category="<%= params[:category] %>" data-tag="<%= params[:tag] %>">
-        <%= will_paginate @projects %>
+        <%= will_paginate @projects, :inner_window => 8 %>
       </div>
     <% end %>
   </div>

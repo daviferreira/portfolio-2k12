@@ -6,6 +6,9 @@ class ProjectsController < ApplicationController
   def index
     
 		@pg_atual = params[:pg_atual]
+    if @pg_atual == ""
+      @pg_atual = 1
+    end
 		@pg_click = params[:pg_click]
 
     if params[:category]

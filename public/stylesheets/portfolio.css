@@ -373,17 +373,24 @@ nav#menu ul.sections li a:hover{
   border-style:solid;
 }
 
-div.pagination a, div.pagination span.current{
+div.pagination li{
   display:inline-block;
+}
+div.pagination li a, div.pagination li span.current {
+  display: inline-block;
   text-indent:-9000px;
   width:10px;
   height:11px;  
 }
-div.pagination span.current{
+div.pagination li span.current, div.pagination li.active a{
   background:url(/images/pagination.png) -10px 0 no-repeat;
 }
 
-div.pagination a{
+div.pagination .prev, div.pagination .next {
+  display: none;
+}
+
+div.pagination li a{
   background:url(/images/pagination.png) 0 0 no-repeat;
 }
 
