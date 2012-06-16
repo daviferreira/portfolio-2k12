@@ -291,5 +291,18 @@ ol.linenums {
   margin:0 0 !important;
 }
 
-
-
+#categories > ul {
+  list-style: none;
+}
+#categories > ul > li > ul {
+  list-style: square;
+  color: #999;
+}
+#categories > ul > li > ul > li {
+  margin: 0 0 12px 0;
+}
+#categories ul li time {
+  display: block;
+  color: #999;
+  font-size: 13px;
+}

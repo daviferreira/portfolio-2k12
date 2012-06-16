@@ -1,0 +1,20 @@
+<section id="categories">
+  <header>
+    <h1>Arquivo</h1>
+  </header>
+  <ul>
+  <% @years.each do |year, data| %>  
+    <li>
+        <h2><%= year %></h2>
+        <ul>
+        <% data["posts"].each do |post| %>
+          <li>
+            <time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time>
+            <%= link_to post.title, post_url(post) %>
+          </li>
+        <% end %>
+        </ul>
+    </li>
+  <% end %>
+  </ul>
+</section>

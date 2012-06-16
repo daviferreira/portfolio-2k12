@@ -1,0 +1,23 @@
+<section id="categories">
+  <header>
+    <h1>Categorias</h1>
+  </header>
+
+  <ul>
+  <% @categories.each do |category| %>  
+    <% if category.posts.published.length > 0 %>
+    <li>
+        <h2><%= category.name %></h2>
+        <ul>
+        <% category.posts.published.each do |post| %>
+          <li>
+            <time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time>
+            <%= link_to post.title, post_url(post) %>
+          </li>
+        <% end %>
+        </ul>
+    </li>
+    <% end %>
+  <% end %>
+  </ul>
+</section>

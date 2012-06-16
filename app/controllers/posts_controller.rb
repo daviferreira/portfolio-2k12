@@ -64,11 +64,22 @@ class PostsController < ApplicationController
   end
 
   def archive
-
+    @years = {}
+    Post.published.where("locale = '#{I18n.locale}'").each do |post|
+      if @years.has_key? post.published_date.year
+        @years[post.published_date.year]["posts"].push post
+      else
+        @years[post.published_date.year] = { 
+          "title" => post.published_date.year,
+          "posts" => [post]
+        }
+      end
+    end
+    @years = @years.sort.reverse
   end
 
   def categories
-
+    @categories = Category.find(:all, :include => :posts, :order => "LOWER(name)")
   end
 
 end
