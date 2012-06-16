@@ -306,3 +306,9 @@ ol.linenums {
   color: #999;
   font-size: 13px;
 }
+.pagination {
+  margin: 0 0 40px 0;
+}
+.pagination ul {
+  padding: 0 0;
+}
