@@ -12,7 +12,7 @@
       <% if not from_tableless(post) and not post.block_comments %>
       <li><i class="icon-comment"></i> <%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %></li>
       <% end %>
-      <li><i class="icon-tags"></i> tagged under <a href="#">javascript</a>, <a href="#">tableless</a></li>
+      <!-- li><i class="icon-tags"></i> <a href="#">javascript</a>, <a href="#">tableless</a></li -->
     </ul>
   </div>
 </article>
