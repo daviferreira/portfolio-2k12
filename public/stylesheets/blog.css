@@ -320,3 +320,14 @@ ol.linenums {
 .pagination ul {
   padding: 0 0;
 }
+
+#home div.info {
+  border: none;
+  margin-bottom: 8px;
+}
+
+#home div.info time {
+  color: #fff;
+  background-color: #333;
+  padding: 4px;
+}
