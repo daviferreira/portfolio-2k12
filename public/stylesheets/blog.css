@@ -72,6 +72,8 @@ code, pre {
   float: left;
   width: 800px;
   margin: 20px 0;
+  white-space: pre;
+  overflow: auto;
 }
 
 #sidebar {
