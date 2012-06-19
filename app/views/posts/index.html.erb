@@ -11,7 +11,7 @@
       </ul>
     </div>
     <header>
-      <h1><a href="<%= post_url(post) %>"><%= post.title %></a></h1>
+      <h1><a href="<%= post_url(post) %>"<% if from_tableless(post) %> target="_blank"<% end %>><%= post.title %></a></h1>
     </header>
 
     <%= raw post.body %>
