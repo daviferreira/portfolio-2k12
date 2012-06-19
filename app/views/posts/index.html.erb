@@ -1,6 +1,6 @@
 <div id="home">
   <% @posts.each do |post| %>
-  <article>
+  <article class="clearfix">
     <div class="info">
       <ul class="clearfix">
         <li><time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time></li>

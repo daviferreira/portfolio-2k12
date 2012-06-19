@@ -13,8 +13,6 @@ javascripts:
     - public/javascripts/jquery.js
     - public/javascripts/*.js
     - public/javascripts/fancybox/jquery.fancybox-1.3.4.pack.js
-    - public/javascripts/jquery.snippet.min.js
-    - public/javascripts/blog/post.js
 
 stylesheets:
   portfolio:
