@@ -31,14 +31,9 @@
   </script>
 </head>
 <body>
-  <div class="row"> 
-	  <%= render "layouts/header_blog" %>
-    <div class="span8 offset4">
-      <section id="content">
-	     <%= yield %>
-      </section>
-    </div>
-  </div>
+
+	<%= yield %>
+  
 
   <% if blog_home_page? %>
     <%= include_javascripts :blog%>

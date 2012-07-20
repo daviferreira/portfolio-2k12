@@ -1,42 +1,65 @@
- <article class="single clearfix">
+ <div class="container">
             
     <header>
-      <h1><a href="<%= post_url(@post) %>"><%= @post.title %></a></h1>
+      <div class="row">
+        <div class="span12">
+          <h1><%= @post.title %></h1>
+        </div>
+      </div>
     </header>
 
-    <div class="info">
-      <ul class="clearfix">
-        <li><time datetime="<%= @post.published_date.to_s[0..9] %>"><%= l @post.published_date %></time></li>
-        <% if not from_tableless(@post) and not @post.block_comments %>
-        <li><i class="icon-comment"></i> <%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %></li>
-        <% end %>
-        <!-- li><i class="icon-tags"></i> tagged under <a href="#">javascript</a>, <a href="#">tableless</a></li -->
-      </ul>
-    </div>
+    <article id="main">
+      <div class="row">
+        <aside class="span4">
 
-    <%= raw(@post.body) %>
+          <time datetime="<%= @post.published_date.to_s[0..9] %>"><i class="icon-calendar icon-white"></i> <%= l @post.published_date %></time>
+          <% if not from_tableless(@post) and not @post.block_comments %>
+          <p><i class="icon-comment icon-white"></i> <%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %></p>
+          <% end %>
+          <% unless @post.categories.empty? %>
+          <p class="tags"><i class="icon-tags icon-white"></i> 
+            <% @post.categories.each do |category| %>
+            <a href="#"><%= category.name.downcase %></a><% if category != @post.categories.last %>,<% end %> 
+            <% end %>
+          <% end %>
+        </p>
+        <p><i class="icon-home icon-white"></i> <%= link_to "ir para a home", blog_path %></p>
+        </aside>
+        <div class="span8">
+          <%= raw(@post.body) %>
+        </div>
+      </div>
+    </article>
 
-</article>
 
-<% if not @post.block_comments or not @post.comments.published.empty? %>
-<section id="comments" class="comments">
-  <header>
-    <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    
-  </header>
-    
-  <% unless @post.comments.published.empty? %>
-      <% @post.comments.published.each do |comment| %>
-        <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
+    <% if not @post.block_comments or not @post.comments.published.empty? %>
+    <section id="comments" class="content">
+      <div class="row">
+        <header class="span12">
+          <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    
+        </header>
+      </div>
+      <div class="row">
+      <% unless @post.comments.published.empty? %>
+          <% @post.comments.published.each do |comment| %>
+            <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
+          <% end %>
       <% end %>
-  <% end %>
-</section>
-<% end %>  
+      </div>
+    </section>
+    <% end %>  
 
-<% if not @post.block_comments %>
-<section id="comments-form" class="comments clearfix">
-	<header>
-    <h2 id="tit-form-comment"><%= t :leave_your_comment %>:</h2>
-	</header>
-  <%= render "comments/form", :id => "new_comment" %>
-</section>
-<% end %>
+    <% if not @post.block_comments %>
+    <section id="comments-form">
+      <div class="row">
+        <header class="span12">
+          <h2 id="tit-form-comment"><%= t :leave_your_comment %>:</h2>
+        </header>
+      </div>
+      <div class="row">
+        <%= render "comments/form", :id => "new_comment" %>
+      </div>
+    </section>
+    <% end %>
+
+</div>

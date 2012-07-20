@@ -1,393 +1,188 @@
 @font-face {
-  font-family:'ProximaNova';
-  src:url("../fonts/proximanova-regular-webfont.eot");
-  src:url("../fonts/proximanova-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/proximanova-regular-webfont.woff") format("woff"), url("../fonts/proximanova-regular-webfont.ttf") format("truetype"), url("../fonts/proximanova-regular-webfont.svg#ProximaNovaRgRegular") format("svg");
-  font-weight:normal;
-  font-style:normal;
+  font-family: 'MuseoSlab100Regular';
+  src: url("../fonts/museo_slab_100-webfont.eot");
+  src: url("../fonts/museo_slab_100-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/museo_slab_100-webfont.woff") format("woff"), url("../fonts/museo_slab_100-webfont.ttf") format("truetype"), url("../fonts/museo_slab_100-webfont.svg#MuseoSlab100Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family:'ProximaNovaSemiBold';
-  src:url("../fonts/proximanova-semibold-webfont.eot");
-  src:url("../fonts/proximanova-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/proximanova-semibold-webfont.woff") format("woff"), url("../fonts/proximanova-semibold-webfont.ttf") format("truetype"), url("../fonts/proximanova-semibold-webfont.svg#ProximaNovaLtBold") format("svg");
-  font-weight:normal;
-  font-style:normal;
+  font-family: 'MuseoSlab1000Regular';
+  src: url("../fonts/museo_slab_1000-webfont.eot");
+  src: url("../fonts/museo_slab_1000-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/museo_slab_1000-webfont.woff") format("woff"), url("../fonts/museo_slab_1000-webfont.ttf") format("truetype"), url("../fonts/museo_slab_1000-webfont.svg#MuseoSlab1000Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@font-face {
-  font-family:'ProximaNovaBlack';
-  src:url("../fonts/proximanova-black-webfont.eot");
-  src:url("../fonts/proximanova-black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/proximanova-black-webfont.woff") format("woff"), url("../fonts/proximanova-black-webfont.ttf") format("truetype"), url("../fonts/proximanova-black-webfont.svg#ProximaNovaBlRegular") format("svg");
-  font-weight:normal;
-  font-style:normal;
-}
-
+/* line 17, ../sass/blog.scss */
 body {
-  font-family:ProximaNova,  Arial,  sans-serif;
-  font-size:15px;
-  line-height:20px;
+  font-family: "Helvetica Neue", arial, sans-serif;
+  background-color: #475556;
+  color: #f2fcf5;
+  font-size: 16px;
+  line-height: 22px;
 }
 
-h1 {
-  font-family:ProximaNovaBlack,  Arial,  sans-serif;
-  font-size:36px;
-  line-height:42px;
-  letter-spacing:-1px;
-  text-transform:uppercase;
-  font-weight:normal;
+/* line 24, ../sass/blog.scss */
+.right {
+  text-align: right;
 }
 
-h2 {
-  font-size:28px;
-  line-height:34px;
-  letter-spacing:-1px;
-  font-weight:normal;
-}
-
-a {
-  -webkit-transition:all 0.2s ease-in-out;
-  -moz-transition:all 0.2s ease-in-out;
-  -ms-transition:all 0.2s ease-in-out;
-  -o-transition:all 0.2s ease-in-out;
-  transition:all 0.2s ease-in-out;
-  color:#00a383;
-  text-decoration:none;
-  border-bottom:1px dotted #00a383;
-}
-
-a:hover {
-  color:#ff503e;
-  text-decoration:none;
-  border-color:#ff503e;
-}
-
-strong {
-  font-family:ProximaNovaSemiBold,  arial,  sans-serif;
+/* line 28, ../sass/blog.scss */
+h1, h2 {
+  font-family: MuseoSlab1000Regular, arial, sans-serif;
   font-weight: normal;
 }
 
-code, pre {
-  font-family:Menlo,  Monaco,  Consolas,  "Courier New",  monospace;
-  font-size:14px;
-  float: left;
-  width: 800px;
-  margin: 20px 0;
-  white-space: pre;
-  overflow: auto;
+/* line 33, ../sass/blog.scss */
+h1 {
+  font-size: 64px;
+  line-height: 70px;
+  letter-spacing: -4px;
 }
 
-#sidebar {
-  border-left:6px solid #000;
-  border-right:6px solid #f1f1f1;
-  position:fixed;
-  top:0;
-  left:0;
-  width:248px;
-  height:100%;
-  background:#55d0a7;
-}
-
-#sidebar header {
-  padding:0 0 0 40px;
-}
-
-#sidebar header h1 {
-  margin:40px 0 0 0;
-  font-size:36px;
-  line-height:28px;
-  letter-spacing:0;
-  color:#fff;
-}
-
-#sidebar header h2 {
-  font-family:ProximaNovaSemiBold,  arial,  sans-serif;
-  margin-top:0;
-  color:#000;
-  font-size:20px;
-  line-height:24px;
-  letter-spacing:0;
-}
-
-#sidebar header a {
-  color:#000;
-}
-
-#sidebar header a:hover {
-  text-decoration:none;
-  cursor:pointer;
-}
-
-#sidebar #lang {
-  border-top:1px dotted #000;
-  margin:20px 0 0 0;
-  padding:20px 0 0 40px;
-}
-
-#sidebar #lang i {
-  display:inline-block;
-  margin:3px 0 0;
-}
-
-#sidebar #lang a {
-  text-transform:lowercase;
-  font-size:12px;
-  color:#000;
-  border-color:#000;
-}
-
-#sidebar #lang a:hover {
-  color:#fff;
-  border-color:#fff;
-}
-
-#sidebar nav {
-  border-top:1px dotted #000;
-  margin:20px 0;
-  padding:20px 0 5px 40px;
-}
-
-#sidebar nav a {
-  display:block;
-  color:#000;
-  padding:0 0;
-  width:176px;
-  margin:12px 0;
-  text-transform:uppercase;
-  font-size:12px;
-  border:none;
-  border-bottom:1px dotted #000;
-}
-
-#sidebar nav a:hover {
-  cursor:pointer;
-  color:#fff;
-  border-bottom:1px solid #000;
-}
-
-#content {
-  padding:0 0;
-}
-
-#content header {
-  margin:-11px 0 0;
-}
-
-#content header h1, #content header h1 a {
-  font-family:ProximaNovaSemiBold,  Arial,  sans-serif;
-  text-transform:none;
-  font-size:46px;
-  line-height:44px;
-  color:#000;
-  border:none;
-}
-
-#content article {
-  padding:0 0 40px 0;
-  clear: both;
-}
-
-#content article:first-child {
-  margin: 36px 0 0;
-}
-
-#content article h1 {
+/* line 38, ../sass/blog.scss */
+h2 {
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -1.3px;
   margin: 0 0;
 }
 
-#content article h1, #content article h2, #content article h3 {
-  font-family:ProximaNovaSemiBold,  Arial,  sans-serif;
+/* line 44, ../sass/blog.scss */
+h3 {
+  font-family: MuseoSlab100Regular, arial, sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: -1px;
+  margin-top: 12px;
 }
 
-#content article h2 {
-  font-size:28px;
-  line-height:32px;
-  margin-bottom:0;
+/* line 52, ../sass/blog.scss */
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: transparent;
 }
 
-#content article:last-child {
-  border-bottom:none;
+/* line 56, ../sass/blog.scss */
+a {
+  color: #bed8da;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+  border-bottom-color: #bed8da;
+}
+/* line 62, ../sass/blog.scss */
+a:hover {
+  color: #e78685;
+  text-decoration: none;
+  border-bottom-color: #e78685;
 }
 
-#content article div.info {
-  display:block;
-  margin:20px 0;
-  color:#000;
-  padding:10px 0 10px 0;
-  color:#999;
-  border-bottom:1px dashed #999;
-  border-top:6px solid #333;
+/* line 69, ../sass/blog.scss */
+aside {
+  margin-top: 6px;
+  color: #bed8da;
+  font-size: 14px;
 }
-
-#content article div.info ul {
-  list-style:none inside;
-  margin:0 0;
-  padding:0 0;
-}
-
-#content article div.info ul li {
-  float:left;
-  margin:0 20px 0 0;
-}
-
-#content article div.info ul li, #content article div.info ul li time, #content article div.info ul li a {
-  font-size:13px;
-}
-
-#content article.single h1 {
-  margin-bottom:0;
-}
-
-#content article.single div.info {
-  margin-top:20px;
-  border-top:1px solid #f1f1f1;
-  border-bottom:1px solid #f1f1f1;
-}
-
-#content .archive {
-  list-style:none inside;
-  margin:0 0;
-  padding:0 0;
-}
-
-#content .archive ul {
-  list-style:none;
-}
-
-#content .archive ul li {
-  margin:12px 0;
-}
-
-#content .comments {
-  border-top:6px solid #333;
-}
-
-#content .comments header {
-  border-bottom:1px dotted #000;
-  margin-bottom: 40px;
-}
-
-#content .comments h2 {
-  font-family:ProximaNovaSemiBold,  Arial,  sans-serif;
-  margin:20px 0 10px 0;
-}
-
-#content #comments article .metadata .image-wrap img {
-  border-radius:69px;
-}
-
-#content #comments article .body time {
-  display:block;
-  color:#666;
-  font-size:13px;
-  margin:0 0;
-}
-
-#content #comments article .body p {
-  margin:0 0 12px 0;
-}
-
-#content #comments article.owner .body p {
-  color:#369bca;
-}
-
-#content #comments-form form {
-  margin:20px 0 0;
-}
-
-#content #comments-form form .input-xlarge {
-  width:450px;
-}
-
-#content #comments-form form .help-inline {
-  font-size:13px;
-}
-
-ol.linenums {
-  margin:0 0 !important;
-}
-
-#categories > ul {
-  list-style: none;
-}
-#categories > ul > li > ul {
-  list-style: square;
-  color: #999;
-}
-#categories > ul > li > ul > li {
-  margin: 0 0 12px 0;
-}
-#categories ul li time {
+/* line 73, ../sass/blog.scss */
+aside time {
   display: block;
-  color: #999;
-  font-size: 13px;
-}
-.pagination {
-  margin: 0 0 40px 0;
-}
-.pagination ul {
-  padding: 0 0;
+  text-transform: lowercase;
+  font-weight: 300;
+  margin: 24px 0 0;
 }
 
-#home article div.info {
-  border: none;
-  margin-bottom: 8px;
+/* line 81, ../sass/blog.scss */
+.intro {
+  font-family: MuseoSlab100Regular, arial, sans-serif;
+  font-size: 24px;
+  line-height: 30px;
 }
 
-#home article div.info time {
-  color: #fff;
-  background-color: #333;
-  padding: 4px;
+/* line 86, ../sass/blog.scss */
+.inline-content {
+  margin-top: 48px;
 }
-.alert-message {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: 18px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-color: #fcf8e3;
-  border: 1px solid #fbeed5;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  color: #c09853;
-  margin-top: 20px;
+/* line 89, ../sass/blog.scss */
+.inline-content .span6 img {
+  margin-top: 6px;
 }
-.alert-message a {
-  color: #c09853!important;
-  border: none;
-  text-decoration: underline;
+
+/* line 95, ../sass/blog.scss */
+.content {
+  margin: 30px 0 0;
+  padding: 30px 0 0;
+  border-top: 1px solid rgba(190, 216, 218, 0.3);
 }
-.alert-heading {
-  color: inherit;
+
+/* line 102, ../sass/blog.scss */
+#comments h2 {
+  font-family: MuseoSlab100Regular, Helvetica, arial, sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -1px;
+  margin: 0 0 60px 0;
+  text-shadow: -1px -1px 1px #666666;
 }
-.alert .close {
-  position: relative;
-  top: -2px;
-  right: -21px;
-  line-height: 18px;
+/* line 109, ../sass/blog.scss */
+#comments article {
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-bottom: 1px dotted rgba(190, 216, 218, 0.2);
 }
-.alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
+/* line 111, ../sass/blog.scss */
+#comments article img {
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  border-radius: 12px;
 }
-.alert-danger,
-.alert-error {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
+/* line 114, ../sass/blog.scss */
+#comments article time {
+  text-shadow: -1px -1px 1px #666666;
+  color: #91b39a;
+  font-size: 11px;
+  text-transform: uppercase;
 }
-.alert-info {
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  color: #3a87ad;
+/* line 121, ../sass/blog.scss */
+#comments article p.author {
+  color: #91b39a;
+  margin-top: 2px;
+  font-size: 14px;
 }
-.alert-block {
-  padding-top: 14px;
-  padding-bottom: 14px;
+/* line 128, ../sass/blog.scss */
+#comments article.owner p {
+  color: #91b39a;
 }
-.alert-block > p,
-.alert-block > ul {
-  margin-bottom: 0;
+
+/* line 136, ../sass/blog.scss */
+#comments-form h2 {
+  font-family: MuseoSlab100Regular, Helvetica, arial, sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -1px;
+  text-shadow: -1px -1px 1px #666666;
 }
-.alert-block p + p {
-  margin-top: 5px;
+/* line 142, ../sass/blog.scss */
+#comments-form form {
+  margin-top: 40px;
+}
+/* line 144, ../sass/blog.scss */
+#comments-form form label {
+  font-size: 14px;
+}
+/* line 147, ../sass/blog.scss */
+#comments-form form .help-inline {
+  color: #91b39a;
+  font-size: 14px;
+}
+/* line 151, ../sass/blog.scss */
+#comments-form form .btn {
+  margin: 20px 0 0 160px;
 }

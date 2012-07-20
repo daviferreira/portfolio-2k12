@@ -4,30 +4,30 @@
 	<div class="control-group">
     <%= f.label :author, :class => "control-label" %>
     <div class="controls">
-		  <%= f.text_field :author, :class => "input-xlarge" %>
+		  <%= f.text_field :author, :class => "input-xxlarge" %>
     </div>
 	</div>
 	<div class="control-group">
     <%= f.label :email, :class => "control-label" %>
     <div class="controls">
-		  <%= f.text_field :email, :class => "input-xlarge" %>
+		  <%= f.text_field :email, :class => "input-xxlarge" %>
       <span class="help-inline">(<%= t :email_privacy %>)</span>
     </div>
 	</div>
 	<div class="control-group">
 		<%= f.label :url, :class => "control-label" %>
     <div class="controls">
-		  <%= f.text_field :url, :class => "input-xlarge" %>
+		  <%= f.text_field :url, :class => "input-xxlarge" %>
     </div>
 	</div>
 	<div class="control-group">
-    <%= f.label :body, :class => "control-label" %>
-    <div class="controls">
-		  <%= f.text_area :body, :class => "input-xlarge" %>
-      <span class="help-inline">(<strong><%= t :allowed_tags %>:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</span>
-    </div>
+	    <%= f.label :body, :class => "control-label" %>
+	    <div class="controls">
+			  <%= f.text_area :body, :class => "input-xxlarge" %>
+	      <span class="help-inline">(<strong><%= t :allowed_tags %>:</strong> &lt;strong&gt; &lt;em&gt; &lt;code&gt; &lt;a&gt;)</span>
+	    </div>
 	</div>
-	<div class="form-actions">
-		<%= f.submit t(:submit_comment), :class => "btn btn-danger" %>
-	</div>
+
+	<%= f.submit t(:submit_comment), :class => "btn btn-large" %>
+
 <% end %>

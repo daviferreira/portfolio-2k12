@@ -1,10 +1,10 @@
-<article id="comment-<%=comment.id%>" class="comment clearfix row <% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %>">
-  <div class="metadata span1<% if not comment.comment_id.nil? and comment.comment_id > 0 %> offset1<% end %>">
-    <div class="image-wrap"><%= gravatar_for comment %></div>
+<article id="comment-<%=comment.id%>" class="comment clearfix <% if comment.author == "Davi Ferreira" %> owner<% end %><% if not comment.comment_id.nil? and comment.comment_id > 0 %> reply<% end %>">
+  <div class="metadata span<% if not comment.comment_id.nil? and comment.comment_id > 0 %>3<% else %>2<% end %> right">
+    <%= gravatar_for comment %>
   </div>
-  <div class="body <% if not comment.comment_id.nil? and comment.comment_id > 0 %>span6<% else %>span7<% end %>">
+  <div class="body span<% if not comment.comment_id.nil? and comment.comment_id > 0 %>9<% else %>10<% end %>">
     <time datetime="<%= comment.created_at %>" pubdate><%= l comment.created_at %></time>
-    <p><strong><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %></strong></p>
+    <p class="author"><% if comment.url != "" %><%= link_to comment.author, check_for_http(comment.url) %><% else %><%= comment.author %><% end %> disse:</p>
     <p><%= sanitize_preserving_code comment.body %></p>
     <% unless @post.block_comments %>
     <p class="reply"><%= link_to(t(:reply), reply_comment_path(comment), :id => "lnk-reply-#{comment.id}", :rel => "nofollow", :remote => true) %></p>

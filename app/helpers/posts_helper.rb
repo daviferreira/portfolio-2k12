@@ -2,9 +2,9 @@
 module PostsHelper
   def total_comments_in_words(total)
     if total > 1 
-      "#{total} #{t :comments}."
+      "#{total} #{t :comments}"
     elsif total == 1
-      "1 #{t :comment}."
+      "1 #{t :comment}"
     else
      t :no_comments 
     end
