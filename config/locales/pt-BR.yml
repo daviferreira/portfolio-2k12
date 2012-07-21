@@ -225,7 +225,7 @@
         format: "%{attribute}%{message}"
 
 
-  email_privacy: Seu e-mail não será divulgado - serve apenas para validação e gravatar.
+  email_privacy: Seu e-mail não será divulgado, apenas para validação e gravatar
   allowed_tags: Tags HTML permitidas 
   submit_comment: Enviar comentário 
   error_sending_comment: Não deu pra salvar seu comentário. Verifique os campos obrigatórios.
@@ -239,5 +239,5 @@
       comment:
         author: * Seu nome 
         email: * Seu e-mail 
-        url: Você tem site/blog?
-        body: * Digite sua mensagem
+        url: Seu site/blog
+        body: * Sua mensagem

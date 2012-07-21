@@ -14,175 +14,262 @@
   font-style: normal;
 }
 
-/* line 17, ../sass/blog.scss */
 body {
-  font-family: "Helvetica Neue", arial, sans-serif;
-  background-color: #475556;
-  color: #f2fcf5;
-  font-size: 16px;
-  line-height: 22px;
+background-color:#475556;
+color:#f2fcf5;
+font-family:"Helvetica Neue", arial, sans-serif;
+font-size:16px;
+line-height:24px;
 }
 
-/* line 24, ../sass/blog.scss */
 .right {
-  text-align: right;
+text-align:right;
 }
 
-/* line 28, ../sass/blog.scss */
-h1, h2 {
-  font-family: MuseoSlab1000Regular, arial, sans-serif;
-  font-weight: normal;
+.clear {
+  clear: both;
 }
 
-/* line 33, ../sass/blog.scss */
+h1,h2,h3 {
+font-weight:400;
+}
+
 h1 {
-  font-size: 64px;
-  line-height: 70px;
-  letter-spacing: -4px;
+font-family:MuseoSlab1000Regular, arial, sans-serif;
+font-size:64px;
+letter-spacing:-4px;
+line-height:70px;
+margin: 60px 0;
 }
 
-/* line 38, ../sass/blog.scss */
 h2 {
-  font-size: 26px;
-  line-height: 32px;
-  letter-spacing: -1.3px;
-  margin: 0 0;
+font-family:MuseoSlab100Regular, arial, sans-serif;
+font-size:32px;
+letter-spacing:-.5px;
+line-height:38px;
+margin:0;
 }
 
-/* line 44, ../sass/blog.scss */
 h3 {
-  font-family: MuseoSlab100Regular, arial, sans-serif;
-  font-size: 20px;
-  line-height: 26px;
-  letter-spacing: -1px;
-  margin-top: 12px;
+font-family:MuseoSlab100Regular, arial, sans-serif;
+font-size:20px;
+letter-spacing:-1px;
+line-height:26px;
+margin-top:12px;
 }
 
-/* line 52, ../sass/blog.scss */
-.table tbody tr:hover td,
-.table tbody tr:hover th {
-  background-color: transparent;
+.table tbody tr:hover td,.table tbody tr:hover th {
+background-color:transparent;
 }
 
-/* line 56, ../sass/blog.scss */
 a {
-  color: #bed8da;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  border-bottom-style: dotted;
-  border-bottom-width: 1px;
-  border-bottom-color: #bed8da;
+-moz-transition:all .2s ease-in;
+-ms-transition:all .2s ease-in;
+-o-transition:all .2s ease-in;
+-webkit-transition:all .2s ease-in;
+border-bottom-color:#bed8da;
+border-bottom-style:dotted;
+border-bottom-width:1px;
+color:#bed8da;
+transition:all .2s ease-in;
 }
-/* line 62, ../sass/blog.scss */
+
 a:hover {
-  color: #e78685;
-  text-decoration: none;
-  border-bottom-color: #e78685;
+border-bottom-color:#e78685;
+color:#e78685;
+text-decoration:none;
 }
 
-/* line 69, ../sass/blog.scss */
 aside {
-  margin-top: 6px;
-  color: #bed8da;
-  font-size: 14px;
+color:#bed8da;
+font-size:14px;
 }
-/* line 73, ../sass/blog.scss */
+
 aside time {
-  display: block;
-  text-transform: lowercase;
-  font-weight: 300;
-  margin: 24px 0 0;
+display:block;
+font-weight:300;
+margin:0 0;
+text-transform:lowercase;
 }
 
-/* line 81, ../sass/blog.scss */
 .intro {
-  font-family: MuseoSlab100Regular, arial, sans-serif;
-  font-size: 24px;
-  line-height: 30px;
+font-family:MuseoSlab100Regular, arial, sans-serif;
+font-size:24px;
+line-height:30px;
 }
 
-/* line 86, ../sass/blog.scss */
 .inline-content {
-  margin-top: 48px;
+margin-top:48px;
 }
-/* line 89, ../sass/blog.scss */
+
 .inline-content .span6 img {
-  margin-top: 6px;
+margin-top:6px;
 }
 
-/* line 95, ../sass/blog.scss */
 .content {
-  margin: 30px 0 0;
-  padding: 30px 0 0;
-  border-top: 1px solid rgba(190, 216, 218, 0.3);
+border-top:1px solid rgba(190,216,218,0.3);
+margin:30px 0 0;
+padding:30px 0 0;
 }
 
-/* line 102, ../sass/blog.scss */
 #comments h2 {
-  font-family: MuseoSlab100Regular, Helvetica, arial, sans-serif;
-  font-size: 32px;
-  line-height: 38px;
-  letter-spacing: -1px;
-  margin: 0 0 60px 0;
-  text-shadow: -1px -1px 1px #666666;
-}
-/* line 109, ../sass/blog.scss */
-#comments article {
-  padding-bottom: 20px;
-  margin-bottom: 40px;
-  border-bottom: 1px dotted rgba(190, 216, 218, 0.2);
-}
-/* line 111, ../sass/blog.scss */
-#comments article img {
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
-  border-radius: 12px;
-}
-/* line 114, ../sass/blog.scss */
-#comments article time {
-  text-shadow: -1px -1px 1px #666666;
-  color: #91b39a;
-  font-size: 11px;
-  text-transform: uppercase;
-}
-/* line 121, ../sass/blog.scss */
-#comments article p.author {
-  color: #91b39a;
-  margin-top: 2px;
-  font-size: 14px;
-}
-/* line 128, ../sass/blog.scss */
-#comments article.owner p {
-  color: #91b39a;
+font-family:MuseoSlab100Regular, Helvetica, arial, sans-serif;
+font-size:32px;
+letter-spacing:-1px;
+line-height:38px;
+margin:0 0 60px;
+text-shadow:-1px -1px 1px #666;
 }
 
-/* line 136, ../sass/blog.scss */
+#comments article {
+border-bottom:1px dotted rgba(190,216,218,0.2);
+margin-bottom:40px;
+padding-bottom:20px;
+}
+
+#comments article img, aside.about img {
+-moz-border-radius:12px;
+-ms-border-radius:12px;
+-o-border-radius:12px;
+-webkit-border-radius:12px;
+border-radius:12px;
+}
+
+#comments article time, #posts ul li time, #archive ul li time, #categories ul li time {
+color:#91b39a;
+font-size:11px;
+text-shadow:-1px -1px 1px #666;
+text-transform:uppercase;
+}
+
+#comments article p.author {
+color:#91b39a;
+font-size:14px;
+margin-top:2px;
+}
+
+#comments article.owner p {
+color:#e78685;
+}
+
 #comments-form h2 {
-  font-family: MuseoSlab100Regular, Helvetica, arial, sans-serif;
-  font-size: 32px;
-  line-height: 38px;
-  letter-spacing: -1px;
-  text-shadow: -1px -1px 1px #666666;
+font-family:MuseoSlab100Regular, Helvetica, arial, sans-serif;
+font-size:32px;
+letter-spacing:-1px;
+line-height:38px;
+text-shadow:-1px -1px 1px #666;
 }
-/* line 142, ../sass/blog.scss */
+
 #comments-form form {
-  margin-top: 40px;
+margin-top:40px;
 }
-/* line 144, ../sass/blog.scss */
+
 #comments-form form label {
-  font-size: 14px;
+font-size:14px;
 }
-/* line 147, ../sass/blog.scss */
+
 #comments-form form .help-inline {
-  color: #91b39a;
+color:#91b39a;
+font-size:14px;
+}
+
+#comments-form form .btn {
+margin:20px 0 0 160px;
+}
+
+article#main h2, article#main h3 {
+  margin: 60px 0 40px 0;
+}
+
+article#main p:first-child {
+  margin-top: 0;
+}
+
+div.reply form {
+  margin: 40px 0;
+}
+
+div.reply .btn {
+  margin-left: 160px;
+}
+
+div.reply label {
   font-size: 14px;
 }
-/* line 151, ../sass/blog.scss */
-#comments-form form .btn {
-  margin: 20px 0 0 160px;
+
+div.reply span.help-inline {
+  color:#91b39a;
+  font-size: 14px;
+}
+
+#posts ul {
+  list-style: none;
+  padding: 0 0;
+  margin: 13px 0 0;
+}
+
+#posts ul li {
+  margin: 0 0 40px 0;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -1px;
+}
+
+#posts ul li a {
+  border: none;
+}
+
+#posts ul li time, #archive ul li time, #categories ul li time {
+  display: block;
+  padding: 0 0;
+  margin: 0 0;
+  line-height: 14px;
+  letter-spacing: normal;
+}
+
+aside.about {
+  font-size: 12px;
+  line-height: 16px;
+  color: #97acb0;
+}
+
+aside.about p.info {
+  width: 148px;
+}
+
+aside.about p.avatar {
+  width: 72px;
+}
+
+aside.about p.avatar, aside.about p.info {
+  float: left;
+}
+
+aside.about img {
+  margin: 0 12px 0 0;
+}
+
+aside nav ul {
+  list-style: none;
+  padding: 0 0;
+  margin: 40px 0 0;
+}
+
+aside nav ul li {
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+#archive ul, #categories ul {
+  padding: 0 0;
+  margin: 12px 0 40px 0;
+  list-style: none;
+}
+
+#archive ul li ul li, #categories ul li ul li {
+  margin: 16px 0;
+}
+
+blockquote small {
+  color: #ccc;
 }

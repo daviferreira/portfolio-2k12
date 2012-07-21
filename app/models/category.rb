@@ -5,5 +5,6 @@ class Category < ActiveRecord::Base
   has_many :posts, :through => :post_categories
   is_sluggable :name
 
-	validates :name, :presence 	=> true
+  validates :name, :presence => true
+  default_scope :order => 'name'
 end

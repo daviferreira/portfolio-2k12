@@ -12,14 +12,14 @@
       <div class="row">
         <aside class="span4">
 
-          <time datetime="<%= @post.published_date.to_s[0..9] %>"><i class="icon-calendar icon-white"></i> <%= l @post.published_date %></time>
+          <time datetime="<%= @post.published_date.to_s[0..9] %>"><i class="icon-calendar icon-white"></i> <%= link_to l(@post.published_date), posts_archive_path %></time>
           <% if not from_tableless(@post) and not @post.block_comments %>
           <p><i class="icon-comment icon-white"></i> <%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %></p>
           <% end %>
           <% unless @post.categories.empty? %>
           <p class="tags"><i class="icon-tags icon-white"></i> 
             <% @post.categories.each do |category| %>
-            <a href="#"><%= category.name.downcase %></a><% if category != @post.categories.last %>,<% end %> 
+            <%= link_to category.name.downcase, posts_category_path(:category => category) %><% if category != @post.categories.last %>,<% end %> 
             <% end %>
           <% end %>
         </p>
@@ -34,12 +34,14 @@
 
     <% if not @post.block_comments or not @post.comments.published.empty? %>
     <section id="comments" class="content">
+      <% unless @post.comments.published.empty? %>
       <div class="row">
         <header class="span12">
           <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    
         </header>
       </div>
-      <div class="row">
+      <% end %>
+      <div class="row" id="comments-list">
       <% unless @post.comments.published.empty? %>
           <% @post.comments.published.each do |comment| %>
             <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
@@ -57,7 +59,9 @@
         </header>
       </div>
       <div class="row">
-        <%= render "comments/form", :id => "new_comment" %>
+        <div class="span8 offset2">
+          <%= render "comments/form", :id => "new_comment" %>
+        </div>
       </div>
     </section>
     <% end %>

@@ -1,22 +1,27 @@
-<div id="home">
-  <% @posts.each do |post| %>
-  <article class="clearfix">
-    <div class="info">
-      <ul class="clearfix">
-        <li><time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time></li>
-        <% if not from_tableless(post) and not post.block_comments %>
-        <li><i class="icon-comment"></i> <%= link_to total_comments_in_words(post.comments.published.length), post_path(post) + '#comments' %></li>
-        <% end %>
-        <!-- li><i class="icon-tags"></i> <a href="#">javascript</a>, <a href="#">tableless</a></li -->
-      </ul>
+<div class="container">    
+  <div class="row">
+    <div class="span12">
+      <header>
+        <h1>daviferreira.com/blog</h1>
+      </header>
     </div>
-    <header>
-      <h1><a href="<%= post_url(post) %>"<% if from_tableless(post) %> target="_blank"<% end %>><%= post.title %></a></h1>
-    </header>
+  </div>
+  <div class="row">
+    <div class="span3">
+      <%= render "layouts/blog_about" %>
+    </div>
+    <div class="span8 offset1">
+      <section id="posts">
+        <ul>
+          <% @posts.each do |post| %>
+          <li class="clearfix">
+            <time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time>
+            <a href="<%= post_url(post) %>"<% if from_tableless(post) %> target="_blank"<% end %>><%= post.title %></a>
+          </li>
+          <% end %>
+        </ul>
+      </section>
+    </div>
+  </div>
 
-    <%= raw post.body %>
-
-  </article>
-  <% end %>
 </div>
-<%= will_paginate @posts, :next_label => "&rarr;", :previous_label => "&larr;" %>

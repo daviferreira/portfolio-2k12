@@ -1,20 +1,32 @@
-<section id="categories">
-  <header>
-    <h1>Arquivo</h1>
-  </header>
-  <ul>
-  <% @years.each do |year, data| %>  
-    <li>
-        <h2><%= year %></h2>
+<div class="container">    
+  <div class="row">
+    <div class="span12">
+      <header>
+        <h1>Arquivo</h1>
+      </header>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span3">
+      <%= render "layouts/blog_about" %>
+    </div>
+    <div class="span8 offset1">
+      <section id="archive">
         <ul>
-        <% data["posts"].each do |post| %>
+        <% @years.each do |year, data| %>  
           <li>
-            <time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time>
-            <%= link_to post.title, post_url(post) %>
+              <h2><%= year %></h2>
+              <ul>
+              <% data["posts"].each do |post| %>
+                <li>
+                  <%= link_to post.title, post_url(post) %>
+                </li>
+              <% end %>
+              </ul>
           </li>
         <% end %>
         </ul>
-    </li>
-  <% end %>
-  </ul>
-</section>
+      </section>
+    </div>
+  </div>
+</div>

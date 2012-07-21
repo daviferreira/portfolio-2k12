@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title><%= meta_title %></title>
   <meta name="description" content="<%= meta_description %>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <% if blog_home_page? %>
     <%= include_stylesheets :blog, :media => 'all' %>
@@ -29,6 +28,7 @@
     })();
 
   </script>
+  <link rel="shortcut icon" href="/images/favicon.gif">
 </head>
 <body>
 
@@ -36,7 +36,7 @@
   
 
   <% if blog_home_page? %>
-    <%= include_javascripts :blog%>
+    <%= include_javascripts :blog %>
   <% else %>
     <%= include_javascripts :post %>
   <% end %>
