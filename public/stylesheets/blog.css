@@ -215,6 +215,10 @@ div.reply span.help-inline {
   letter-spacing: -1px;
 }
 
+#posts ul li i {
+  margin: 6px 0 0;
+}
+
 #posts ul li a {
   border: none;
 }

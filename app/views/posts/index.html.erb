@@ -16,7 +16,7 @@
           <% @posts.each do |post| %>
           <li class="clearfix">
             <time datetime="<%= post.published_date.to_s[0..9] %>"><%= l post.published_date %></time>
-            <a href="<%= post_url(post) %>"<% if from_tableless(post) %> target="_blank"<% end %>><%= post.title %></a>
+            <% if from_tableless(post) %><i class="icon-share icon-white icon-large"></i><% end %> <a href="<%= post_url(post) %>"<% if from_tableless(post) %> target="_blank"<% end %>><%= post.title %></a>
           </li>
           <% end %>
         </ul>
