@@ -8,7 +8,8 @@ Header unset ETag
 FileETag None
 
 ExpiresActive On
-ExpiresDefault A0
+ExpiresDefault A7200
+Header append Cache-Control "proxy-revalidate"
 
 # Set up caching on media files for 1 year (forever?)
 <FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|gif|jpg|jpeg|png|swf)$">
