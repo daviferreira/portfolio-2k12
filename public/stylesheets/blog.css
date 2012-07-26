@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'MuseoSlab100Regular';
-  src: url("../fonts/museo_slab_100-webfont.eot");
-  src: url("../fonts/museo_slab_100-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/museo_slab_100-webfont.woff") format("woff"), url("../fonts/museo_slab_100-webfont.ttf") format("truetype"), url("../fonts/museo_slab_100-webfont.svg#MuseoSlab100Regular") format("svg");
+  src: url("http://www.dfimg.com/fonts/museo_slab_100-webfont.eot");
+  src: url("http://www.dfimg.com/fonts/museo_slab_100-webfont.eot?#iefix") format("embedded-opentype"), url("http://www.dfimg.com/fonts/museo_slab_100-webfont.woff") format("woff"), url("http://www.dfimg.com/fonts/museo_slab_100-webfont.ttf") format("truetype"), url("http://www.dfimg.com/fonts/museo_slab_100-webfont.svg#MuseoSlab100Regular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MuseoSlab1000Regular';
-  src: url("../fonts/museo_slab_1000-webfont.eot");
-  src: url("../fonts/museo_slab_1000-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/museo_slab_1000-webfont.woff") format("woff"), url("../fonts/museo_slab_1000-webfont.ttf") format("truetype"), url("../fonts/museo_slab_1000-webfont.svg#MuseoSlab1000Regular") format("svg");
+  src: url("http://www.dfimg.com/fonts/museo_slab_1000-webfont.eot");
+  src: url("http://www.dfimg.com/fonts/museo_slab_1000-webfont.eot?#iefix") format("embedded-opentype"), url("http://www.dfimg.com/fonts/museo_slab_1000-webfont.woff") format("woff"), url("http://www.dfimg.com/fonts/museo_slab_1000-webfont.ttf") format("truetype"), url("http://www.dfimg.com/fonts/museo_slab_1000-webfont.svg#MuseoSlab1000Regular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
