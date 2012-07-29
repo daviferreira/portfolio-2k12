@@ -1,22 +1,15 @@
-@font-face {
-  font-family: 'MuseoSlab100Regular';
-  src: url("../fonts/museo_slab_100-webfont.eot");
-  src: url("../fonts/museo_slab_100-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/museo_slab_100-webfont.woff") format("woff"), url("../fonts/museo_slab_100-webfont.ttf") format("truetype"), url("../fonts/museo_slab_100-webfont.svg#MuseoSlab100Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+@import "compass/css3";
+@import "fonts";
 
-@font-face {
-  font-family: 'MuseoSlab1000Regular';
-  src: url("../fonts/museo_slab_1000-webfont.eot");
-  src: url("../fonts/museo_slab_1000-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/museo_slab_1000-webfont.woff") format("woff"), url("../fonts/museo_slab_1000-webfont.ttf") format("truetype"), url("../fonts/museo_slab_1000-webfont.svg#MuseoSlab1000Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+$background_color: #475556;
+$text_color: #f2fcf5;
+$text_color_alt: #91b39a;
+$link_color: #bed8da;
+$link_hover_color: #e78685;
 
 body {
-  background-color: #475556;
-  color: #f2fcf5;
+  background-color: $background_color;
+  color: $text_color;
   font-family: "Helvetica Neue", arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -30,7 +23,7 @@ body {
   clear: both;
 }
 
-h1, h2, h3 {
+h1,h2,h3 {
   font-weight: 400;
 }
 
@@ -45,7 +38,7 @@ h1 {
 h2 {
   font-family: MuseoSlab100Regular, arial, sans-serif;
   font-size: 32px;
-  letter-spacing: -0.5px;
+  letter-spacing: -.5px;
   line-height: 38px;
   margin: 0;
 }
@@ -58,29 +51,26 @@ h3 {
   margin-top: 12px;
 }
 
-.table tbody tr:hover td, .table tbody tr:hover th {
+.table tbody tr:hover td,.table tbody tr:hover th {
   background-color: transparent;
 }
 
 a {
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  border-bottom-color: #bed8da;
+  @include transition(all .2s ease-in);  
+  border-bottom-color: $link_color;
   border-bottom-style: dotted;
   border-bottom-width: 1px;
-  color: #bed8da;
+  color: $link_color;
 }
 
 a:hover {
-  border-bottom-color: #e78685;
-  color: #e78685;
+  border-bottom-color: $link_hover_color;
+  color: $link_hover_color;
   text-decoration: none;
 }
 
 aside {
-  color: #bed8da;
+  color: $link_color;
   font-size: 14px;
 }
 
@@ -106,7 +96,7 @@ aside time {
 }
 
 .content {
-  border-top: 1px solid rgba(242, 252, 245, 0.3);
+  border-top: 1px solid rgba($text_color, .3);
   margin: 30px 0 0;
   padding: 30px 0 0;
 }
@@ -117,38 +107,34 @@ aside time {
   letter-spacing: -1px;
   line-height: 38px;
   margin: 0 0 60px;
-  text-shadow: -1px -1px 1px #666666;
+  text-shadow: -1px -1px 1px #666;
 }
 
 #comments article {
-  border-bottom: 1px dotted rgba(242, 252, 245, 0.2);
+  border-bottom: 1px dotted rgba($text_color, .2);
   margin-bottom: 40px;
   padding-bottom: 20px;
 }
 
 #comments article img, aside.about img {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  @include border-radius(3px);
 }
 
 #comments article time, #posts ul li time, #archive ul li time, #categories ul li time {
-  color: #91b39a;
+  color: $text_color_alt;
   font-size: 11px;
-  text-shadow: -1px -1px 1px #666666;
+  text-shadow: -1px -1px 1px #666;
   text-transform: uppercase;
 }
 
 #comments article p.author {
-  color: #91b39a;
+  color: $text_color_alt;
   font-size: 14px;
   margin-top: 2px;
 }
 
 #comments article.owner p {
-  color: #e78685;
+  color: $link_hover_color;
 }
 
 #comments-form h2 {
@@ -156,7 +142,7 @@ aside time {
   font-size: 32px;
   letter-spacing: -1px;
   line-height: 38px;
-  text-shadow: -1px -1px 1px #666666;
+  text-shadow: -1px -1px 1px #666;
 }
 
 #comments-form form {
@@ -168,7 +154,7 @@ aside time {
 }
 
 #comments-form form .help-inline {
-  color: #91b39a;
+  color: $text_color_alt;
   font-size: 14px;
 }
 
@@ -197,7 +183,7 @@ div.reply label {
 }
 
 div.reply span.help-inline {
-  color: #91b39a;
+  color: $text_color_alt;
   font-size: 14px;
 }
 
@@ -233,7 +219,7 @@ div.reply span.help-inline {
 aside.about {
   font-size: 12px;
   line-height: 16px;
-  color: #91b39a;
+  color: $text_color_alt;
 }
 
 aside.about p.info {
@@ -274,5 +260,5 @@ aside nav ul li {
 }
 
 blockquote small {
-  color: #91b39a;
+  color: $text_color_alt;
 }

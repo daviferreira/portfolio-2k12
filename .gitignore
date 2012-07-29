@@ -13,3 +13,4 @@ public/assets*
 public/blog*
 coverage*
 Gemfile.lock
+.sass-cache/
