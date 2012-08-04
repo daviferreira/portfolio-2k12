@@ -1,11 +1,11 @@
 @import "compass/css3";
 @import "fonts";
 
-$background_color: #475556;
-$text_color: #f2fcf5;
-$text_color_alt: #91b39a;
-$link_color: #bed8da;
-$link_hover_color: #e78685;
+$background_color: #fff;
+$text_color: #333;
+$text_color_alt: #666;
+$link_color: #0e94ec;
+$link_hover_color: #0e365b;
 
 body {
   background-color: $background_color;
@@ -107,7 +107,6 @@ aside time {
   letter-spacing: -1px;
   line-height: 38px;
   margin: 0 0 60px;
-  text-shadow: -1px -1px 1px #666;
 }
 
 #comments article {
@@ -123,7 +122,6 @@ aside time {
 #comments article time, #posts ul li time, #archive ul li time, #categories ul li time {
   color: $text_color_alt;
   font-size: 11px;
-  text-shadow: -1px -1px 1px #666;
   text-transform: uppercase;
 }
 
@@ -142,7 +140,6 @@ aside time {
   font-size: 32px;
   letter-spacing: -1px;
   line-height: 38px;
-  text-shadow: -1px -1px 1px #666;
 }
 
 #comments-form form {

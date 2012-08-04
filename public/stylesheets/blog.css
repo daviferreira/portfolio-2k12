@@ -15,8 +15,8 @@
 }
 
 body {
-  background-color: #475556;
-  color: #f2fcf5;
+  background-color: white;
+  color: #333333;
   font-family: "Helvetica Neue", arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -67,20 +67,20 @@ a {
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  border-bottom-color: #bed8da;
+  border-bottom-color: #0e94ec;
   border-bottom-style: dotted;
   border-bottom-width: 1px;
-  color: #bed8da;
+  color: #0e94ec;
 }
 
 a:hover {
-  border-bottom-color: #e78685;
-  color: #e78685;
+  border-bottom-color: #0e365b;
+  color: #0e365b;
   text-decoration: none;
 }
 
 aside {
-  color: #bed8da;
+  color: #0e94ec;
   font-size: 14px;
 }
 
@@ -106,7 +106,7 @@ aside time {
 }
 
 .content {
-  border-top: 1px solid rgba(242, 252, 245, 0.3);
+  border-top: 1px solid rgba(51, 51, 51, 0.3);
   margin: 30px 0 0;
   padding: 30px 0 0;
 }
@@ -117,11 +117,10 @@ aside time {
   letter-spacing: -1px;
   line-height: 38px;
   margin: 0 0 60px;
-  text-shadow: -1px -1px 1px #666666;
 }
 
 #comments article {
-  border-bottom: 1px dotted rgba(242, 252, 245, 0.2);
+  border-bottom: 1px dotted rgba(51, 51, 51, 0.2);
   margin-bottom: 40px;
   padding-bottom: 20px;
 }
@@ -135,20 +134,19 @@ aside time {
 }
 
 #comments article time, #posts ul li time, #archive ul li time, #categories ul li time {
-  color: #91b39a;
+  color: #666666;
   font-size: 11px;
-  text-shadow: -1px -1px 1px #666666;
   text-transform: uppercase;
 }
 
 #comments article p.author {
-  color: #91b39a;
+  color: #666666;
   font-size: 14px;
   margin-top: 2px;
 }
 
 #comments article.owner p {
-  color: #e78685;
+  color: #0e365b;
 }
 
 #comments-form h2 {
@@ -156,7 +154,6 @@ aside time {
   font-size: 32px;
   letter-spacing: -1px;
   line-height: 38px;
-  text-shadow: -1px -1px 1px #666666;
 }
 
 #comments-form form {
@@ -168,7 +165,7 @@ aside time {
 }
 
 #comments-form form .help-inline {
-  color: #91b39a;
+  color: #666666;
   font-size: 14px;
 }
 
@@ -197,7 +194,7 @@ div.reply label {
 }
 
 div.reply span.help-inline {
-  color: #91b39a;
+  color: #666666;
   font-size: 14px;
 }
 
@@ -233,7 +230,7 @@ div.reply span.help-inline {
 aside.about {
   font-size: 12px;
   line-height: 16px;
-  color: #91b39a;
+  color: #666666;
 }
 
 aside.about p.info {
@@ -274,5 +271,5 @@ aside nav ul li {
 }
 
 blockquote small {
-  color: #91b39a;
+  color: #666666;
 }
