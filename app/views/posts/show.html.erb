@@ -30,40 +30,42 @@
         </div>
       </div>
     </article>
-
-
-    <% if not @post.block_comments or not @post.comments.published.empty? %>
-    <section id="comments" class="content">
-      <% unless @post.comments.published.empty? %>
-      <div class="row">
-        <header class="span12">
-          <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    
-        </header>
-      </div>
-      <% end %>
-      <div class="row" id="comments-list">
-      <% unless @post.comments.published.empty? %>
-          <% @post.comments.published.each do |comment| %>
-            <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
-          <% end %>
-      <% end %>
-      </div>
-    </section>
-    <% end %>  
-
-    <% if not @post.block_comments %>
-    <section id="comments-form">
-      <div class="row">
-        <header class="span12">
-          <h2 id="tit-form-comment"><%= t :leave_your_comment %>:</h2>
-        </header>
-      </div>
-      <div class="row">
-        <div class="span8 offset2">
-          <%= render "comments/form", :id => "new_comment" %>
-        </div>
-      </div>
-    </section>
-    <% end %>
-
 </div>
+
+<% if not @post.block_comments or not @post.comments.published.empty? %>
+<section id="comments" class="content">
+  <div class="container">
+    <% unless @post.comments.published.empty? %>
+    <div class="row">
+      <header class="span12">
+        <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    
+      </header>
+    </div>
+    <% end %>
+    <div class="row" id="comments-list">
+    <% unless @post.comments.published.empty? %>
+        <% @post.comments.published.each do |comment| %>
+          <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
+        <% end %>
+    <% end %>
+    </div>
+  </div>
+</section>
+<% end %>  
+
+<% if not @post.block_comments %>
+<section id="comments-form">
+  <div class="container">
+    <div class="row">
+      <header class="span12">
+        <h2 id="tit-form-comment"><%= t :leave_your_comment %>:</h2>
+      </header>
+    </div>
+    <div class="row">
+      <div class="span8 offset2">
+        <%= render "comments/form", :id => "new_comment" %>
+      </div>
+    </div>
+  </div>
+</section>
+<% end %>
