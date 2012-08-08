@@ -10,22 +10,26 @@
 
     <article id="main">
       <div class="row">
-        <aside class="span4">
 
-          <time datetime="<%= @post.published_date.to_s[0..9] %>"><i class="icon-calendar"></i> <%= link_to l(@post.published_date), posts_archive_path %></time>
-          <% if not from_tableless(@post) and not @post.block_comments %>
-          <p><i class="icon-comment"></i> <%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %></p>
-          <% end %>
-          <% unless @post.categories.empty? %>
-          <p class="tags"><i class="icon-tags"></i> 
-            <% @post.categories.each do |category| %>
-            <%= link_to category.name.downcase, posts_category_path(:category => category) %><% if category != @post.categories.last %>,<% end %> 
+        <div class="span3">
+          <%= render "layouts/blog_about" %>
+          <aside class="article-info">
+            <span class="separator"></span>
+            <time datetime="<%= @post.published_date.to_s[0..9] %>"><i class="icon-calendar"></i> <%= link_to l(@post.published_date), posts_archive_path %></time>
+            <% if not from_tableless(@post) and not @post.block_comments %>
+            <p><i class="icon-comment"></i> <%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %></p>
             <% end %>
-          <% end %>
-        </p>
-        <p><i class="icon-home"></i> <%= link_to "ir para a home", blog_path %></p>
-        </aside>
-        <div class="span8">
+            <% unless @post.categories.empty? %>
+            <p class="tags"><i class="icon-tags"></i> 
+              <% @post.categories.each do |category| %>
+              <%= link_to category.name.downcase, posts_category_path(:category => category) %><% if category != @post.categories.last %>,<% end %> 
+              <% end %>
+            <% end %>
+          </p>
+          <p><i class="icon-home"></i> <%= link_to "ir para a home", blog_path %></p>
+          </aside>
+        </div>
+        <div class="span8 offset1">
           <%= raw(@post.body) %>
         </div>
       </div>

@@ -57,14 +57,10 @@ h3 {
 
 a {
   @include transition(all .2s ease-in);  
-  border-bottom-color: $link_color;
-  border-bottom-style: dotted;
-  border-bottom-width: 1px;
   color: $link_color;
 }
 
 a:hover {
-  border-bottom-color: $link_hover_color;
   color: $link_hover_color;
   text-decoration: none;
 }
@@ -72,11 +68,11 @@ a:hover {
 aside {
   color: $link_color;
   font-size: 14px;
+  font-weight: 300;
 }
 
 aside time {
   display: block;
-  font-weight: 300;
   margin: 0 0;
   text-transform: lowercase;
 }
@@ -84,7 +80,7 @@ aside time {
 .intro {
   font-family: MuseoSlab100Regular, arial, sans-serif;
   font-size: 24px;
-  line-height: 30px;
+  line-height: 38px;
 }
 
 .inline-content {
@@ -240,13 +236,14 @@ div.reply span.help-inline {
 }
 
 aside.about {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 22px;
   color: $text_color_alt;
 }
 
 aside.about p.info {
   width: 148px;
+  margin-top: 10px;
 }
 
 aside.about p.avatar {
@@ -284,4 +281,24 @@ aside nav ul li {
 
 blockquote small {
   color: $text_color_alt;
+}
+
+article#main {
+  .about {
+    margin: 7px 0 30px 0;
+    .info {
+      margin-top: -4px;
+    }
+  }
+}
+
+.article-info {
+  .separator {
+    margin: 0 auto;
+    display: block;
+    background-color: #dbdbdb;
+    width: 80px;
+    height: 1px;
+    margin-bottom: 40px;
+  }
 }
