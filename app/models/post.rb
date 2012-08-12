@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   validates :title, :presence 	=> true
   validates :abstract, :presence 	=> true
   validates :body, :presence 	=> true
-  validates :published_date, :presence 	=> true
+  #validates :published_date, :presence 	=> true
   
   def previous_post
     self.class.published_local.where("published_date < ? AND id != ? AND locale = '#{I18n.locale}'", published_date, id).first

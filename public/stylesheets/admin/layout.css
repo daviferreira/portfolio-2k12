@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'MuseoSlab100Regular';
+  src: url("../../fonts/museo_slab_100-webfont.eot");
+  src: url("../../fonts/museo_slab_100-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/museo_slab_100-webfont.woff") format("woff"), url("../../fonts/museo_slab_100-webfont.ttf") format("truetype"), url("../../fonts/museo_slab_100-webfont.svg#MuseoSlab100Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSlab1000Regular';
+  src: url("../../fonts/museo_slab_1000-webfont.eot");
+  src: url("../../fonts/museo_slab_1000-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/museo_slab_1000-webfont.woff") format("woff"), url("../../fonts/museo_slab_1000-webfont.ttf") format("truetype"), url("../../fonts/museo_slab_1000-webfont.svg#MuseoSlab1000Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 /* Essentials */
 
 html, div, map, dt, isindex, form, header, aside, section, section, article, footer {  
@@ -881,3 +899,47 @@ color: #32510F;
 padding: 10px 0;
 text-indent: 40px;
 font-size: 14px;}
+
+
+.minimal fieldset {
+	background: #fff;
+	border: none;
+}
+
+.minimal label {
+	display: none;
+}
+
+.minimal input[type="text"], .minimal textarea,
+.minimal input[type="text"]:focus, .minimal textarea:focus {
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+.minimal input[type=text]:focus {
+	color: #000;
+}
+
+.minimal #post_title {
+font-family: MuseoSlab1000Regular, arial, sans-serif;
+  font-size: 64px;
+  letter-spacing: -4px;
+  line-height: 70px;
+  height: 90px;
+}
+
+.minimal #post_abstract {
+	font-family: MuseoSlab100Regular, arial, sans-serif;
+  font-size: 32px;
+  letter-spacing: -.5px;
+  line-height: 38px;
+  height:42px;
+}
+
+.minimal #post_body {
+	font-family: "Helvetica Neue", arial, sans-serif;
+  font-size: 16px;
+  height: auto;
+}
