@@ -40,7 +40,7 @@ class Admin::PostsController < Admin::AdminController
     if @post.update_attributes(params[:post])
       save_categories
       flash[:success] = "Post editada com sucesso."
-      redirect_to admin_posts_path
+      redirect_to edit_admin_post_path(@post)
     else
       @categories = Category.where("area!=1")
       render 'edit'

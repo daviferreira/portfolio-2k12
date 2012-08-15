@@ -13,6 +13,7 @@ gem 'devise', '1.4.9'
 gem 'mongrel', '1.1.5'
 gem 'sitemap_generator', '2.1.5'
 gem 'jammit', '0.6.3'
+gem 'bluecloth', '2.2.0'
 
 group :development do
   gem 'rspec-rails', '2.7.0'

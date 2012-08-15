@@ -25,12 +25,6 @@ class PostsController < ApplicationController
       I18n.locale = @post.locale
       @comment = Comment.new
 
-      if @post.id < 20
-        @share_url = "http://www.daviferreira.com/blog/post/#{@post.id}/#{@post.cached_slug}.html"
-      else
-        @share_url = "http://www.daviferreira.com/posts/#{@post.cached_slug}"
-      end
-
       categories = ""
       unless @post.categories.empty?
         @post.categories.each do |category|
@@ -40,6 +34,11 @@ class PostsController < ApplicationController
       
       @meta_title = @post.title + categories
       @meta_description = categories + @post.title
+
+      if @post.id > 54
+        @post.body = "<p class=\"intro\">#{@post.abstract}</p>#{BlueCloth::new(@post.body).to_html}"
+      end
+      
     end
    
     respond_to do |format|
