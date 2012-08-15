@@ -19,6 +19,7 @@ group :development do
   gem 'rspec-rails', '2.7.0'
   gem 'annotate', '2.4.0'
   gem 'faker', '1.0.1'
+  gem 'compass', '0.2.12'
 end
 
 group :test do

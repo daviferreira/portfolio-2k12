@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Admin::PostsController < Admin::AdminController
- 
+  layout :resolve_layout
   before_filter :authenticate_user!
 
   def index
@@ -70,5 +70,14 @@ class Admin::PostsController < Admin::AdminController
         end
       end
     end
+
+  def resolve_layout
+    case action_name
+    when "edit"
+      "admin_minimal"
+    else
+      "admin"
+    end
+  end
 
 end

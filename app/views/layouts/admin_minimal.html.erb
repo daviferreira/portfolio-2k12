@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Admin</title>
+  <%= javascript_include_tag :all, :recursive => true %>
+  <%= stylesheet_link_tag "admin/minimal.css" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+  <div class="container">
+    <section id="main" class="column">
+
+
+      <article class="module width_full">
+
+
+        <%= yield %>
+
+      </article><!-- end of styles article -->
+      
+    </section>
+  </div>
+  
+</body>
+</html>
