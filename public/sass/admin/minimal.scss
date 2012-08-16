@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 /*! normalize.css v1.0.0 | MIT License | git.io/normalize */
 
 /* ==========================================================================
@@ -504,6 +506,10 @@ table {
    DaviFerreira.com Admin minimal theme
    ========================================================================== */
 
+body {
+  padding-bottom: 140px;
+}
+
 @font-face {
   font-family: 'MuseoSlab100Regular';
   src: url("../../fonts/museo_slab_100-webfont.eot");
@@ -537,7 +543,7 @@ table {
 .minimal input[type="text"], .minimal textarea {
   border: none;
   width: 100%;
-  color: #ccc;
+  color: #666;
 }
 
 .minimal input[type=text]:focus, .minimal textarea:focus {
@@ -569,4 +575,14 @@ font-family: MuseoSlab1000Regular, arial, sans-serif;
   height: auto;
   width: 620px;
   margin-left: 100px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 800px;
+  background-color: #000;
+  display: block;
+  padding: 20px;
+  @include opacity(.8);
 }
