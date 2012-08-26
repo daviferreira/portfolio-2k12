@@ -22,7 +22,7 @@
   <% @posts.each do |post| %>
     <tr> 
       <td><input type="checkbox"></td> 
-      <td><%= post.title %></td> 
+      <td><%= link_to post.title, edit_admin_post_path(post) %></td> 
       <td>
         <% post.post_categories.each do |post_category| %>
           <%= post_category.category.name %><br />

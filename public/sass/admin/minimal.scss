@@ -526,6 +526,14 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'ProximaNovaSemiBold';
+  src: url("../../fonts/proximanova-semibold-webfont.eot");
+  src: url("../../fonts/proximanova-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/proximanova-semibold-webfont.woff") format("woff"), url("../../fonts/proximanova-semibold-webfont.ttf") format("truetype"), url("../../fonts/proximanova-semibold-webfont.svg#MuseoSlab1000Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .container {
   width: 960px;
   margin: 0 auto;
@@ -581,8 +589,29 @@ footer {
   position: fixed;
   bottom: 0;
   width: 800px;
-  background-color: #000;
+  background-color: #fff;
   display: block;
   padding: 20px;
-  @include opacity(.8);
+  border-top: 3px solid #000;
+  border-left: 3px solid #000;
+  border-right: 3px solid #000;
+  text-align: center;
+  .actions {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .btn {
+    font-family: ProximaNovaSemiBold, arial, sans-serif;
+    background-color: #fff;
+    border: 2px solid #000;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 4px;
+    font-size: 14px;
+    @include border-radius(2px);
+    &:hover {
+      background-color: #df0d32;
+      color: #fff;
+    }
+  }
 }

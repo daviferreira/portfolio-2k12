@@ -75,8 +75,10 @@
   </fieldset>
   -->
   <footer>
-    <div class="submit_link">
-      <%= f.submit "Salvar", :class => "alt_btn" %>
+    <div class="actions">
+      <%= f.submit "Salvar", :class => "btn" %>
+      <button class="btn" id="btn-preview">Preview</button>
+      <button class="btn">Publicar</button>
     </div>
   </footer>
 
@@ -84,4 +86,11 @@
 
 <script>
 $('textarea').elastic();
+$('#btn-preview').click(function (e) {
+  e.preventDefault();
+  if ($('#preview').length === 0) {
+    $('.module_content').append('<div id="preview" />');
+    // implement markdown converter JS style
+  }
+});
 </script>
