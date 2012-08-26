@@ -577,12 +577,22 @@ font-family: MuseoSlab1000Regular, arial, sans-serif;
   margin-left: 100px;
 }
 
-.minimal #post_body {
+.minimal #post_body, #preview {
   font-family: "Helvetica Neue", arial, sans-serif;
   font-size: 16px;
   height: auto;
   width: 620px;
   margin-left: 100px;
+}
+
+#preview {
+  margin-top: 0;
+  h2 {
+    font-family: MuseoSlab100Regular, arial, sans-serif;
+    font-size: 38px;
+    font-weight: normal;
+    margin-top: 0;
+  }
 }
 
 footer {

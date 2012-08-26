@@ -77,8 +77,9 @@
   <footer>
     <div class="actions">
       <%= f.submit "Salvar", :class => "btn" %>
-      <button class="btn" id="btn-preview">Preview</button>
       <button class="btn">Publicar</button>
+      <button class="btn btn-preview" id="btn-preview">Preview</button>
+      <button class="btn btn-preview" id="btn-close-preview" style="display:none;">Editar</button>
     </div>
   </footer>
 
@@ -91,17 +92,19 @@ $('textarea').elastic();
 $('#btn-preview').click(function (e) {
   e.preventDefault();
   if ($('#preview').length === 0) {
-    $('.module_content').append('<article id="preview" class="post" />');
+    $('.module_content').append('<article id="preview" class="post" style="display:none;" />');
   }
   html = converter.makeHtml($('#post_body').val());
-  $('#post_body').fadeOut(function () {
-    $('#preview').html(html).fadeIn();
-  });
+  $('#btn-close-preview').show();
+  $(this).hide();
+  $('#post_body').hide();
+  $('#preview').html(html).show();
 });
-$('#btn-close-preview').live('click', function (e) {
+$('#btn-close-preview').click(function (e) {
   e.preventDefault();
-  $('#preview').fadeOut(function () {
-    $('#post_body').fadeIn();
-  });
+  $(this).hide();
+  $('#btn-preview').show();
+  $('#preview').hide();
+  $('#post_body').show();
 });
 </script>
