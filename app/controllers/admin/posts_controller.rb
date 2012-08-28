@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::AdminController
   before_filter :authenticate_user!
 
   def index
-    @posts = Post.order("published_date DESC").paginate(:page => params[:page], :per_page => 50)
+    @posts = Post.order("id DESC").paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
