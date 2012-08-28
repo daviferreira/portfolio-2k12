@@ -28,7 +28,7 @@
           <%= post_category.category.name %><br />
         <% end %>
       </td> 
-      <td><%= post.published_date.strftime("%d/%m/%Y %l:%M") %></td> 
+      <td><% if post.published_date? %><%= post.published_date.strftime("%d/%m/%Y %l:%M") %><% end %></td> 
       <td><% if post.published? %>sim<% else %>não<% end %></td>
       <td>
         <%= link_to image_tag("admin/icn_edit.png", :title => "Editar post"), edit_admin_post_path(post) %>
