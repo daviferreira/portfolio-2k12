@@ -73,7 +73,7 @@ class Admin::PostsController < Admin::AdminController
 
   def resolve_layout
     case action_name
-    when "edit"
+    when "edit", "new"
       "admin_minimal"
     else
       "admin"
