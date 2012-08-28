@@ -4,6 +4,12 @@
 
   <%= f.hidden_field :published %>
 
+  <% if @post.published_date %>
+  <time><%= l @post.published_date %></time>
+  <% end %>
+
+
+
   <fieldset>
     <%= f.label :title %>
     <%= f.text_area :title, :placeholder => "Title goes here" %>
@@ -15,6 +21,7 @@
     <%= f.text_field :published_date %>
   </fieldset>
 -->
+
   <fieldset>
     <%= f.label :abstract %>
     <%= f.text_area :abstract, :placeholder => "Intro goes here" %>

@@ -642,3 +642,12 @@ pre.prettyprint{margin-bottom:18px}
 pre code{padding:0;color:inherit;background-color:transparent;border:0}
 
 .pre-scrollable{max-height:340px;overflow-y:scroll}
+
+time {
+  display: block;
+  margin: 12px 0 0 20px;
+  color: #666;
+  font-family: ProximaNova, Arial, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}

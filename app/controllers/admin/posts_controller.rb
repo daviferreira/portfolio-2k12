@@ -26,6 +26,10 @@ class Admin::PostsController < Admin::AdminController
     if @post.save
       save_categories
       @post.generate_slug!
+      if @post.published? and not post.published_date
+        @post.published_date = now
+        @post.save
+      end
       flash[:success] = "Post cadastrada com sucesso."
       redirect_to admin_posts_path
     else
@@ -39,6 +43,13 @@ class Admin::PostsController < Admin::AdminController
 
     if @post.update_attributes(params[:post])
       save_categories
+      if @post.published? and not @post.published_date
+        @post.published_date = Time.new 
+        @post.save
+      elsif not @post.published? and @post.published_date
+        @post.published_date = ''
+        @post.save
+      end
       flash[:success] = "Post editada com sucesso."
       redirect_to edit_admin_post_path(@post)
     else
