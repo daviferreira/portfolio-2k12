@@ -9,18 +9,21 @@
   <% end %>
 
 
+  <fieldset>
+    <%= f.label "URL do post no Tableless" %>
+    <%= f.text_field :tableless, :placeholder => "URL do post no Tableless" %>
+  </fieldset>
+
+    <fieldset>
+    <%= f.label :published_date %>
+    <%= f.text_field :published_date, :placeholder => "Data de publicação" %>
+  </fieldset>
 
   <fieldset>
     <%= f.label :title %>
     <%= f.text_area :title, :placeholder => "Title goes here" %>
   </fieldset>
 
-<!--  
-  <fieldset>
-    <%= f.label :published_date %>
-    <%= f.text_field :published_date %>
-  </fieldset>
--->
 
   <fieldset>
     <%= f.label :abstract %>
@@ -31,12 +34,8 @@
     <%= f.label :body %>
     <%= f.text_area :body, :placeholder => "Write your text here" %>
   </fieldset>
-<!--
-  <fieldset>
-    <%= f.label "URL do post no Tableless" %>
-    <%= f.text_field :tableless %>
-  </fieldset>
 
+<!--
   <fieldset>
     <%= f.label "Publicar?" %>
     <%= f.check_box :published %>
