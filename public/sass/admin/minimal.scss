@@ -548,6 +548,10 @@ body {
   display: none;
 }
 
+.minimal .categories label {
+  display: inline-block;
+}
+
 .minimal input[type="text"], .minimal textarea {
   border: none;
   width: 100%;

@@ -26,7 +26,7 @@ class Admin::PostsController < Admin::AdminController
     if @post.save
       save_categories
       @post.generate_slug!
-      if @post.published? and not post.published_date
+      if @post.published? and not @post.published_date
         @post.published_date = now
         @post.save
       end
