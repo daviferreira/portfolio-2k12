@@ -16,9 +16,6 @@
           <aside class="article-info">
             <span class="separator"></span>
             <time datetime="<%= @post.published_date.to_s[0..9] %>"><i class="icon-calendar"></i> <%= link_to l(@post.published_date), posts_archive_path %></time>
-            <% if not from_tableless(@post) and not @post.block_comments %>
-            <p><i class="icon-comment"></i> <%= link_to total_comments_in_words(@post.comments.published.length), post_path(@post) + '#comments' %></p>
-            <% end %>
             <% unless @post.categories.empty? %>
             <p class="tags"><i class="icon-tags"></i> 
               <% @post.categories.each do |category| %>
@@ -42,16 +39,21 @@
     <% unless @post.comments.published.empty? %>
     <div class="row">
       <header class="span12">
-        <h2><%= total_comments_in_words(@post.comments.published.length) %></h2>    
+        <h2>Comentários</h2>    
       </header>
     </div>
     <% end %>
     <div class="row" id="comments-list">
-    <% unless @post.comments.published.empty? %>
-        <% @post.comments.published.each do |comment| %>
-          <%= render comment if comment.comment_id.nil? or comment.comment_id == 0 %>
-        <% end %>
-    <% end %>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          var disqus_shortname = 'daviferreiracom';
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
   </div>
 </section>
